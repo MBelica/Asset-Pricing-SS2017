@@ -1,0 +1,240 @@
+\documentclass[12pt]{extreport} % Schriftgröße: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt oder 20pt
+
+%% Packages
+\usepackage{scrextend}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{chngcntr}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xpatch}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+\usepgfplotslibrary{fillbetween}
+\usepackage{amsfonts}
+\usetikzlibrary{calc}	
+\usetikzlibrary{matrix}	
+\usepackage{fancyhdr}
+\usepackage{epstopdf}
+
+
+
+% Language Setup (English)
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[ngerman]{babel}
+
+% Options
+\makeatletter%%  
+  % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz, {1,0,0} für Rot, {0,0,0.85} für Blau
+  \definecolor{linkcolor}{rgb}{0,0.35,0.35}
+  % Zeilenabstand für bessere Leserlichkeit
+  \def\mystretch{1.2} 
+  % Publisher definieren
+  \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
+  % Enumerate im 1. Level: \alph für a), b), ...
+  \renewcommand{\labelenumi}{\alph{enumi})} 
+  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  \renewcommand{\labelenumii}{(\roman{enumii})}
+  % Zeileneinrückung am Anfang des Absatzes
+  \setlength{\parindent}{0pt} 
+  % Für das Proof-Environment: 'Beweis:' anstatt 'Beweis.'
+  \xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{} 
+  % Nummerierung der Bilder, z.B.: Abbildung 4.1
+  \@ifundefined{thechapter}{}{\def\thefigure{\thechapter.\arabic{figure}}} 
+  % Chapter-Nummerierung beginnen bei (0):
+  \setcounter{chapter}{0}
+  % Chapter-Nummerierung
+  \renewcommand\thechapter{\Roman{chapter}}
+\makeatother%
+
+% Meta Setup 
+\title{Globale Optimierung - Sonderübung I}
+\author{Kostorz, Belica}
+\date{Sommersemester 2017}
+\publishers{Karlsruher Institut für Technologie}
+
+%% Math. Definitiones
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\DO}[1]{\mathcal{D}\left( {#1} \right)}
+\newcommand{\RO}[1]{\mathcal{R}\left( {#1} \right)}
+
+\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
+\newtheoremstyle{nnamed}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{\thmnote{#3}}
+\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
+\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
+\renewcommand*{\qed}{\hfill\ensuremath{\square}}
+
+\theoremstyle{named}
+\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
+\theoremstyle{nnamed}
+\newtheorem*{unnamedtheorem*}{Theorem} 
+
+\theoremstyle{itshape}
+\newtheorem{definition}[unnamedtheorem]{Definition}
+
+\theoremstyle{normal}
+\newtheorem*{recall}{Recall}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{satz}{Satz}
+\newtheorem*{bemerkung}{Bemerkung}
+
+
+
+\fancypagestyle{firststyle}
+{
+   \fancyhf[C]{\small Jens Bachmann (1641530),  Michael Brunzel (1769179), Martin Belica (1775706)}
+   \fancyfoot[C]{}
+}
+%% Template
+\makeatletter%
+\DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
+    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
+	% Titlepage
+	\def\maketitle{ \begin{titlepage} 
+			~\vspace{3cm} 
+		\begin{center} {\Huge \@title} \end{center} 
+	 		\vspace*{1cm} 
+	 	\begin{center} {\large \@author} \end{center} 
+	 	\vspace*{-0.5cm}
+	 	\begin{center} \@date \end{center} 
+	 		\vspace*{7cm} 
+	 	\begin{center} \@publishers \end{center} 
+	 		\vfill 
+	\end{titlepage} }
+\makeatother%
+
+% Create Index
+\makeindex 
+
+\begin{document}
+
+\thispagestyle{empty}
+\pagenumbering{arabic}\thispagestyle{firststyle}
+\subsection*{Aufgabe 1}
+
+Nehmen Sie Stellung zu folgenden Aussagen:
+\begin{enumerate}
+	\item Wertpapiere, deren Auszahlung positiv mit dem stochastischem Diskontfaktor  korrelieren, besitzen im Gleichgewicht höhere erwartete Renditen, die für das höhere Risiko solcher Wertpapiere kompensieren.
+		\begin{proof}
+			Aussage nicht korrekt- aus einem höheren stochastischen Diskontfaktor folgt ein höher Grenznutzen des Konsums in $t+1$ (Annahme: 2 Zeitpunkte, $t$ und $t+1$) $\Rightarrow$ ökonomisch schlechter Zustand; stochastischen Korrelation mit dem stoch. Diskontfaktor bedeutet somit, dass das Wertpapier tendenziell in ökonomisch schlechteren Zuständen mehr auszahlt, somit wirkt dies wie eine Art Versicherung; für niedrigeres Risiko ist somit niedrigere Rendite gerechtfertigt
+		\end{proof}
+	\item Wertpapiere, die nicht auf dem $\mu$-$\sigma$-Rand liegen, sind nicht effizient und werden deshalb von den Investoren nicht nachgefragt.
+		\begin{proof}
+			Falsch: sein gesamtes Budget bzw. Kapital in solche Wertpapiere zu investieren wäre ineffizient; allerdings kann es sinnvoll sein, einen Teil des Budgets in solche Wertpapiere zu legen (z.B Rendite positiv korreliert mit $0.9$ mit $m$ wäre nicht auf dem $\mu$-$\sigma$-Rand), diese können nämlich aufgrund der Versicherungscharakteristik ein vertretbares Investment für einen Teil des Budgets darstellen.
+		\end{proof}
+	\item Das CAPM kann nicht stimmen, da tatsächlich die Korrelation von zukünftigen Zahlung mit dem Konsumwachstum entscheidend für den Preis eines Wertpapiers ist.nachgefragt.
+		\begin{proof}
+			Falsch: da das CAPM der $\beta$-Repräsentation des stoch. Diskontfaktors entspricht (vgl. Formel 1.14 Cochrane S.16 bitte in unsere Antwort einfügen ), d.h. das $\beta(i,m)$ entspricht gerade dem CAPM-$\beta$. Im Zähler des $\beta(i,m)$ wird die Korrelation zwischen dem stoch. Diskontfaktor $m$ und der Wertpapier-Rendite berücksichtigt, durch die Kovarianz der stoch. Diskontfaktor kann anstatt des Grenznutzens auch mit Konsumwachstum $\beta\left(i, \Delta(c) \right)$ ausgedrückt werden (vgl. 1.16 Cochrane, S. 17), womit der Aussage in c) genau widersprochen wird.
+		\end{proof}
+	\item Existiert in einer Ökonomie mindestens für jeden Zustand ein Wertpapier, das 24 im entsprechenden Zustand und 0 in allen anderen Zuständen aus-zahlt, so ist auch die Verteilung des stochastischen Diskontfaktors bekannt und alle anderen Wertpapiere können basierend darauf bewertet werden.
+		\begin{proof}
+			Richtig: Der Fakt, dass das Wertpapier $24$ und nicht 1 wie einem Contingent Claim auszahlt kann vernachlässigt werden, da einfach skaliert werden kann. Dadurch dass in allen Zuständen es genau ein Wertpapier gibt, das nur in diesem etas auszahlt, hat die Auszahlungsmatrix vollen Rang und der Markt ist somit vollständig, da sich durch Matrixoperationen alle möglichen Auszahlungsvektoren bzw. alle Wertpapiere rekonstruieren lassen. Der risikolose Zins lässt sich \enquote{konstruieren} indem man alle speziellen Wertpapiere der Aufgabe (mit Auszahlung einmal $24$, sonst immer $0$) zusammenkauft und den Preis entsprechend durch $24$ teilt  Diese neue Wertpapier ist dann risikolos, weil es unabhängig vom Zustand immer 1 auszahlt; mit dem risikolosen Instrument und den Contingent Claims (Auszahlung $1$ statt $24$, aber sonst gleiche Charakteristik) lassen sich die risikoneutralen Wahrscheinlichkeiten und die Zustandspreisdichte ermitteln und somit kann jedes Wertpapier bewertet werden.
+		\end{proof}
+	\item Da die Zentralbank den Zinssatz festlegt, muss bei der empirischen Anwendung des konsumbasierten Ansatzes stets davon ausgegangen werden, dass der Preis des risikolosen Instruments exogen festgelegt wird. Die Diskussion inwiefern sich die Zinsen z.B. in Folge von geänderter Risikoaversion der Investoren ändern, ist deshalb lediglich exemplarischer Natur und nicht mit der Empirie vereinbar. 
+		\begin{proof}
+			Grundsätzlich wird in der empirischen Analyse der Zinssatz exogen verwendet, wobei dieser von der Zentralbank festgelegt wird. Allerdings gibt es Beispiele dafür, dass dieser endogen angepasst wurde bzw. werden musste um sich an z.B. antizipatorisches Konsumverhalten anzupassen. dD.h. das Niveau des Konsums beeinflusst auch den Zinssatz. Wenn das Konsumniveau z.B. niedrig ist, legt die Zentralbank den Leitzins nach unten an, sodass ein stärkerer Anreiz für den Konsum geschaffen werden kann, was die Wirtschaft wiederum stärkt. 
+		\end{proof}
+\end{enumerate}
+
+\newpage
+
+\subsection*{Aufgabe 2}
+Gehen Sie von einer Ökonomie mit den Zeitpunkten $t = 0$, $t = 1$ und $t = 2$ ($t$ in Jahren) aus. Die Zustandsübergänge und die Entwicklung des Konsums des repräsentativen Investors sind gemäß dem Baumdiagramm in der Aufgabe zu entnehmen. Der Nutzen des repräsentativen Investors zum jeweiligen Zeitpunkt t lässt sich mit Hilfe der folgenden Powernutzenfunktion mit $\gamma = 1.5$ quantifizieren:
+
+$$ u(c_t) = \frac{c_t^{1-\gamma}}{1 - \gamma} $$
+
+Nehmen Sie für die zeitliche Diskontierung $\beta = 0.95$ an.
+\begin{enumerate}
+	\item Für die Zustandsübergangswahrscheinlichkeiten gilt zunächst $p_1 = p_{21} = p_{22} = 0.5$. Bestimmen Sie die beiden fairen risikolosen Zinssätze (annualisiert) für die Zeiträume $t = 0$ bis $t = 1$ und $t = 0$ bis $t = 2$. Berechnen Sie außerdem den erwarteten Gesamtnutzen des repräsentativen Investors zum Zeitpunkt $t = 0$.
+	\begin{proof}
+		Es ist $u'(c_t) = c_t^{-\gamma}$ und damit (vgl. Cochrane, S. 24f)
+		$$ R_{t+1}^f = \frac{1}{\mathbb{E}\left[ \beta \frac{u'(c_{t+1})}{u'(c_t)} \right]} = \frac{1}{\mathbb{E}\left[ \beta \left( \frac{c_{t}}{c_{t+1}} \right)^\gamma \right]} $$
+		Damit ist
+		\begin{align*}
+			R_{t+1}^f & = \frac{1}{\mathbb{E}\left[ \beta \left( \frac{c_{t}}{c_{t+1}} \right)^\gamma \right]} \\
+			& =\frac{1}{0.5 \cdot 0.95  \left( \frac{20}{25} \right)^{1.5} + 0.5 \cdot 0.95  \left( \frac{20}{21} \right)^{1.5} } \\
+			& = 1.2798 ~ \hat{=} ~ 27.98\% \\
+			R_{t+2}^f & = \frac{1}{\mathbb{E}\left[ \beta^2 \left( \frac{c_{t}}{c_{t+2}} \right)^\gamma \right]} \\
+			& =\frac{1}{0.25 \cdot 0.95^2 \left( \left( \frac{20}{30} \right)^{1.5} +  \left( \frac{20}{26} \right)^{1.5} + \left( \frac{20}{26} \right)^{1.5} + \left( \frac{20}{22} \right)^{1.5} \right)} \\
+			& = 1.6056~ \hat{=} ~60.56\%
+		\end{align*}
+			Der erwartete Nutzen ergibt sich zu
+			\begin{align*}
+				U_t(c_t, c_{t+1}, c_{t+2}) & = u(c_t) + \beta \mathbb{E}[ u(c_{t+1})] + \beta^2 \mathbb{E}_t \left[ u(c_{t+2}) \right] \\
+						& = -2 \left( \frac{1}{\sqrt{20}} + 0.95 \left( 0.5 \cdot \frac{1}{\sqrt{25}} + 0.5 \cdot \frac{1}{\sqrt{21}} \right)\right) \\
+						& \quad-2 \left( 0.95^2 \left( 0.25 \cdot \frac{1}{\sqrt{30}} + 0.25 \cdot \frac{1}{\sqrt{26}} + 0.25 \cdot \frac{1}{\sqrt{26}} + 0.25 \cdot \frac{1}{\sqrt{22}} \right)  \right) \\
+						& = - 1.2001
+			\end{align*} 
+	\end{proof}
+	\item Nehmen Sie nun an, dass für die Zustandsübergangswahrscheinlichkeiten $p_1 = 0.5$, $p_{21} = 0.7$ und $p_{22} = 0.3$ gilt. Würde der repräsentative Investor diese Situation der Situation aus Aufgabenteil a) vorziehen? Antworten Sie sowohl mit einer ökonomischen Argumentation als auch mit einer Rechnung.
+		\begin{proof}
+		Vergleiche den Gesamtnutzen des Investors zwischen a) und b)
+				\begin{align*}
+				U_t(c_t, c_{t+1}, c_{t+2}) & = u(c_t) + \beta \mathbb{E}[ u(c_{t+1})] + \beta^2 \mathbb{E}_t \left[ u(c_{t+2}) \right] \\
+						& = -2 \left( \frac{1}{\sqrt{20}} + 0.95 \left( 0.5 \cdot \frac{1}{\sqrt{25}} + 0.5 \cdot \frac{1}{\sqrt{21}} \right)\right) \\
+						& \quad-2 \left( 0.95^2 \left( 0.5 \cdot 0.7 \cdot \frac{1}{\sqrt{30}} + 0.5 \cdot 0.3 \cdot \frac{1}{\sqrt{26}} + 0.5 \cdot 0.3 \cdot \frac{1}{\sqrt{26}} + 0.5 \cdot 0.7 \cdot \frac{1}{\sqrt{22}} \right)  \right) \\
+						& = - 1.2007 < -1.2001
+			\end{align*} 		
+			Vergleicht man noch die Varianzen so ergibt sich :
+			$$ var_{neu} = (30-26)^2 \cdot 0.7 \cdot 0.5 + (22 - 26)^2 \cdot 0.7 \cdot 0.5 = 11.2 $$
+			$$ var_{alt} = (30 - 26)^2 \cdot 0.5 \cdot 0.5 + (22 - 26)^2 \cdot 0.5 \cdot 0.5 = 8 $$
+			d.h. $var_{alt}<var_{neu}$. Der repräsentative Investor zieht die Situation aus Aufgabenteil a) vor, da dort die Volatilität des Konsums geringer ist, und der Gesamtnutzen höher. Des Weiteren wird die Situation aus b) durch die höhere Volatilität als \enquote{schlechter} betrachtet, da der Investor mit der hier gegebenen Nutzenfunktion die höhere Wahrscheinlichkeit des Zustandes mit hohem und niedrigerem Konsum in t=2 nicht linear bewertet, sondern das ihm das wahrscheinlichere Eintreten des Zustandes mit  niedrigerem Konsum  stärker \enquote{missfällt}, als ihm das wahrscheinlichere Eintreten des Zustandes mit höherem Konsum \enquote{gefällt}. 
+		\end{proof}
+	\item Welche Auswirkung hätte eine Veränderung der Zustandsübergangswahrscheinlichkeiten gemäß Aufgabenteil b) (im Vgl. zu Aufgabenteil a)) auf den risikolosen Zinssatz von t = 0 bis t = 2? Antworten Sie ohne Rechnung und gehen Sie insbesondere darauf ein, über welchen Kanal (erwarteter Konsumwachstum vs. Volatilität des Konsumwachstums) sich die veränderten Übergangswahrscheinlichkeiten auf den Zinssatz in diesem Fall auswirken.
+		\begin{proof}
+			Das erwartete Konsumwachstum verändert sich nicht durch die neuen Zustandswahrscheinlichkeiten, sodass dieser Kanal keinen Einfluss hat. Allerdings hat die höhere Volatilität durch die geänderten Zustandsübergangswahrscheinlichkeiten in Aufgabenteil b) den Effekt, dass der risikolose Zinssatz sinkt. Dies liegt daran, dass wie in 2b) bereits motiviert, der Effekt  des wahrscheinlicheren Eintretens des Zustandes mit dem höchsten Konsum, nicht den Effekt des wahrscheinlicheren Eintretens des Zustandes mit niedrigem Konsum kompensiert (zumindest bei dieser Nutzenfunktion). Dadurch bildet der Investor mehr Rücklagen  bzw. spart („precautionary savings“), sodass ein geringerer Anreiz zum Sparen gesetzt werden muss, wodurch der risikolose Zinssatz sinkt.  
+		\end{proof}
+	\item Können die risikoneutralen Wahrscheinlichkeiten in der gegebenen Ökonomie berechnet werden? Gehen Sie bei der Beantwortung der Frage darauf ein, wie sich die gegebene Situation im Vergleich zu den Standardsituationen, im Rahmen derer risikoneutrale Wahrscheinlichkeiten in Vorlesung und Übung bestimmt wurden, unterscheidet.
+		\begin{proof}
+			Ja, sie können berechnet werden:
+			$$ \pi^*(s) = \frac{m(s)}{\mathbb{E}[m]} \pi(s) = R^f \cdot pc(s) = R^f \cdot m(s) \cdot \pi(s) $$
+			$R^f_1 = 1.2001$, $R^f_2 = 1.2007$.
+			\begin{itemize}
+				\item Nun kann für jede Stufe separat die risikoneutralen Wahrscheinlichkeiten berechnet werden
+				\item hierbei müssen jeweils die verschiedenen risikolosen Zinssätze verwendet werden, abhängig auf welcher Stufe man sich befindet
+			\end{itemize} ~\\
+			Die Formel
+			$$ m(s) = \beta^i \frac{u'(c(s))}{u'(c)} $$
+			gibt die Berechnung für $m(s)$ an, wobei $i$ angibt, auf welcher Stufe man sich befindet. ~\\
+			
+			Unterschied zur Standardsituation
+			\begin{enumerate}
+				\item Hierbei handelt es sich um Konsum und nicht um monetäre Auszahlungen auf Grundlage eines dahinter liegenden Basiswerts
+				\item Es handelt sich um ein zweistufiges Modell und nicht um ein einperiodiges Modell
+			\end{enumerate}
+			Diese Art der Separation ist möglich, da es sich um risikoneutrale Wahrscheinlichkeiten handelt, sodass die Risikoeinstellung in der Berechnung wegfällt.
+		\end{proof}
+	\item Beschreiben Sie rein qualitativ wie sich die risikoneutralen Wahrscheinlichkeiten $p_1^*$, $p_{21}^*$ und $p_{22}^*$ im Vergleich zu ihren physischen Äquivalenten verhalten. Gehen Sie darauf ein wie die Unterschiede zwischen physischen und risikoneutralen Wahrscheinlichkeiten interpretiert werden können.
+		\begin{proof} ~\
+			\begin{itemize}
+				\item Verhältnis zwischen physischen und risikoneutralen Wahrscheinlichkeiten (in diesem Fall mit PNF):
+						$$ R^f > 1, ~ m(s) < 1 ~ \Rightarrow R^f \cdot m(s) < 1 $$
+						$\Rightarrow$ müssen fallen, da die Veränderung des Konsums für den up-Zustand auf jeder Stufe in diesem Fall kleiner 1 ist. ~\\
+						$\Rightarrow$ dementsprechend sind die risikoneutralen Wahrscheinlichkeiten für die down-Zustände ansteigend.
+				\item Unterscheid zwischen physisichen und Risikoneutralen Wahrscheinlichkeiten: Zuständen die ungewünscht sind (im Normalzustand down-Zustände) wird mehr Achtung zugesprochen, als Zuständen welche gewünscht sind. ~\\
+				$\Rightarrow$ Grund für die Verschiebung der risikoneutralen Wahrscheinlichkeiten zu den schlechten Zuständen ~\\
+				$\Rightarrow$ Die Verschiebung der risikoneutralen von den physikalischen Wahrscheinlichkeiten wird durch $m(s)$ skaliert, sodass durch diesen Schritt die subjektiven Zustände risikoneutral entstehen.
+			\end{itemize}
+		\end{proof}
+\end{enumerate}
+
+\end{document} 

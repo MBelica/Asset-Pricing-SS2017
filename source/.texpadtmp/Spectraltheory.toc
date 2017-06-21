@@ -1,0 +1,4 @@
+\select@language {english}
+\activateonlyattoc 
+\contentsline {chapter}{\numberline {I}Unbounded operators, adjoint and self-adjoint operators}{2}{chapter.1}
+\contentsline {chapter}{\numberline {A}Exercises}{5}{appendix.A}

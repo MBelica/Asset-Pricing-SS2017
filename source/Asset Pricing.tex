@@ -1,0 +1,751 @@
+\documentclass[12pt]{extreport} % Schriftgröße: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt oder 20pt
+
+%% Packages
+\usepackage{scrextend}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{chngcntr}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xpatch}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usetikzlibrary{calc}	
+\usetikzlibrary{matrix}	
+
+% Language Setup (English)
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[english]{babel}
+
+% Options
+\makeatletter%%  
+  % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz, {1,0,0} für Rot, {0,0,0.85} für Blau
+  \definecolor{linkcolor}{rgb}{0,0.35,0.35}
+  % Zeilenabstand für bessere Leserlichkeit
+  \def\mystretch{1.2} 
+  % Publisher definieren
+  \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
+  % Enumerate im 1. Level: \alph für a), b), ...
+  \renewcommand{\labelenumi}{\alph{enumi})} 
+  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  \renewcommand{\labelenumii}{(\roman{enumii})}
+  % Zeileneinrückung am Anfang des Absatzes
+  \setlength{\parindent}{0pt} 
+  % Für das Proof-Environment: 'Beweis:' anstatt 'Beweis.'
+  \xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{} 
+  % Nummerierung der Bilder, z.B.: Abbildung 4.1
+  \@ifundefined{thechapter}{}{\def\thefigure{\thechapter.\arabic{figure}}} 
+  % Chapter-Nummerierung beginnen bei (0):
+  \setcounter{chapter}{0}
+  % Chapter-Nummerierung
+  \renewcommand\thechapter{\Roman{chapter}}
+\makeatother%
+
+% Meta Setup 
+\title{Asset Pricing}
+\author{Prof. Marliese Uhrig-Homburg}
+\date{Sommersemester 2017}
+\publishers{Karlsruher Institut für Technologie}
+
+%% Math. Definitiones
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\DO}[1]{\mathcal{D}\left( {#1} \right)}
+\newcommand{\RO}[1]{\mathcal{R}\left( {#1} \right)}
+
+\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
+\newtheoremstyle{nnamed}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{\thmnote{#3}}
+\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
+\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
+\renewcommand*{\qed}{\hfill\ensuremath{\square}}
+
+\theoremstyle{named}
+\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
+\theoremstyle{nnamed}
+\newtheorem*{unnamedtheorem*}{Theorem} 
+
+\theoremstyle{itshape}
+\newtheorem{definition}[unnamedtheorem]{Definition}
+
+\theoremstyle{normal}
+\newtheorem*{recall}{Recall}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{satz}{Satz}
+\newtheorem*{bemerkung}{Bemerkung}
+\newtheorem*{beispiel}{Beispiel}
+
+
+%% Template
+\makeatletter%
+\DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
+    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
+	% Titlepage
+	\def\maketitle{ \begin{titlepage} 
+			~\vspace{3cm} 
+		\begin{center} {\Huge \@title} \end{center} 
+	 		\vspace*{1cm} 
+	 	\begin{center} {\large \@author} \end{center} 
+	 	\vspace*{-0.5cm}
+	 	\begin{center} \@date \end{center} 
+	 		\vspace*{7cm} 
+	 	\begin{center} \@publishers \end{center} 
+	 		\vfill 
+	\end{titlepage} }
+\makeatother%
+
+% Create Index
+\makeindex 
+
+\begin{document}
+
+\pagenumbering{Alph}
+\begin{titlepage}
+	\maketitle
+	\thispagestyle{empty}
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\thispagestyle{empty}
+
+% Lecture Notes - Start 			
+\pagenumbering{arabic}
+
+\chapter{Einführung}
+
+Betrachte Preise bzw. Renditen an Wertpapiermärkten
+
+\begin{itemize}
+	\item Aktienkurse
+	\item Anleiherenditen
+	\item Derivatenpreise
+\end{itemize}
+
+Warum stellen sich beobachtete Marktpreise bzw. Renditen ein?
+
+\subsubsection{Asset Pricing Theorie}
+\begin{itemize}
+	\item Bewertungstheorie zur Erklärung der Preisbildung
+	\item Schlussfolgerungen, falls Vorhersagen der Theorie $\neq$ Beobachtung
+\end{itemize}
+
+\textbf{Anpassung der Theorie erforderlich:} Positive Theorie ~\\
+\textbf{Fehlbewertung am Markt} $\Rightarrow$ \text{Handelsstrategie:} Normative Theorie ~\bigskip
+
+Häufig keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
+\begin{itemize}
+	\item geplante Investitionsprojekte
+	\item Neuemissionen von Wertpapieren
+	\item Finanzinnovationen
+	\item $\dotsc$
+\end{itemize}
+
+\subsubsection{Asset Pricing Theorie}
+\begin{itemize}
+	\item zur Begründung, wie hoch fairer Preis sein sollte
+	\item als wichtige Entscheidungsgrundlage
+\end{itemize}
+
+\section{Kernprinzipien der Finanzwirtschaft}
+Bewertung fußt auf Kernprinzipien der Finanzwirtschaft:
+\begin{enumerate}[label=\arabic*\upshape.]
+	\item \textbf{Primat der Zahlungen} Für eine Entscheidung sind allein Zahlung (oder Zahlungsäquivalente) relevant.
+	\item \textbf{Zeitwert des Geldes} Der Wert einer Zahlung hängt davon ab, wann sie erfolgt
+	\item \textbf{Ertrag vs. Risiko} Bei vielen Entscheidungen ist eine Abwägung zwischen Ertrag und Risiko zu treffen.
+	\item \textbf{Aggregation durch Märkte} Wertpapiermärkte aggregieren Präferenzen und Informationen
+	\item \textbf{Arbitragefreiheit} Preise an kompetitiven Wertpapiermärkten zeichnen sich durch die Abwesenheit von Arbitrage aus
+\end{enumerate}
+
+\section{Relative vs. absolute Bewertung}
+
+Bewertung
+\begin{description}
+	\item \textbf{absolut} mit Bezug zu grundlegenden makroökonomischen Faktoren
+		\begin{itemize}
+			\item Konsum-basierte oder allgemeine Gleichgewichtsmodelle
+			\item Beispiel: capital Asset Pricing Model
+		\end{itemize}
+	\item \textbf{relativ} zu gegebenen anderen Wertpapieren (Basiswertpapieren)
+		\begin{itemize}
+			\item Duplikatopn und Gesetz des einen Preises
+			\item Beispiel: Optionspreistheorie nach Black/Scholes
+		\end{itemize}
+\end{description}
+Typische Anwendungen enthalten beide Aspekte
+
+\section{Bewertungsprinzip}
+
+Einfach Grundidee:
+$$ \textit{Preise entsprechen erwarteten diskontierten Zahlungen} $$ \smallskip
+
+\textbf{Zahlungsstrom}: Zukünftige unsichere Zahlungen 
+\begin{itemize}
+	\item Zeit- und Risikodimension
+\end{itemize}
+Bewertungsprinzip berücksichtigt Dimension durch geeignete
+\begin{itemize}
+	\item Diskontierung
+	\item Erwartungsbildung
+\end{itemize}
+
+\chapter{Stochastischer Diskont-Faktor Ansatz}
+
+\enquote{Asset pricing theory all stems from one simple concept, presented in the first page of the first chapter of this book: \textbf{price equals expected dicounted payoff}. The rest is elaboration, special cases, and a closet full of tricks that make the central equation useful from one or another application.} ~\\
+	\begin{tabular}{lr}
+  		\hspace{6.35cm} & \textit{Quelle: John H. Cochrane, Asset Pricing, S. xiii}
+	\end{tabular} ~\medskip
+
+Fragestellung: Gegebener Zahlungsstrom (z.B. Dividenden, Zinsen, Auszahlungen von Derivaten, Rückflüsse aus Investitionen, $\dotsc$)
+\begin{itemize}
+	\item Welchen Wert besitzt der Zahlungsstrom?
+	\item Wie wirken Zeit und Risiko
+	\item Wie ändert sich Wert, wenn sich Ökonomie verändert? (Risikomanagement)
+\end{itemize}
+Einfacher formaler Rahmen:
+\begin{itemize}
+	\item zukünftige (unsichere) Zahlung $x_{t+1}$
+	\item gesucht: Heutiger Wert $p_t$
+\end{itemize} ~\newpage
+
+\section{Präferenzen der Investoren}
+
+Idee: Investor trifft wirtschaftliche Entscheidungen mit dem Ziel, möglichst günstigen Konsumstrom zu erreichen. ~\bigskip
+
+Formal über Nutzenfunktionen:
+	$$ U(c_t, c_{t+1}) = u(c_t) + \beta \cdot \mathbb{E}_t\big[ u\left(c_{t+1}\right) \big] $$
+\begin{description}
+	\item $c_t =$ Konsum in $t$
+	\item $c_{t+1} =$ Konsum in $t+1$ 
+\end{description}
+
+Plausible Annahmen bezüglich Eigenschaften von Nutzenfunktionen
+
+\begin{description}
+	\item \textit{positiver Grenznutzen}: Nutzen wächst, wenn Konsum in beliebigem Zeitpunkt wächst, d.h. \enquote{mehr ist besser als weniger} (nicht gesättigte Investoren)
+	\item \textit{abnehmender Grenznutzen}: Je höher der Konsum in einem Zeitpunkt, desto geringer ist der durch zusätzliche Konsumeinheit erzeugte Nutzenzuwachs
+\end{description} % todo grafische Darstellung der Nutzenfunktion
+
+Nutzenfunktion bildet Ungeduld und Risikoaversion der Investoren ab:
+
+\begin{description}
+	\item \textit{Ungeduld}: $\beta < 1$ erfasst Präferenz für frühere Zahlungen subjektive Diskontierung
+	\item \textit{Risikoaversion}: zukünftiger Konsum $c_{t+1}$ unsicher, daher $\mathbb{E}_t \big[ u(c_{t+1}) \big]$. Krümmung der Nutzenfunktion $u$ zentral. ~\\
+		Beispiel: 50/50 Wetter
+		$$ \mathbb{E} \big[ u(c) \big] = 0.5 \cdot u ( \overline{c} + x ) + 0.5 \cdot u ( \overline{c} - x ) $$
+		$u$ konkav $\Rightarrow$ Wette vermeiden
+\end{description} % todo grafische Darstellung der 50%50 Wette
+
+Gesamtnutzenfunktion $U(c_t, c_{t+1})$ am einfachsten über Nutzenindifferenzkurven darstellbar: % todo grafische Darstellung
+
+\begin{itemize}
+	\item Alle Punkte auf einer Kurve weisen denselben Nutzen auf.
+	\item Je weiter entfernt vom Ursprung, desto höher der Nutzen $\rightarrow$ folgt aus positivem Grenznutzen
+	\item Iso-Nutzenlinien verlaufen (streng) konvex. $\rightarrow$ folgt aus abnehmendem Grenznutzen
+	\item Aversion gegen intertemporale Substitution
+\end{itemize}
+
+\section{Beispiele für Nutzenfunktionen}
+
+\textbf{Power-Nutzenfunktion}
+	$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma} $$
+\begin{itemize}
+	\item $- c \frac{u''(c)}{u'(c)} = \gamma$: Konstante relative Risikoaversion
+	\item strebt für $\gamma \rightarrow 1$ gegen Log-Nutzenfunktion
+		$$ u(c) = \ln(c) $$
+\end{itemize}
+
+\textbf{Quadratische Nutzenfunktion}
+	$$ u(c) = - \frac{1}{2} \left( \overline{c} - c \right)^2, \quad c < \overline{c} $$
+
+\section{Zentrale Bewertungsbeziegung}
+
+\begin{itemize}
+	\item Investor konsumiert $c_t, c_{t+1}$ und kann beliebigen Anteil $\xi$ der Zahlung $x_{t+1}$ kaufen oder verkaufen
+	\item Kalkül des Investors:
+		$$ \max_{\xi} u(c_t) + \beta \mathbb{E}_t \big[ u(c_{t+1}) \big] \text{ u.d.N. } $$
+		\begin{align*}
+			c_{t} & = e_t - p_t \xi \\
+			c_{t+1} & = e_{t+1} + x_{t+1} \xi
+		\end{align*}
+	\item Bedingung erster Ordnung:
+		$$ p_t u'(c_t) = \mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big] $$
+	\item Investor kauft/verkauft solange bis Grenzosten = Grenzertrag
+\end{itemize} \newpage
+
+Aus der first-order Bedingung folgt 
+\begin{itemize}
+	\item zentrale Bewertungsgleichung
+	$$ p_t = \mathbb{E}_t \big[ \beta \frac{u'(c_{t+1})}{u'(c_t)} x_{t+1} \big] $$
+	\item in vielen Fällen hilfreich, obgleich sowohl \\
+		\textbf{Preis} als auch \textbf{Konsum} endogene Größen!
+\end{itemize}
+
+\section{Stochastischer Diskontfaktor}
+
+Hilfreiche Separation:
+
+\begin{itemize}
+	\item Mit stochastischem Diskontfaktor
+	 $$ m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)} $$
+	\item vereinfacht sich zentrale Bewertungsbeziehung zu
+	 $$ p_t = \mathbb{E}_t \big[ m_{t+1} x_{t+1} \big] $$
+\end{itemize}
+
+Stochastische Diskontfaktor verallgemeinert übliches Verständnis von Diskontfaktoren:
+
+\begin{itemize}
+	\item Sichere Zahlung $x_{t+1}$: $p_t = \frac{1}{R^f} x_{t+1} = \frac{1}{1+r^f} x_{t+1}$
+	\item Risikoadjustierte Diskontierung: $p_t = \frac{1}{ER^i} \mathbb{E}_t \big[ x_{t+1} \big]$
+\end{itemize}
+
+Beachte
+\begin{itemize}
+	\item stochastischer Diskontfaktor $m_{t+1}$
+		\begin{itemize}
+			\item ist zufällig
+			\item für alle Assets (bzw. Cash Flows $x_{t+1}$) identisch
+		\end{itemize}
+	\item Wie passt das mit der üblichen Vorstellung zusammen, dass riskantere Titel eine höhere Diskontierung erfordern?
+\end{itemize}
+
+Interpretationen und alternative Bezeichnungen von $m_{t+1}$
+\begin{itemize}
+	\item Grenzrate der Substitution: $m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)}$
+	\item Pricing Kernel, Dichte der Zustandspreise
+\end{itemize}
+
+\section{Beispiele für Preise und Zahlungen}
+
+\begin{enumerate}[label=\arabic*\upshape.]
+	\item \textbf{Aktieninvestment}: $p_t$: Preis in $t$, $x_{t+1} = p_{t+1} + d_{t+1}$: Zahlung in $t+1$ mit Dividendenzahlung $d_{t+1}$ in $t+1$; dann gilt $p_t = \mathbb{E}_t \big[ m ( p_{t+1} + d_{t+1} ) \big]$
+	\item \textbf{Brutto-Return}: Interpretiere $R_{t+1} = \frac{x_{t+1}}{p_t}$ als Payoff in $t + 1$ mit Preis 1 dann gilt $1 = \mathbb{E}_t \big[ mR \big]$
+	\item \textbf{Überschuss-Return}: als Zahlung $R_{t+1}^e = R_{t+1}^a - R_{t+1}^b$ in $t + 1$ eines Portfolios ohne Kapitaleinsatz, d.h. $p_t = 0$ dann gilt $0 = \mathbb{E}_t \big[ mR^e \big]$
+	\item \textbf{Einperiodige Anleihe}: $p_t$: Anleihepreis in $t$, Rückzahlung $x_{t+1} = 1$, dann gilt $p_t = \mathbb{E}_t \big[ m \big]$
+	\item \textbf{Geldmarktkonto}: $p_t = 1$, Rückfluss in $t + 1$: $R^f = (1 + r^f)$ dann gilt $1 = \mathbb{E}_t \big[ mR^f \big]$
+	\item \textbf{Kaufoption}: $p_t = C$, $x_{t+1} = \max(S_{t+1} - K, 0)$, dann gilt $C = \mathbb{E}_t \big[ m \left( \max ( S_{t+1} - K, 0 ) \right) \big]$
+\end{enumerate}
+
+\chapter{Klassische Theorien}
+
+Durch einfache Umformungen der zentralen Bewertungsbeziehung
+$$ p = \mathbb{E}[mx] $$
+lassen sich viele finanzwirtschaftliche Theorien und Konzepte leicht ableiten:
+\begin{enumerate}[label=\arabic*\upshape.]
+	\item \textbf{Ökonomie der Zinsen}: Wann und warum sind Zinsen hoch oder niedrig?
+	\item \textbf{Risikoanpassung}: Wovon hängt die Risikoanpassung ab?
+	\item \textbf{Unsystematisches Risiko}: Warum wird unsystematisches Risiko nicht vergütet?
+	\item \textbf{Beta als Risikomaß}: Welche Beziehung besteht zwischen erwarteten Renditen und Beta?
+	\item \textbf{$\mu$-$\sigma$-Rand}: Welche Rendite/Risiko-Kombinationen sind erreichbar?
+	\item \textbf{Equity Premium Puzzle}: Warum sind Risikoprämien von Aktien so hoch?
+\end{enumerate}
+
+\section{Ökonomie der Zinsen}
+
+Interpretation der risikolosen Verzinsung $R^f = 1 + r^f$.
+\begin{itemize}
+	\item Aus zentraler Bewertungsbeziehung folgt für das Geldmarktkonto:
+		$$ 1 = \mathbb{E} \left[ m R^f \right] \Rightarrow R^f = \frac{1}{\mathbb{E}[m]} $$
+	\item Bei Sicherheit folgt für eine isoelastische Nutzenfunktion
+		$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma}: m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_{t})} = \beta \left( \frac{c_{t+1}}{c_t} \right)^{-\gamma} $$
+		$$ \Rightarrow R^f = \frac{1}{\beta} \left( \frac{c_{t+1}}{c_t} \right)^{\gamma} $$
+	\item Somit gilt:
+		\begin{itemize}
+			\item Realzinsen sind hoch, wenn Investoren ungeduldig sind (niedriges $\beta$)
+			\item Realzinsen sind hoch, wenn das Konsumwachstum hoch ist.
+			\item Realzinsen reagieren sensitiver auf Änderungen des Konsumwachstums bei hoher Riskoaversion (hohes $\gamma$).
+		\end{itemize}
+\end{itemize}
+	
+Unter Annahme von Unsicherheit:	
+\begin{itemize}
+	\item Mit $\beta = e^{-\delta}$ und $\Delta c_{t+1} = \ln \left( \frac{c_{t+1}}{c_t} \right)$ folgt
+		$$ m_{t+1} = e^{-\delta} e^{-\gamma \Delta c_{t+1}} \approx 1 - \delta - \gamma \Delta c_{t+1} $$
+	\item Somit
+		$$ R^f = \frac{1}{\mathbb{E}[m_{t+1}]} \approx \frac{1}{1 - \delta - \gamma \mathbb{E}_t[\Delta c_{t+1}]} \approx 1 + \delta + \gamma \mathbb{E}[\Delta c_{t+1}] $$
+	\item Grundsätzlich identische Implikationen wie im deterministischen Fall:
+		$$ R^f \approx 1 + \delta + \gamma \mathbb{E} [\Delta c_{t+1}] $$
+\end{itemize}
+Wie schon zuvor sind Zinsen hoch
+\begin{itemize}
+			\item bei sehr ungeduldigen Investoren (niedriges $\beta$ bzw. hohes $\delta$)
+			\item bei hohem erwarteten Konsumwachstum $\mathbb{E}_t[\Delta c_{t+1}]$
+				\begin{itemize}
+					\item wer weiß, dass er in Zukunft reicher sein wird, braucht hohe Zinsen, damit er bereit ist, heute auf Konsum zu verzichten und dafür zu sparen
+					\item Zinsen sind höher in Aufschwungphasen als in Rezessionen
+				\end{itemize}
+\end{itemize}
+Wie schon zuvor
+\begin{itemize}
+	\item Sensitivität bzgl. Konsumwachstum nimmt mit Risikoaversion $\gamma$ zu
+		\begin{itemize}
+			\item Beachte: Hohes $\mathbb{E}_t[\Delta c_{t+1}]$ (Aufschwung), hohes $R^f$; ~\\
+				niedriges $\mathbb{E}_t[\Delta c_{t+1}]$ (Abschwung), niedriges $R^f$;
+			\item Stärke der Veränderung (ob positiv  oder negativ) steigt mit $\gamma$
+		\end{itemize}
+\end{itemize}
+
+Nun zu Aspekt des Risikos. ~\\
+Betrachte hierzu Approximation zweiter Ordnung:
+	$$	R^f \approx 1 + \delta + \gamma \mathbb{E}_t[\Delta c_{t+1}] - \frac{1}{2} \gamma^2 \sigma^2_t (\Delta c_{t+1}) $$
+Höhere Volatilität des Konsumwachstums (hohes $\sigma$)
+\begin{itemize}
+	\item führt zu niedrigeren Zinsen
+		\begin{itemize}
+			\item in unsicheren Zeiten spart man lieber vorsorglich
+			\item hohe Sparnachfrage reduziert Zinsen
+		\end{itemize}
+\end{itemize}
+
+Umgekehrt
+\begin{itemize}
+	\item ist Konsumwachstum hoch, falls Zinsen hoch sind (bei hohen Zinsen wird mehr gespart)
+	\item ist Konsum weniger sensitiv bzgl. Zinsänderungen, wenn $\gamma$ hoch ist (hohes $\gamma \Rightarrow$ starker Wunsch nach gleichmäßigem Konsumstrom)
+\end{itemize}
+
+Was determiniert wen?
+\begin{itemize}
+	\item Konsum determiniert Zinsen
+	\item Zinsen determinieren Konsum
+\end{itemize}
+
+Beachte: ~\\Bei der Power-Nutzenfunktion gilt: Krümmungsparameter $\gamma$ steuert gleichzeitig
+\begin{itemize}
+	\item intertemporale Substitution: Aversion gegenüber zeitlich schwankenden Konsummöglichkeiten
+	\item  Risikoaversion: Aversion gegenüber Veränderungen der Konsummöglichkeiten durch unterschiedliche Zustände
+	\item vorsorgliche Ersparnis: abhängig von der dritten Ableitung der Nutzenfunktion
+\end{itemize} Allgemeinere Nutzenfunktionen entkoppeln die drei Einflüsse. Beispiel: ~ Rekursive Nutzenfunktion (Epstein-Zin Nutzenfunktion) 
+
+\section{Risikoanpassung}
+
+\begin{itemize}
+	\item Aus der Definition $\operatorname{cov}(m,x) = \mathbb{E}[mx] -  \mathbb{E}[m]  \mathbb{E}[x]$ folgt
+		$$ p =  \mathbb{E}[mx] =  \mathbb{E}[m] \mathbb{E}[x] - \operatorname{cov}(m, x) $$
+	\item Mit $R^f = \frac{1}{\mathbb{E}[m]}$ folgt
+		$$ p = \frac{\mathbb{E}[x]}{R^f} + \operatorname{cov}(m, x) $$
+\end{itemize}
+
+Preis ergibt sich aus
+\begin{itemize}
+	\item Diskontierung des erwarteten Payoffs mit risikolosem Zinssatz
+		\begin{itemize}
+			\item Standardbarwert-Kalkül bei Sicherheit bzw. Risikoneutralität
+			\item Aspekt \enquote{Zeit}
+		\end{itemize}
+	\item Risikokorrektur über Kovarianzterm
+		\begin{itemize}
+			\item je stärker Kovarianz mit Diskontfaktor $m$, desto höher der Preis
+			\item Aspekt \enquote{Risiko}
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{Wirkungsweise der Risikoanpassung}
+
+Mit $m = \beta \frac{u'(c_{t+1})}{u'(c_t)}$ folgt
+	$$	p = \frac{\mathbb{E}[x]}{R^f} + \frac{\operatorname{cov}(\beta u'(c_{t+1}), x_{t+1})}{u'(c_t)} $$
+Risikoanpassung
+\begin{itemize}
+	\item verringert Preis bei positiver Kovarianz mit Konsum ($u'(c)$ sinkt in $c$)
+	\item erhöht Preis bei negativer Kovarianz mit Konsum
+\end{itemize}
+Warum?
+
+\begin{beispiel}
+	Betrachte zwei Wertpapiere mit 
+	
+	\begin{figure*}[h!] \centering
+		\begin{tabular}{l|cc}
+  			~  & gute Zeiten (0.5) & schlechte Zeiten (0.5) \\
+  			\hline
+ 			$WP_1$ & $100$ & $0$ \\
+  			$WP_2$ & $0$ & $100$
+		\end{tabular}
+	\end{figure*} 
+
+
+	Für welches Wertpapier sind Sie bereit mehr zu bezahlen?	
+\end{beispiel}
+
+
+Ergebnis:
+\begin{itemize}
+	\item Für Assets, die mehr zur Konsumglättung beitrag, werden höhere Preise bezahlt.
+	\item Bei unsicherem Payoff mit gegebenem Erwartungswert $\mathbb{E}[x]$
+		\begin{itemize}
+			\item wird Preis nach unten korrigiert, falls Payoff in schlechten Zeiten niedrig ist
+			\item wird Preis nach oben korrigiert, falls Payoff in schlechten Zeiten hoch ist (Versicherungsidee)
+		\end{itemize}
+\end{itemize}
+
+Rolle der Risikoaversion
+\begin{itemize}
+	\item Betrachte wieder isoelastische Nutzenfunktion $u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma}$
+	\item Höheres $\gamma \Rightarrow$ stärkere Risikokorrektur
+	\item Formal: Aus Approximation $m_{t+1} \approx 1 - \delta - \gamma \Delta c_{t+1}$ folgt 
+		$$ \operatorname{cov}(m_{t+1}, x_{t+1}) \approx - \gamma \operatorname{cov}(\Delta c_{t+1}, x_{t+1}) $$
+		und damit
+		$$	p_t \approx \frac{\mathbb{E}_t[x_{t+1}]}{R^f} - \gamma \operatorname{cov}(\Delta c_{t+1}, x_{t+1}) $$
+\end{itemize}
+
+Warum zählt die Kovarianz und nicht Varianz der Zahlung? \medskip
+
+Die eigentliche Frage ist nämlich, die Schwankung im resultierenden Nutzenstorms und nicht eines einzelnen Preises.
+
+\begin{itemize}
+	\item Investor interessiert sich nicht für Volatilität eines einzelnen Wertpapiers sondern für resultierenden Konsum und ggf. dessen Varianz
+	\item $\sigma^2(c + \xi x) = \sigma^2(c) + 2 \xi \operatorname{cov} (c x) + \xi^2 \sigma^2(x)$ ~\\
+		Hier ist der mittlerer Term von erster Ordnung; da wird beim hinteren Term $\xi^2$ haben, können wir bei marginalen Betrachtungen diesen Fallen lassen (fordert: ex-post Betrachtung), das Kalkül gilt hier also immer!. Ex-ante können wir das analoge Argument aufbringen, falls man in marginale Beiträge ($\xi$) investieren kann und keine z.B. all-or-nothing Situation hat.
+	\item Vorstellung: Portfolios und damit auch $c$ und $m$ bereits angepasst
+	\item Welchen Beitrag hat letzte marginale Einheit (sehr kleines $\xi$) von $x$?
+\end{itemize}
+
+Betrachte nun Returns verschiedener Wertpapiere $i, j$
+	$$ R^i = \frac{x_{t+1}^i}{p_t^i}, ~R^j = \frac{x_{t+1}^j}{p_t^j} $$
+Dann gilt
+$$ 1= \mathbb{E} \left[ m R^i \right] = \mathbb{E} \left[ m R^j \right] $$
+\begin{itemize}
+	\item Obgleich erwartete Returns i.d.R. verschieden, sind erwartete diskontierte Returns immer 1!
+	\item Weiter gilt $1 = \mathbb{E}[m] \mathbb{E}[R^i] + \operatorname{cov}(m, R^i)$
+		$$ \iff R^f = \frac{1}{E(m)} = \mathbb{E}(R^i) + \frac{\operatorname{cov}(m, R^i)}{\mathbb{E}(m)} $$
+		$$ \Rightarrow \mathbb{E}[R^i] - R^f = - R^f \operatorname{cov}(m,R^i) $$ % todo Nachrechnen
+	\item $m = \beta u'(c_{t+1}) /u'(c_t)$ eingesetzt liefert
+		$$ \mathbb{E}[R^i] - R^f = -\frac{\operatorname{cov}(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1}]} $$
+\end{itemize}
+
+Aus Überrenditendarstellung
+		$$ \mathbb{E}[R^i] - R^f = -\frac{\operatorname{cov}(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1}]} $$
+folgt:
+\begin{itemize}
+	\item die erwartete Rendite jedes Wertpapiers entspricht der risikolosen Verzinsung zuzüglich einer Risikokorrektur	\item Wertpapiere, deren Returns positiv mit Konsum variieren führen zu volatilerem Konsum und müssen daher höhere erwartete Returns liefern. $\Rightarrow \mathbb{E}(R^i) > R^f$	\item Umgekehrt können Wertpapiere, deren Returns negativ mit dem Konsum variieren und damit Konsum glätten (z.B. Versicherungen) niedrigere erwartete Returns bieten. $\mathbb{E}(R^i) < R^F$ (vgl. Wertpapiere von letzter Woche denen Preise höher als 50 gegeben wurden).
+\end{itemize}
+
+Beachte nochmal
+
+\begin{itemize}
+	\item Übliche Vorstellung
+		$$ p^i = \frac{\mathbb{E}[x_{t+1}^i]}{ER^i} $$
+		mit Diskontfaktor $\frac{1}{ER^i}$ etwa aus CAPM, der wertpapierspezifisch ist!
+	\item Hier
+		$$ p^i = \mathbb{E}[m x_{t+1}^i] $$
+		mit stochastischemm Diskontfaktor $M$ (innerhalb des Erwartungswertes!), der für alle Wertpapiere identisch ist!
+	\item Wie passt das zusammen? Der Dikontfaktor ist auch wertpapierspezifisch. Dies sieht man, falls man den stochastischen Diskontfaktor aus dem Erwartungswert rausziehen, denn dann taucht dieser in der Kovarianz auf.
+\end{itemize}
+
+\section{Unsystematisches Risiko}
+
+Aus 
+$$ p = \mathbb{E}[mx] = \mathbb{E}[m] \mathbb{E} [x] + \operatorname{cov}(m,x)$$
+foolgt unmittelbar
+$$ p = \frac{\mathbb{E}[x]}{R^f} \text{ für } \operatorname{cov}(m, x) = 0 $$
+\begin{itemize}
+	\item mit dem Diskontfaktor $m$ unkorrelierte Zahlungen erfordern keine Risikokorrektur im Preis
+	\item solches unsystematisches Risiko wird folglich nicht vergütet
+	\item erwartete Rendite entspricht der riskolosen Rendite
+\end{itemize}
+Beachte: Ergebnis gilt unabhängig
+\begin{itemize}
+	\item von $\sigma^2(x)$, d.h. wie volatil die Zahlung ist
+	\item vom Ausmaß der Risikoaversion
+\end{itemize}
+
+Idee: Zerlege $x$ in
+\begin{description}
+	\item \textbf{systematische komponente}: Mit Diskontfaktor $m$ perfekt korrelierte Komponente $\operatorname{proj}(x|m)$
+	\item \textbf{unsystematiscehe Komponente}: Zu Diskontfaktor orthogonale Komponente $\epsilon{e}$
+\end{description}
+
+$$ {\color{gray} x = \operatorname{proj}(x|m) + \epsilon \Rightarrow b = \frac{\mathbb{E}(mx)}{\mathbb{E}(m^2)} } $$
+
+Intuitiv:
+\begin{itemize}
+	\item Lineare Regression ohne Konstante $x = bm + \epsilon$ führt auf mit $m$ perfekt korrelierte Komponente $bm$ und Restgröße $\epsilon$ mit $E[m\epsilon] = 0$
+	\item Opffensichtlich gilt
+		\begin{itemize}
+			\item Preis von $\epsilon$: $p(\epsilon) = \mathbb{E}[m\epsilon] = 0$
+			\item Preis von $\operatorname{proj}(x, m) \colon p(\operatorname{proj}(x, m)) = \mathbb{E}[xm] = p(x)$ $$= p(b m) = \mathbb{E}[m bm] = \mathbb{E} \left[ \frac{\mathbb{E}(mx)}{\mathbb{E}[m^2]} m^2 \right] = \mathbb{E}(mx)$$
+		\end{itemize}\end{itemize}
+
+\section{Beta als Risikomaß}
+
+$$
+\textbf{ $\beta_i$: Sensitivität der Rendite von Wertpapier i gegenüber der Rendite des ganzen Marktes}$$
+\begin{itemize}
+	\item  das klassische Risikomaß der Finanzwirtschaft
+	\item typischerweise anhand des CAPM  bestimmt
+	\item Anwendung als Maß für systematisches Risiko
+\end{itemize} 
+% todo Zeichnung
+
+formal: $\beta_i = \frac{\operatorname{cov}(R^i, R^M)}{\operatorname{var}(R^M)}$ mit $R^M$ als Marktrendite. ~\\
+
+Umformung der Return-Beziehung $\mathbb{E}[R^i] ) R^f - R^f \operatorname{cov}(m, R^i)$ führt zu
+
+% Lecture Notes - End 
+% Excercise - Start
+
+\appendix
+\chapter{Übungen}
+
+\subsubsection*{Aufgabe 7}
+
+\begin{enumerate}
+	\item Es gilt (vgl. letzte Übung): $m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_{t})}$.
+		\begin{itemize}
+			\item Im schlechten Zustand nimmt der stochastische Diskontfaktor relativ große Werte an (Grenzwert des Konsums ist hoch).
+			\item Im guten Zustand relativ geringe Werte.
+		\end{itemize}
+		Damit ist:
+		\begin{align*}
+			& m_{t+1} = 0.97 \text{: ungünstiger Zustand} \\
+			& m_{t+1} = 0.85 \text{: günstiger Zustand}
+		\end{align*}
+		\textit{Beachte: \enquote{Im schlechten Zustand} bezieht sich eigentlich relativ auf den Vergleich zu vorhergehenden Periode.}
+	\item Eine Power-Nutzenfunktion hat bei uns die allgemeine Form:
+		$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma} $$
+		Daraus folgt $u'(c) = c^{-\gamma}$ und damit: % todo -gamma scheint mir im folgenden nicht zu sitmmen
+		$$ m_{t+1} = \beta \frac{c_{t+1}^{\gamma}}{c_t^{-\gamma}} = \beta \left( \frac{c_t}{c_{t+1}} \right)^\gamma $$
+		Ist $\gamma > 0 \Rightarrow$ je größer der Konsum in einem Zustand in $t+1$ ist, desto kleiner $m_{t+1}$ und umgekehrt
+	\item $p_A > p_B$ da Wertpapier $A$ im ökonomisch schlechteren Zustand mehr auszahlt und der Erwartungswert der Auszahlung beider Wertpapiere gleich ist.
+	\item Es ist
+		\begin{align*}
+			p_t^A & = \mathbb{E}(m_{t+1} x_{t+1}^A) = 0.5 \cdot 0.85 \cdot 5 + 0.5 \cdot 0.97 \cdot 8 = 6.01 \\
+			p_t^B & = analog = 5.83
+		\end{align*}
+		% todo Zeichnung: Siehe Block
+		$\mathbb{E}[R_{t+1}^B] > \mathbb{E}[R_{t+1}^A]$, $p_A > p_B$
+	\item Es ist
+		\begin{align*}
+			p_t & = \mathbb{E}[m_{t+1} X_{t+1}] \\
+				& = \mathbb{E}[m_{t+1}] \cdot \mathbb{E}[x_{t+1}] + \operatorname{cov}(m_{t+1}, x_{t+1}) \\
+			& = \frac{\mathbb{E}[x_{t+1}]}{R^t} + \operatorname{cov}(m_{t+1}, x_{t+1})
+		\end{align*}
+		$\Rightarrow \mathbb{E}(x_{t+1}Â) = \mathbb{E}(x_{t+1}^B) = 6.5$
+		$$ R^f = \frac{1}{\mathbb{E}(m_{t+1})} = \frac{1}{0.91} = 1.10 $$
+		$\Rightarrow \frac{\mathbb{E}(x_{t+1}^A)}{R^f} = \frac{\mathbb{E}(x_{t+1}^B)}{R^f} = 5.91$
+		\begin{align*}
+			& \operatorname{cov}(m_{t+1}, x_{t+1}) = 0.5 \left( 0.85 - 0.91 \right) \left( 5 - 6.5 \right) + 0.5 \left(0.97 - 0.91 \right) \left( 8 - 6.5 \right) = 0.09 \\
+			& \operatorname{cov}(m_{t+1}, x_{t+1}^B) = analog = -0.09 
+		\end{align*}
+		wobei $\operatorname{cov}(a, b) = \mathbb{E}[(a - \overline{a})(b - \overline{b})]$, mit $\overline{x} = \mathbb{E}[x]$, 
+	$$\Rightarrow p^A > p^B$$
+	\item Da die $\operatorname{cov}(\cdot, \cdot)$ negative sowie positive Werte annehmen kann, ergibt sich bei geeiegneten Werten für $\mathbb{E}(x_{t+1})$ und $R^f$ für manche Wertpapiere auch bei $\mathbb{E}(x_{t+1}) < 0$ ein positiven Preis. Beispiel: Versicherung
+\end{enumerate}
+
+\newpage
+
+\subsubsection*{Aufgabe 8 (Der $\mu$-$\sigma$-Rand)}
+
+Betrachten Sie ein Ökonomie mit zwei Zeitpunkten ($t$ und $t+1$) und einem risikolosen Zinssatz von 10\%.
+
+\begin{enumerate}
+	\item Unterstellen Sie für den SDF, das $m_{t+1} = a + b R^{mv}$, wobei $a$ und $b$ Parameterwerte und $R^{mv}$ die Rendite eines Wertpapiers darstellt.
+		\begin{enumerate}
+			\item Welche Voraussetzung muss erfüllt sein, damit dieser Zusammenhang gelten kann? Welche Implikation für die Bewertung von Wertpapieren enthält diese Annahme.
+				\begin{proof}
+					Damit der Zusammenhang $m_{t+1} = a + b R^{mv}$ gilt, muss die Rendite des Wertpapiers, $R^{mv}$ perfekt mit $m_{t+1}$ korreliert sein. ~\\
+					Das impliziert, dass in $R^{mv}$ alle bewertungsrelevanten Informationen enthalten sein müssen.
+				\end{proof}
+			\item Maximale Sharpratio und
+				\begin{proof}
+					$p_{t+1} = \mathbb{E}(m_{t+1} x_{t+1}) \iff 1 = \mathbb{E}(m_{t+1} R_{t+1})$
+					\begin{align*}
+						& \iff 1 = \mathbb{E}(m_{t+1}) \mathbb{E}(R_{t+1}) + \operatorname{cov}(m_{t+1}, R_{t+1}) \qquad \qquad \qquad \\
+						& \iff \mathbb{E}(R_{t+1}) = R^f - \frac{\operatorname{cov}(m_{t+1}, R_{t+1})}{\mathbb{E}(m_{t+1})}  \\
+						& \iff \mathbb{E}(R_{t+1}) - R^f = - \rho_{m_{t+1}, R_{t+1}} \sigma_{R_{t+1}} \frac{\sigma_{m_{t+1}}}{\mathbb{E}(m_{t+1})} \\
+						& \iff \frac{\mathbb{E}(R_{t+1}) - R^f}{\sigma_{R_{t+1}}} = -\rho_{m_{t+1}, R_{t+1}} \frac{\sigma_{m_{t+1}}}{\mathbb{E}(m_{t+1})} 
+					\end{align*}
+					
+					Mit $|\rho| \leq 1$ gilt:
+					$$ \left| \frac{\mathbb{E}(R_{t+1}) - R^f}{\sigma_{R_{t+1}}} \right| \leq \frac{\sigma_{m_{t+1}}}{\mathbb{E}(m_{t+1})}$$
+					Aus $m_{t+1} = a + b \cdot R^{mv}_{t+1}$ folgt:
+					$$
+					  \begin{rcases}
+						\operatorname{var}(m_{t+1}) & = b^2 \operatorname{var}(R_{t+1}^{mv}) \\
+						\sigma_{m_{t+1}} & = \sqrt{b^2 \operatorname{var}(R_{t+1}^{mv})} = \sqrt{2} \\
+						\frac{1}{\mathbb{E}(m_{t+1})}& = R^f = 1.1
+					  \end{rcases} \Rightarrow \frac{\sigma_{m_{t+1}}}{\mathbb{E}(m_{t+1})} = 1.55 
+					$$
+				\end{proof}
+		\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Aufgabe 9 (Der $\mu$-$\sigma$-Rand und die Beta-Darstellung)}
+
+Gegeben ist eine Ökonomie mit zwei Zeitpunkten ($t$ und $t+1$) mit einem risikolosen Zinssatz in Höhe von $R^f$, sowie ein effizienter Rand-Return $R^{mv}$. Nehmen Sie an
+
+\begin{enumerate}
+	\item Es gilt $m_{t+1} = a + b \cdot R^{mv}$
+		\begin{align*}
+			p_t & = \mathbb{E}(m_{t+1} x_{t+1}) = \mathbb{E}(m_{t+1}) \mathbb{E}(x_{t+1}) + \operatorname{cov}(m_{t+1}, x_{t+1}) \\
+			& \iff p_{t} = \frac{\mathbb{E}(x_{t+1})}{R^f} + \operatorname{cov}(m_{t+1}, x_{t+1}) \\
+			& \iff p_{t} = \frac{\mathbb{E}(x_{t+1})}{R^f} + \operatorname{cov}(a + b R^{mv}, x_{t+1})\\
+			& \iff p_{t} = \frac{\mathbb{E}(x_{t+1})}{R^f} + b \operatorname{cov}(R^{mv}, x_{t+1})
+		\end{align*}
+		$\Rightarrow$ falls $b$ bekannt können mit Hilfe von $R^{mv}$ alle Wertpapiere bewertet werden.
+	\item Gilt für alle Wertpapiere auf dem $\mu$-$\sigma$-Rand außer dem risikolosen Instrument.
+	\item Es gilt die folgenden Möglichkeiten
+		\begin{itemize}
+			\item 1. Möglichkeit: 
+					\begin{align*}
+					1 & = \mathbb{E}(m_{t+1} R^{mv}) = \mathbb{E}\left((a + b R^{mv}) R^{mv} \right) \\
+					& = \mathbb{E}\left( a R^{mv} + b \left(R^{mv} \right)^2 \right)   \tag*{$(*)$} ~\\
+					1 & = \mathbb{E}(m_{t+1} R^{f}) = \mathbb{E}\left((a + b R^{mv}) R^{f} \right) \\
+					& = \mathbb{E}\left( a R^{f} + b R^{mv} R^f \right)   \tag*{$(**)$}
+				\end{align*}
+				Aus $(*)$: $\Rightarrow 1 = a \cdot \mathbb{E}(R^{mv}) + b \mathbb{E}\left(\left(R^{mv} \right)^2 \right)$ ~\\
+				Aus $(**)$: $\Rightarrow 1 = a \cdot \mathbb{E}(R^{f}) + b \mathbb{E}\left(\left(R^{f} \right)^2 \right)$
+				$$\Rightarrow$$
+			\item 2. Möglichkeit: aus $|\rho| = 1$ folgt ($\mathbb{E}(m_{t+1}) = a + b \mathbb{E}(R^{mv})$)
+				\begin{align*}
+					m_{t+1} & = \mathbb{E}(m_{t+1}) + b \left( R^{mv} - \mathbb{E}(R^{mv}) \right) \tag*{$(+)$} \\
+						& \iff m_{t+1} = \frac{1}{R^f} + b \left( R^{mv} - \mathbb{E}(R^{mv}) \right)  \tag*{$(***)$}
+				\end{align*}
+				Außerdem: $1 = \mathbb{E}(m_{t+1} E^{mv}$. Daraus folgt indem wir $(***)$ einsetzen:
+					\begin{align*}
+						1 & = \mathbb{E} \left[ \left( \frac{1}{R^f} + b \left( R^{mv} - \mathbb{E}_t \left( R^{mv} \right) \right) \right) R^{mv} \right] \\
+						& \iff 1 = \frac{1}{R^f} \mathbb{E}(R^{mv}) + b \mathbb{E}\left( \left((R^{mv} \right)^2 \right) - b \mathbb{E} \left(R^{mv} \right)^2 \\
+						& \iff 1 = \frac{1}{R^f} \mathbb{E}(R^{mv}) + b \operatorname{var}(R^{mv}) \\
+						& \iff b = - \frac{\mathbb{E}(R^{mv}) - R^f}{R^f \operatorname{var}(R^{mv})}
+					\end{align*} 
+					In $(+)$ einsetzen:
+					\begin{align*}
+						m_{t+1} & = \mathbb{E}(m_{t+1}) + \left( - \frac{\mathbb{E}(R^{mv}) - R^f}{R^f \operatorname{var}(R^{mv})} \right) \left( R^{mv} - \mathbb{E}(R^{mv} \right) \\
+						& \iff m_{t+1} = \underbrace{\frac{1}{R^f} + \mathbb{E}(R^{mv}) \frac{\mathbb{E}(R^{mv} - R^f}{R^f \operatorname{var}(R^{mv})}}_{\eqqcolon a} \underbrace{- \frac{\mathbb{E}(R^{mv}) - R^f}{R^f \operatorname{var}(R^{mv})}}_{\eqqcolon b} R^{mv} \tag*{$(++)$} \\
+						& \iff m_{t+1} = a + b R^{mv}
+					\end{align*} 
+		\end{itemize}
+		\item Beta Darstellung
+			$$ p_{t} = \mathbb{E}(m_{t+1} x_{t+1}) \iff 1 = \mathbb{E}(m_{t+1}) \mathbb{E}(R^i_{t+1}) + \operatorname{cov}(m_{t+1}, R^i_{t+1}) $$
+			$$ \mathbb{E}(R_{t+1}^i) = R^f - \frac{\operatorname{cov}(m_{t+1}, R_{t+1}^i)}{\mathbb{E}(m_{t+1})} $$
+			Aus $(++)$ folgt
+			$$ \mathbb{E}(R_{t+1}^i) = R^f + \frac{\mathbb{E}(R^{mv} - R^f)}{R^f \operatorname{var}(R^{mv})} \operatorname{cov}(R^{mv}, R_{t+1}^i) \frac{1}{\mathbb{E}(m_{t+1})} $$
+			$$ \iff \mathbb{E}(R_{t+1}^i) = \R^f + \frac{\mathbb{E}(R^{mv} - R^f}{\operatorname{var}(R^{mv}} \operatorname{cov}(R^{mv}, R^i) $$
+			$$ \iff \mathbb{E}(R^i_{t+1}) = R^{f} + \underbrace{\frac{\operatorname{cov}(R^{mv}, R^{i}_{t+1})}{\operatorname{var}(R^{mv})}}_{\eqqcolon \beta_{i, mv}} \underbrace{\left( \mathbb{E}(R^{mv} - R^f \right)}_{\eqqcolon \lambda_{mv}} $$
+			$$ \iff \mathbb{E}(R^i_{t+1}) = R^f + \beta_{i, mv} \lambda_{mv} $$
+		\item Welche Annahme trift man oft in der parktischen Umsetzung dieser Bewertungsbeziehung
+			\begin{proof}
+				$R^{mv} =$ Rendite des Marktportfolios (z.B. Dax 30)
+			\end{proof}
+\end{enumerate}
+
+
+% Index									
+\renewcommand{\indexname}{Stichwortverzeichnis}
+\printindex
+
+
+\end{document}

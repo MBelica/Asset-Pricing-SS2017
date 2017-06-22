@@ -128,7 +128,7 @@
 
 \chapter{Einführung}
 
-Betrachte Preise bzw. Renditen an Wertpapiermärkten
+Es werden verschiedene Preise bzw. Renditen an Wertpapiermärkten betrachtet, unter anderem:
 
 \begin{itemize}
 	\item Aktienkurse
@@ -136,18 +136,20 @@ Betrachte Preise bzw. Renditen an Wertpapiermärkten
 	\item Derivatenpreise
 \end{itemize}
 
-Warum stellen sich beobachtete Marktpreise bzw. Renditen ein?
+Warum stellen sich beobachtete Marktpreise bzw. Renditen ein? A priori bedeuten niedrige Price eine höhere Rendite. Man kann also die obige Frage auch umformulieren zu: warum einige Asset einen höheren erwarteten Return auszahlen als andere.
 
 \subsubsection{Asset Pricing Theorie}
+Es gibt zwei Aspekte die entscheidend in den Wert eines Assets einfließen. Einmal ist es die Verzögerung der Auszahlen, also wie lange man auf die Auszahlung des z.B. Wertpapiers warten muss und anderer Seits beeinflusst auch das zugrunde liegende Risiko den Wert des Assets. Auch wenn die Korrektur für die Verzögerung weniger problematisch ist, ist die Anpassung für das Risiko ein sehr viel wichtigerer Faktor für die Bewertung des Wertes eines Assets. Asset Pricing, wie viele anderer ökonomische Disziplinen, teilt den Zwiespalt in normativer zu deskriptiver Theorie. Asset Pricing liefert sowohl
 \begin{itemize}
-	\item Bewertungstheorie zur Erklärung der Preisbildung
-	\item Schlussfolgerungen, falls Vorhersagen der Theorie $\neq$ Beobachtung
+	\item Bewertungstheorien zur Erklärung der Preisbildung. Damit ist es möglich zu verstehen, warum sich Preise oder Returns so eingestellt haben, wie sie sind; als auch
+	\item Schlussfolgerungen, falls Vorhersagen der Theorie $\neq$ Beobachtung. Was ein Verständnis dafür gibt, warum und wo Bewertungen sich falsch eingestellt haben und ggf. diese Schwächen ausnutzen.
 \end{itemize}
 
-\textbf{Anpassung der Theorie erforderlich:} Positive Theorie ~\\
-\textbf{Fehlbewertung am Markt} $\Rightarrow$ \text{Handelsstrategie:} Normative Theorie ~\bigskip
+%\textbf{Anpassung der Theorie erforderlich:} Positive Theorie ~\\ 
+% todo dieses Positive Theorie ist da im Raum
+Gerade der letzte Aspekt ist ein Grund für die Beliebtheit und vielzahligen praktischen Anwendung von Asset-Pricing. Denn eine \textbf{Fehlbewertung am Markt} ermöglicht eine \textbf{Handelsstrategie} (Normative Theorie). ~\bigskip
 
-Häufig keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
+Diese auftrentede Fehleinschätzung von Wertpapieren stammt unter anderem aus der oftmals vorherrschenden Asymmetrie von Informationen an einem Markt. Häufig sind keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
 \begin{itemize}
 	\item geplante Investitionsprojekte
 	\item Neuemissionen von Wertpapieren
@@ -155,42 +157,40 @@ Häufig keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
 	\item $\dotsc$
 \end{itemize}
 
-\subsubsection{Asset Pricing Theorie}
+Man findet demnach die Asset Pricing Theorie oft für zwei Grundlegende Aspekte:
 \begin{itemize}
-	\item zur Begründung, wie hoch fairer Preis sein sollte
+	\item zur Begründung, wie hoch fairer Preis sein sollte, und
 	\item als wichtige Entscheidungsgrundlage
 \end{itemize}
 
 \section{Kernprinzipien der Finanzwirtschaft}
-Bewertung fußt auf Kernprinzipien der Finanzwirtschaft:
-\begin{enumerate}[label=\arabic*\upshape.]
-	\item \textbf{Primat der Zahlungen} Für eine Entscheidung sind allein Zahlung (oder Zahlungsäquivalente) relevant.
-	\item \textbf{Zeitwert des Geldes} Der Wert einer Zahlung hängt davon ab, wann sie erfolgt
-	\item \textbf{Ertrag vs. Risiko} Bei vielen Entscheidungen ist eine Abwägung zwischen Ertrag und Risiko zu treffen.
-	\item \textbf{Aggregation durch Märkte} Wertpapiermärkte aggregieren Präferenzen und Informationen
-	\item \textbf{Arbitragefreiheit} Preise an kompetitiven Wertpapiermärkten zeichnen sich durch die Abwesenheit von Arbitrage aus
-\end{enumerate}
+Bewertung fußt auf den Kernprinzipien der Finanzwirtschaft:
+\begin{itemize}
+	\item \textbf{Primat der Zahlungen}: für eine Entscheidung sind allein Zahlung (oder Zahlungsäquivalente) relevant; dies wird manchmal auch \textit{Dominance} genannt.
+	\item \textbf{Zeitwert des Geldes}: der Wert einer Zahlung hängt davon ab, wann sie erfolgt
+	\item \textbf{Ertrag vs. Risiko}: bei vielen Entscheidungen ist eine Abwägung zwischen Ertrag und Risiko zu treffen.
+	\item \textbf{Aggregation durch Märkte}: Wertpapiermärkte aggregieren Präferenzen und Informationen
+	\item \textbf{Arbitragefreiheit}: Preise an kompetativen Wertpapiermärkten zeichnen sich durch die Abwesenheit von Arbitrage aus
+\end{itemize}
 
 \section{Relative vs. absolute Bewertung}
-
-Bewertung
+Es gibt zwei teilweise gegenläufige Ansätze zur Bewertung von Assets
 \begin{description}
-	\item \textbf{absolut} mit Bezug zu grundlegenden makroökonomischen Faktoren
+	\item \textbf{absolut}: mit Bezug zu grundlegenden makroökonomischen Faktoren.
 		\begin{itemize}
 			\item Konsum-basierte oder allgemeine Gleichgewichtsmodelle
 			\item Beispiel: capital Asset Pricing Model
 		\end{itemize}
-	\item \textbf{relativ} zu gegebenen anderen Wertpapieren (Basiswertpapieren)
+	\item \textbf{relativ}: zu gegebenen anderen Wertpapieren (Basiswertpapieren)
 		\begin{itemize}
 			\item Duplikatopn und Gesetz des einen Preises
 			\item Beispiel: Optionspreistheorie nach Black/Scholes
 		\end{itemize}
 \end{description}
-Typische Anwendungen enthalten beide Aspekte
+Typische Anwendungen enthalten beide Aspekte und der Anteil zu welchem man den einen oder anderen Ansatz  wählt, hängt für gewöhnlich vom betrachteten Asset und Grund für die Bewertung ab.
 
 \section{Bewertungsprinzip}
-
-Einfach Grundidee:
+Asset Pricing liegt eine einfach Grundidee zugrunde:
 $$ \textit{Preise entsprechen erwarteten diskontierten Zahlungen} $$ \smallskip
 
 \textbf{Zahlungsstrom}: Zukünftige unsichere Zahlungen 
@@ -742,6 +742,91 @@ Gegeben ist eine Ökonomie mit zwei Zeitpunkten ($t$ und $t+1$) mit einem risiko
 			\end{proof}
 \end{enumerate}
 
+\newpage
+
+\subsection*{Sonderübung}
+
+\subsubsection*{Aufgabe 1}
+Nehmen Sie Stellung zu folgenden Aussagen:
+\begin{enumerate}
+	\item Wertpapiere, deren Auszahlung positiv mit dem stochastischem Diskontfaktor  korrelieren, besitzen im Gleichgewicht höhere erwartete Renditen, die für das höhere Risiko solcher Wertpapiere kompensieren.
+		\begin{proof}
+			Die Aussage ist falsch. Wertpapiere deren erwarteten. Renditen positiv mit dem stoch. Diskontfaktor korrelieren, zahlen in Zuständen mit hohem stoch. Diskontfaktor wenig und in Zuständen mit niedrigem stoch. Disktontfaktor viel (es ist ja: SDF hoch = schlechter Zustand und vice versa). Solch ein Wertpapier besitzt einen Versicherungscharakter. Wichtig ist, dass die Renditen-Preisbeziehung invers ist. Im Gleichgewicht beizten sie also niedrige erwartete Renditen, da sie ein geringeres Risiko besitzen.
+		\end{proof}
+	\item Wertpapiere, die nicht auf dem $\mu$-$\sigma$-Rand liegen, sind nicht effizient und werden deshalb von den Investoren nicht nachgefragt.
+		\begin{proof}
+			Die Aussage ist falsch. Diese Wertpapiere sind nicht effizient, allerdings sind sie auch nicht perfekt mit stochastischen Diskontfaktor korreliert und weisen unsystematisches Risiko auf. Damit können diese Wertpapiere nachgefragt werden, jedoch nicht alleine.
+		\end{proof}
+	\item Das CAPM kann nicht stimmen, da tatsächlich die Korrelation von zukünftigen Zahlung mit dem Konsumwachstum entscheidend für den Preis eines Wertpapiers ist nachgefragt.
+		\begin{proof}
+			Diese Aussage ist falsch. CAMP ist ein Spezialfall des konsumbasierten Asset Pricing Modells. Als Faktormodell nutzt das CAMP eine Approximation des aggregieren Nutzenwacstums
+			$$ m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_{t})} = a + b' f_{t+1}. $$ 
+			Das CAMP-Modell approximiert also diesen Faktor linear und  stellt damit (vereinfacht) die Korrelation dar.
+		\end{proof}
+	\item Existiert in einer Ökonomie mindestens für jeden Zustand ein Wertpapier, das $24$ im entsprechenden Zustand und $0$ in allen anderen Zuständen auszahlt, so ist auch die Verteilung des stochastischen Diskontfaktors bekannt und alle anderen Wertpapiere können basierend darauf bewertet werden.
+		\begin{proof}
+			Diese Aussage ist falsch. Obwohl die Auszahlungsmatrix linear unabhängig ist, reicht diese nicht zur Bestimmung der Verteilung des stoch. Diskontfaktors aus und somit können nicht nicht alle weiteren Wertpapiere darauf bewertet werden. Vgl.
+			$$ p(x) = \sum_{s \in S} \pi(s) m(s) x(s) $$
+			Somit ist der Preis und Eintrittswahrscheinlichkeit müssen gegeben sein.
+		\end{proof}
+	\item  Da die Zentralbank den Zinssatz festlegt, muss bei der empirischen Anwendung des konsumbasierten Ansatzes stets davon ausgegangen werden, dass der Preis des risikolosen Instruments exogen festgelegt wird. Die Diskussion inwiefern sich die Zinsen z.B. in Folge von geänderter Risikoaversion der Investoren ändern, ist deshalb lediglich exemplarischer Natur und nicht mit der Empirie vereinbar. 
+		\begin{proof}
+			Nur teilweise richtig. Wechselwirkung zwischen Konsum \% Zinsen
+				$$ \Rightarrow \text{ Makro-Sicht } \Rightarrow \text{ Perspektive einer Einzelperson } $$
+				Zentralbank setzt zwar Leitzins fest und kauft Anleihen, allerdings gibt es noch andere Einflüsse. ~\\
+			$\Rightarrow$ Preis für risikoloses Instrument kann empirisch nicht als exogen gegeben angenommen werden.
+		\end{proof}
+\end{enumerate}
+
+\newpage
+
+\subsection*{Aufgabe 2}
+Gehen Sie von einer Ökonomie mit den Zeitpunkten $t = 0$, $t = 1$ und $t = 2$ ($t$ in Jahren) aus. Die Zustandsübergänge und die Entwicklung des Konsums des repräsentativen Investors sind gemäß dem Baumdiagramm in der Aufgabe zu entnehmen. Der Nutzen des repräsentativen Investors zum jeweiligen Zeitpunkt t lässt sich mit Hilfe der folgenden Powernutzenfunktion mit $\gamma = 1.5$ quantifizieren:
+
+$$ u(c_t) = \frac{c_t^{1-\gamma}}{1 - \gamma} $$
+
+Nehmen Sie für die zeitliche Diskontierung $\beta = 0.95$ an.
+\begin{enumerate}
+	\item Für die Zustandsübergangswahrscheinlichkeiten gilt zunächst $p_1 = p_{21} = p_{22} = 0.5$. Bestimmen Sie die beiden fairen risikolosen Zinssätze (annualisiert) für die Zeiträume $t = 0$ bis $t = 1$ und $t = 0$ bis $t = 2$. Berechnen Sie außerdem den erwarteten Gesamtnutzen des repräsentativen Investors zum Zeitpunkt $t = 0$.
+		\begin{proof}
+		Es ist $u'(c_t) = c_t^{-\gamma}$ und damit (vgl. Cochrane, S. 24f)
+		$$ R_{t+1}^f = \frac{1}{\mathbb{E}\left[ \beta \frac{u'(c_{t+1})}{u'(c_t)} \right]} = \frac{1}{\mathbb{E}\left[ \beta \left( \frac{c_{t}}{c_{t+1}} \right)^\gamma \right]} $$
+		Damit ist
+			\begin{align*}
+				R_{t+1}^f & = \frac{1}{\mathbb{E}\left[ \beta \left( \frac{c_{t}}{c_{t+1}} \right)^\gamma \right]} \\
+				& =\frac{1}{0.5 \cdot 0.95  \left( \frac{20}{25} \right)^{1.5} + 0.5 \cdot 0.95  \left( \frac{20}{21} \right)^{1.5} } \\
+				& = 1.2798 ~ \hat{=} ~ 27.98\% \\
+			\end{align*}
+			\begin{align*}
+				R_{t+2}^f & = \frac{1}{\mathbb{E}[m_{0,2}]} = \frac{1}{\mathbb{E}[m_{0,1} \cdot m_{1,2}]}  \\
+				& = \frac{1}{\mathbb{E}\left[\beta \cdot \frac{u'(c_1)}{u'(c_0)} \cdot \beta \cdot \frac{u'(c_2)}{u'(c_1)} \right]} \\
+				& = \frac{1}{\mathbb{E}\left[ \beta^2 \left( \frac{c_{t}}{c_{t+2}} \right)^\gamma \right]} \\
+			& =\frac{1}{0.25 \cdot 0.95^2 \left( \left( \frac{20}{30} \right)^{1.5} +  \left( \frac{20}{26} \right)^{1.5} + \left( \frac{20}{26} \right)^{1.5} + \left( \frac{20}{22} \right)^{1.5} \right)} \\
+			& = 1.6056~ \hat{=} ~60.56\%
+			\end{align*}
+			Damit liegt das Annulalisierte bei $r^f = \sqrt{R_{t+2}^f} = \sqrt{~60.56} = 26.61\%$. Der erwartete Nutzen ergibt sich zu
+			\begin{align*}
+				U_t(c_t, c_{t+1}, c_{t+2}) & = u(c_t) + \beta \mathbb{E}[ u(c_{t+1})] + \beta^2 \mathbb{E}_t \left[ u(c_{t+2}) \right] \\
+						& = -2 \left( \frac{1}{\sqrt{20}} + 0.95 \left( 0.5 \cdot \frac{1}{\sqrt{25}} + 0.5 \cdot \frac{1}{\sqrt{21}} \right)\right) \\
+						& \quad-2 \left( 0.95^2 \left( 0.25 \cdot \frac{1}{\sqrt{30}} + 0.25 \cdot \frac{1}{\sqrt{26}} + 0.25 \cdot \frac{1}{\sqrt{26}} + 0.25 \cdot \frac{1}{\sqrt{22}} \right)  \right) \\
+						& = - 1.2001
+			\end{align*} 
+		\end{proof}
+	\item Nehmen Sie nun an, dass für die Zustandsübergangswahrscheinlichkeiten $p_1 = 0.5$, $p_{21} = 0.7$ und $p_{22} = 0.3$ gilt. Würde der repräsentative Investor diese Situation der Situation aus Aufgabenteil a) vorziehen? Antworten Sie sowohl mit einer ökonomischen Argumentation als auch mit einer Rechnung.
+		\begin{proof}
+			Vergleiche den Gesamtnutzen des Investors zwischen a) und b)
+				\begin{align*}
+				U_t(c_t, c_{t+1}, c_{t+2}) & = u(c_t) + \beta \mathbb{E}[ u(c_{t+1})] + \beta^2 \mathbb{E}_t \left[ u(c_{t+2}) \right] \\
+						& = -2 \left( \frac{1}{\sqrt{20}} + 0.95 \left( 0.5 \cdot \frac{1}{\sqrt{25}} + 0.5 \cdot \frac{1}{\sqrt{21}} \right)\right) \\
+						& \quad-2 \left( 0.95^2 \left( 0.5 \cdot 0.7 \cdot \frac{1}{\sqrt{30}} + 0.5 \cdot 0.3 \cdot \frac{1}{\sqrt{26}} + 0.5 \cdot 0.3 \cdot \frac{1}{\sqrt{26}} + 0.5 \cdot 0.7 \cdot \frac{1}{\sqrt{22}} \right)  \right) \\
+						& = - 1.2007 < -1.2001
+			\end{align*} 		
+			Vergleicht man noch die Varianzen so ergibt sich :
+			$$ var_{neu} = (30-26)^2 \cdot 0.7 \cdot 0.5 + (22 - 26)^2 \cdot 0.7 \cdot 0.5 = 11.2 $$
+			$$ var_{alt} = (30 - 26)^2 \cdot 0.5 \cdot 0.5 + (22 - 26)^2 \cdot 0.5 \cdot 0.5 = 8 $$
+			d.h. $var_{alt}<var_{neu}$. Der repräsentative Investor zieht die Situation aus Aufgabenteil a) vor, da dort die Volatilität des Konsums geringer ist, und der Gesamtnutzen höher. Des Weiteren wird die Situation aus b) durch die höhere Volatilität als \enquote{schlechter} betrachtet, da der Investor mit der hier gegebenen Nutzenfunktion die höhere Wahrscheinlichkeit des Zustandes mit hohem und niedrigerem Konsum in t=2 nicht linear bewertet, sondern das ihm das wahrscheinlichere Eintreten des Zustandes mit  niedrigerem Konsum  stärker \enquote{missfällt}, als ihm das wahrscheinlichere Eintreten des Zustandes mit höherem Konsum \enquote{gefällt}. % todo hier 
+		\end{proof}
+\end{enumerate}
 
 % Index									
 \renewcommand{\indexname}{Stichwortverzeichnis}

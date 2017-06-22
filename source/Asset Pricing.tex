@@ -821,10 +821,27 @@ Nehmen Sie für die zeitliche Diskontierung $\beta = 0.95$ an.
 						& \quad-2 \left( 0.95^2 \left( 0.5 \cdot 0.7 \cdot \frac{1}{\sqrt{30}} + 0.5 \cdot 0.3 \cdot \frac{1}{\sqrt{26}} + 0.5 \cdot 0.3 \cdot \frac{1}{\sqrt{26}} + 0.5 \cdot 0.7 \cdot \frac{1}{\sqrt{22}} \right)  \right) \\
 						& = - 1.2007 < -1.2001
 			\end{align*} 		
-			Vergleicht man noch die Varianzen so ergibt sich :
-			$$ var_{neu} = (30-26)^2 \cdot 0.7 \cdot 0.5 + (22 - 26)^2 \cdot 0.7 \cdot 0.5 = 11.2 $$
-			$$ var_{alt} = (30 - 26)^2 \cdot 0.5 \cdot 0.5 + (22 - 26)^2 \cdot 0.5 \cdot 0.5 = 8 $$
-			d.h. $var_{alt}<var_{neu}$. Der repräsentative Investor zieht die Situation aus Aufgabenteil a) vor, da dort die Volatilität des Konsums geringer ist, und der Gesamtnutzen höher. Des Weiteren wird die Situation aus b) durch die höhere Volatilität als \enquote{schlechter} betrachtet, da der Investor mit der hier gegebenen Nutzenfunktion die höhere Wahrscheinlichkeit des Zustandes mit hohem und niedrigerem Konsum in t=2 nicht linear bewertet, sondern das ihm das wahrscheinlichere Eintreten des Zustandes mit  niedrigerem Konsum  stärker \enquote{missfällt}, als ihm das wahrscheinlichere Eintreten des Zustandes mit höherem Konsum \enquote{gefällt}. % todo hier 
+			Nutzen in $t = 2$ ist volatiler (den Wahrscheinlichkeit bei 30 und 22 zu Lasten). Investoren bevorzugen allerdings einen konstanten Konsum
+			$$ \gamma = 1.4 \Rightarrow \text{ risikoavers} $$
+			$\Rightarrow$ ziehe a) vor.
+		\end{proof}
+	\item Welche Auswirkung hätte eine Veränderung der Zustandsübergangswahrscheinlichkeiten gemäß Aufgabenteil b) (im Vgl. zu Aufgabenteil a)) auf den risikolosen Zinssatz von t = 0 bis t = 2? Antworten Sie ohne Rechnung und gehen Sie insbesondere darauf ein, über welchen Kanal (erwarteter Konsumwachstum vs. Volatilität des Konsumwachstums) sich die veränderten Übergangswahrscheinlichkeiten auf den Zinssatz in diesem Fall auswirken.
+		\begin{proof}
+			Durch die Änderung der Wahrscheinlichkeiten in b) ändert sich der Erwartungswert des Konsums und damit Erwartungswert von $\Delta c_2$ nicht. Was sich geändert hat, ist die Volatilität des Konsumwachstums. Der zukünftige Zustand ist nun unsicher, wodurch man vorzüglich spart (precautionary savings). Durch diese Tatsache erhöht sich die Nachfrage und im Zuge dessen reduzieren sich die Zinsen.
+		\end{proof}
+	\item Können die risikoneutralen Wahrscheinlichkeiten in der gegebenen Ökonomie berechnet werden? Gehen Sie bei der Beantwortung der Frage darauf ein, wie sich die gegebene Situation im Vergleich zu den Standardsituationen, im Rahmen derer risikoneutrale Wahrscheinlichkeiten in Vorlesung und Übung bestimmt wurden, unterscheidet.
+		\begin{proof}
+			Rein theoretisch könnten die risikoneutralen Wahrscheinlichkeit für beide Stufen anhand der Formel berechnet werden.
+			$$ \pi^*(s) = \frac{m(s)}{\mathbb{E}[m]} \cdot \pi(s) = R^f \cdot pc(s) = R^f \cdot m(s) \cdot \pi(s) $$
+			wobei $R^f = R^f_{01}/R_{02,}^f$ und $m(s) = \beta \cdot \frac{u'(c(s))}{u'(c_0)}$ bzw. $m(s)= \beta ^2\cdot \frac{u'(c(s))}{u'(c_0)}$. ~\\
+			\textbf{Unterschiede}:
+			\begin{itemize}
+				\item Es liegt ein zweistufiges Modell vor
+				\item In der vorliegenden Situation liegen keinerlei Informationen über Wertpapiere vor (Preis, Auszahlungsprofil, $\dotsc$). ~\\
+					Lediglich die Konsumniveaus sind bekannt. ~\\
+					Risikoneutrale Wahrscheinlichkeiten im Zusammenhang mit Derivatenbewertung
+			\end{itemize} 
+			Bemerkung: würde man hier risikonetutrale Wahrscheilichkeiten berechnen? Nein, da hier einfach Erwartungsnutzen ausgerechnet werden kann $\Rightarrow$ Vortil risikoneutrale Wahrscheinlichkeiten $\Rightarrow$ keine Aussage über Nutzenfunktion notwendig (diese ist in Aufgabe 2 atypischerweise gegeben).
 		\end{proof}
 \end{enumerate}
 

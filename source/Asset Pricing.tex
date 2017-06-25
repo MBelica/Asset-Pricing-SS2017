@@ -139,17 +139,16 @@ Es werden verschiedene Preise bzw. Renditen an Wertpapiermärkten betrachtet, un
 Warum stellen sich beobachtete Marktpreise bzw. Renditen ein? A priori bedeuten niedrige Price eine höhere Rendite. Man kann also die obige Frage auch umformulieren zu: warum einige Asset einen höheren erwarteten Return auszahlen als andere.
 
 \subsubsection{Asset Pricing Theorie}
-Es gibt zwei Aspekte die entscheidend in den Wert eines Assets einfließen. Einmal ist es die Verzögerung der Auszahlen, also wie lange man auf die Auszahlung des z.B. Wertpapiers warten muss und anderer Seits beeinflusst auch das zugrunde liegende Risiko den Wert des Assets. Auch wenn die Korrektur für die Verzögerung weniger problematisch ist, ist die Anpassung für das Risiko ein sehr viel wichtigerer Faktor für die Bewertung des Wertes eines Assets. Asset Pricing, wie viele anderer ökonomische Disziplinen, teilt den Zwiespalt in normativer zu deskriptiver Theorie. Asset Pricing liefert sowohl
+Es gibt zwei Aspekte die entscheidend in den Wert eines Assets einfließen. Einmal ist es die Verzögerung der Auszahlen, also wie lange man auf die Auszahlung des z.B. Wertpapiers warten muss und andererseits beeinflusst auch das zugrunde liegende Risiko den Wert des Assets. Auch wenn die Korrektur für die Verzögerung weniger problematisch ist, ist die Anpassung für das Risiko ein sehr viel wichtigerer Faktor für die Bewertung des Wertes eines Assets. Asset Pricing, wie viele anderer ökonomische Disziplinen, teilt den Zwiespalt in normativer zu deskriptiver Theorie. Asset Pricing liefert sowohl
 \begin{itemize}
 	\item Bewertungstheorien zur Erklärung der Preisbildung. Damit ist es möglich zu verstehen, warum sich Preise oder Returns so eingestellt haben, wie sie sind; als auch
 	\item Schlussfolgerungen, falls Vorhersagen der Theorie $\neq$ Beobachtung. Was ein Verständnis dafür gibt, warum und wo Bewertungen sich falsch eingestellt haben und ggf. diese Schwächen ausnutzen.
+	\item Ist eine Anpassung der Theorie erforderlich, so greift der Teil der positive Theorie an
 \end{itemize}
 
-%\textbf{Anpassung der Theorie erforderlich:} Positive Theorie ~\\ 
-% todo dieses Positive Theorie ist da im Raum
 Gerade der letzte Aspekt ist ein Grund für die Beliebtheit und vielzahligen praktischen Anwendung von Asset-Pricing. Denn eine \textbf{Fehlbewertung am Markt} ermöglicht eine \textbf{Handelsstrategie} (Normative Theorie). ~\bigskip
 
-Diese auftrentede Fehleinschätzung von Wertpapieren stammt unter anderem aus der oftmals vorherrschenden Asymmetrie von Informationen an einem Markt. Häufig sind keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
+Diese auftretende Fehleinschätzung von Wertpapieren stammt unter anderem aus der oftmals vorherrschenden Asymmetrie von Informationen an einem Markt. Häufig sind keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
 \begin{itemize}
 	\item geplante Investitionsprojekte
 	\item Neuemissionen von Wertpapieren
@@ -183,7 +182,7 @@ Es gibt zwei teilweise gegenläufige Ansätze zur Bewertung von Assets
 		\end{itemize}
 	\item \textbf{relativ}: zu gegebenen anderen Wertpapieren (Basiswertpapieren)
 		\begin{itemize}
-			\item Duplikatopn und Gesetz des einen Preises
+			\item Duplikation und Gesetz des einen Preises
 			\item Beispiel: Optionspreistheorie nach Black/Scholes
 		\end{itemize}
 \end{description}
@@ -285,7 +284,7 @@ Zwei zentrale Beispiele für Nutzenfuntionen, die die obigen Anforderungen erfü
 					u'' & = - \gamma \cdot c ^{-\gamma - 1} < 0
 				\end{align*}
 			\item somit ist
-				$$- c \frac{u''(c)}{u'(c)} = \gamma, $$
+				$$- c \cdot \frac{u''(c)}{u'(c)} = \gamma, $$
 				d.h. es liegt eine konstante relative Risikoaversion vor.
 			\item sie streben für $\gamma \rightarrow 1$ gegen Log-Nutzenfunktion
 		$$ u(c) = \ln(c) $$
@@ -307,14 +306,16 @@ Ein Investor konsumiert in den zwei betrachteten Perioden $c_t, c_{t+1}$ und kan
 			c_{t} & = e_t - p_t \xi \\
 			c_{t+1} & = e_{t+1} + x_{t+1} \xi
 		\end{align*}
-Die Bedingung erster Ordnung ist damit:
+Durch Einsetzen der Nebenbedingungen, liefert Bedingung erster Ordnung für $\xi$ damit:
 	$$ p_t u'(c_t) = \mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big] $$
 Diese Gleichung stellt die gewöhnliche marginale Bedingung für ein Opzimum dar: $p u'(c_t)$ ist der Verlust des Nutzens den ein Investor trägt falls er eine weitere Einheit kauft; $\mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big]$ ist der Zuwachs in diskontiertem, erwartetem Nutzen den der Investor von einem zusätzlichen Payoff in $t+1$ erhält. Die Bedinung erster Ordnung stellt also das Gleichgewicht dar, indem der Investor so lange kauft oder verkauft bis die Grenzkosten  gleich dem erwarteten Grenzertrag gleicht. ~\\
 
-Aus der first-order Bedingung folgt die zentrale Bewertungsgleichung
+Aus der first-order Bedingung folgt durch Umformung die zentrale Bewertungsgleichung
 	$$ p_t = \mathbb{E}_t \big[ \beta \frac{u'(c_{t+1})}{u'(c_t)} x_{t+1} \big], $$
 welche in vielen Fällen hilfreich ist, obgleich sowohl \textbf{Preis} als auch \textbf{Konsum} endogene Größen sind. 
+
 ~\newpage
+
 \section{Stochastischer Diskontfaktor}
 
 Wir teilen obige Gleichung des einfachen konsumbasierten Modells auf um folgende hilfreiche Separation zu erhalten:
@@ -329,16 +330,16 @@ Wir teilen obige Gleichung des einfachen konsumbasierten Modells auf um folgende
 Stochastische Diskontfaktor verallgemeinert übliches Verständnis von Diskontfaktoren:
 
 \begin{itemize}
-	\item Bei einer sicheren Zahlung $x_{t+1}$, sei $R^f$ der risikofreie Zinssatz und so ergibt sich der Zusammenhang: $$p_t = \frac{1}{R^f} x_{t+1} = \frac{1}{1+r^f} x_{t+1}$$
+	\item Bei einer sicheren Zahlung $x_{t+1}$, sei $R^f = 1 + r^f$ der risikolose Brutto-Zinssatz und so ergibt sich der Zusammenhang: $$p_t = \frac{1}{R^f} x_{t+1} = \frac{1}{1+r^f} x_{t+1}$$
 	\item Risikobelastete Zahlungen können mit einer risikoadjustierte Diskontierung behandelt werden. Sei $R^i$ der risiko-angepasste, asset-spezifische Diskonfaktor, so ergibt sich: $$p_t = \frac{1}{\mathbb{E} \left[R^i \right]} \mathbb{E}_t \big[ x_{t+1}^i \big]$$
 \end{itemize}
 
-Beachte allerdings, dass in first-order Bedingung nur ein Diskontfaktor vorkam, unabhängig vom möglichen Risiko oder betrachteten Asset, d.h. der stochastischer Diskontfaktor $m_{t+1}$
+Beachte dass aufgrund der Diskontierung und des Bildens des Erwartungswertes, dass in first-order Bedingung nur ein Diskontfaktor $m$ vorkam, unabhängig vom möglichen Risiko oder betrachteten Asset, d.h. der stochastische Diskontfaktor $m_{t+1}$
 \begin{itemize}
 	\item ist zufällig, was in der Literatur auch stochastisch genannt wird, und
 	\item für alle Assets (bzw. Cash Flows $x_{t+1}$) identisch.
 \end{itemize}
-Wie passt das mit der üblichen Vorstellung zusammen, dass riskantere Titel eine höhere Diskontierung erfordern? Die Korrelation zwischen den zufälligen Teilen des Dikonfaktors $m$ und asset-spezifischen Payoffs $x^i$ korrigiert für das asset-spezifische Risiko. Neben bei, es gibt verschiedene Interpretationen und alternative Bezeichnungen für $m_{t+1}$, z.B.:
+Wie passt das mit der üblichen Vorstellung zusammen, dass riskantere Titel eine höhere Diskontierung erfordern? Die Korrelation zwischen den zufälligen Teilen des Dikontfaktors $m$ und asset-spezifischen Payoffs $x^i$ korrigiert für das asset-spezifische Risiko. Neben bei, es gibt verschiedene Interpretationen und alternative Bezeichnungen für $m_{t+1}$, z.B.:
 \begin{itemize}
 	\item Grenzrate der Substitution: $m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)}$
 	\item Pricing Kernel, Dichte der Zustandspreise
@@ -346,14 +347,22 @@ Wie passt das mit der üblichen Vorstellung zusammen, dass riskantere Titel eine
 ~\newpage
 \section{Beispiele für Preise und Zahlungen}
 
-\begin{enumerate}[label=\arabic*\upshape.]
-	\item \textbf{Aktieninvestment}: $p_t$: Preis in $t$, $x_{t+1} = p_{t+1} + d_{t+1}$: Zahlung in $t+1$ mit Dividendenzahlung $d_{t+1}$ in $t+1$; dann gilt $p_t = \mathbb{E}_t \big[ m ( p_{t+1} + d_{t+1} ) \big]$
-	\item \textbf{Brutto-Return}: Interpretiere $R_{t+1} = \frac{x_{t+1}}{p_t}$ als Payoff in $t + 1$ mit Preis 1 dann gilt $1 = \mathbb{E}_t \big[ mR \big]$
-	\item \textbf{Überschuss-Return}: als Zahlung $R_{t+1}^e = R_{t+1}^a - R_{t+1}^b$ in $t + 1$ eines Portfolios ohne Kapitaleinsatz, d.h. $p_t = 0$ dann gilt $0 = \mathbb{E}_t \big[ mR^e \big]$
-	\item \textbf{Einperiodige Anleihe}: $p_t$: Anleihepreis in $t$, Rückzahlung $x_{t+1} = 1$, dann gilt $p_t = \mathbb{E}_t \big[ m \big]$
-	\item \textbf{Geldmarktkonto}: $p_t = 1$, Rückfluss in $t + 1$: $R^f = (1 + r^f)$ dann gilt $1 = \mathbb{E}_t \big[ mR^f \big]$
-	\item \textbf{Kaufoption}: $p_t = C$, $x_{t+1} = \max(S_{t+1} - K, 0)$, dann gilt $C = \mathbb{E}_t \big[ m \left( \max ( S_{t+1} - K, 0 ) \right) \big]$
-\end{enumerate}
+\begin{itemize}
+	\item \textbf{Aktieninvestment}: $p_t$: Preis in $t$, $x_{t+1} = p_{t+1} + d_{t+1}$: Zahlung in $t+1$ mit Dividendenzahlung $d_{t+1}$ in $t+1$ (geschickter: Returns nehmen, statt stationär):
+		$$ p_t = \mathbb{E}_t \big[ m ( p_{t+1} + d_{t+1} ) \big] $$
+	\item \textbf{Brutto-Return}: Interpretiere $R_{t+1} = \frac{x_{t+1}}{p_t}$ als Payoff in $t + 1$ mit Preis 1 dann gilt (mit $m$ als stoch. Diskontfaktor)
+		$$ 1 = \mathbb{E}_t \big[ mR \big] $$
+	\item \textbf{Überschuss-Return}: als Zahlung $R_{t+1}^e = R_{t+1}^a - R_{t+1}^b$ in $t + 1$ eines Portfolios ohne Kapitaleinsatz, d.h. $p_t = 0$ dann gilt (beachte: Arbitrage-Portfolio, da kein Kapitaleinsatz)
+			$$ 0 = \mathbb{E}_t \big[ mR^e \big] \quad \includegraphics[scale=0.275]{img/p25} $$
+	\item \textbf{Einperiodige Anleihe}: $p_t$: Anleihepreis in $t$, Rückzahlung (risikolos) $x_{t+1} = 1$: 
+			$$ p_t = \mathbb{E}_t \big[ m \big] \quad \includegraphics[scale=0.275]{img/p26-1} $$
+		(d.h. Diskontfaktor (bei sicheren Zahlungen) $\hat{=}$ erwarteter stoch. Diskontfaktor)
+	\item \textbf{Geldmarktkonto}: $p_t = 1$, Rückfluss in $t + 1$: $R^f = (1 + r^f)$ dann gilt:
+		 $$ 1 = \mathbb{E}_t \big[ mR^f \big] \quad \includegraphics[scale=0.275]{img/p26-2} $$
+
+	\item \textbf{Kaufoption}: $p_t = C$, $x_{t+1} = \max(S_{t+1} - K, 0)$, dann gilt: 
+		$$ C = \mathbb{E}_t \big[ m \left( \max ( S_{t+1} - K, 0 ) \right) \big] \quad \includegraphics[scale=0.275]{img/p26-3} $$
+\end{itemize}
 
 \chapter{Klassische Theorien}
 
@@ -408,14 +417,13 @@ Wie schon zuvor
 \begin{itemize}
 	\item Sensitivität bzgl. Konsumwachstum nimmt mit Risikoaversion $\gamma$ zu
 		\begin{itemize}
-			\item Beachte: Hohes $\mathbb{E}_t[\Delta c_{t+1}]$ (Aufschwung), hohes $R^f$; ~\\
+			\item Beachte: hohes $\mathbb{E}_t[\Delta c_{t+1}]$ (Aufschwung), hohes $R^f$; ~\\
 				niedriges $\mathbb{E}_t[\Delta c_{t+1}]$ (Abschwung), niedriges $R^f$;
 			\item Stärke der Veränderung (ob positiv  oder negativ) steigt mit $\gamma$
 		\end{itemize}
 \end{itemize}
 
-Nun zu Aspekt des Risikos. ~\\
-Betrachte hierzu Approximation zweiter Ordnung:
+Nun zum Aspekt des Risikos. Betrachte hierzu Approximation zweiter Ordnung:
 	$$	R^f \approx 1 + \delta + \gamma \mathbb{E}_t[\Delta c_{t+1}] - \frac{1}{2} \gamma^2 \sigma^2_t (\Delta c_{t+1}) $$
 Höhere Volatilität des Konsumwachstums (hohes $\sigma$)
 \begin{itemize}
@@ -441,7 +449,7 @@ Was determiniert wen?
 Beachte: ~\\Bei der Power-Nutzenfunktion gilt: Krümmungsparameter $\gamma$ steuert gleichzeitig
 \begin{itemize}
 	\item intertemporale Substitution: Aversion gegenüber zeitlich schwankenden Konsummöglichkeiten
-	\item  Risikoaversion: Aversion gegenüber Veränderungen der Konsummöglichkeiten durch unterschiedliche Zustände
+	\item Risikoaversion: Aversion gegenüber Veränderungen der Konsummöglichkeiten durch unterschiedliche Zustände
 	\item vorsorgliche Ersparnis: abhängig von der dritten Ableitung der Nutzenfunktion
 \end{itemize} Allgemeinere Nutzenfunktionen entkoppeln die drei Einflüsse. Beispiel: ~ Rekursive Nutzenfunktion (Epstein-Zin Nutzenfunktion) 
 

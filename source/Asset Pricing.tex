@@ -166,7 +166,7 @@ Man findet demnach die Asset Pricing Theorie oft für zwei Grundlegende Aspekte:
 \section{Kernprinzipien der Finanzwirtschaft}
 Bewertung fußt auf den Kernprinzipien der Finanzwirtschaft:
 \begin{itemize}
-	\item \textbf{Primat der Zahlungen}: für eine Entscheidung sind allein Zahlung (oder Zahlungsäquivalente) relevant; dies wird manchmal auch \textit{Dominance} genannt.
+	\item \textbf{Primat der Zahlungen}: für eine Entscheidung sind allein Zahlung (oder Zahlungsäquivalente) relevant; dies wird in der Literatur manchmal auch als \textit{Dominance} bezeichnet.
 	\item \textbf{Zeitwert des Geldes}: der Wert einer Zahlung hängt davon ab, wann sie erfolgt
 	\item \textbf{Ertrag vs. Risiko}: bei vielen Entscheidungen ist eine Abwägung zwischen Ertrag und Risiko zu treffen.
 	\item \textbf{Aggregation durch Märkte}: Wertpapiermärkte aggregieren Präferenzen und Informationen
@@ -191,13 +191,9 @@ Typische Anwendungen enthalten beide Aspekte und der Anteil zu welchem man den e
 
 \section{Bewertungsprinzip}
 Asset Pricing liegt eine einfach Grundidee zugrunde:
-$$ \textit{Preise entsprechen erwarteten diskontierten Zahlungen} $$ \smallskip
+$$ \textit{Preise entsprechen erwarteten diskontierten Zahlungen} $$ 
 
-\textbf{Zahlungsstrom}: Zukünftige unsichere Zahlungen 
-\begin{itemize}
-	\item Zeit- und Risikodimension
-\end{itemize}
-Bewertungsprinzip berücksichtigt Dimension durch geeignete
+\textbf{Zahlungsstrom}: Zukünftige unsichere Zahlungen müssen aufgrund deren Zeit- und Risikodimension bewertet werden. Unser Bewertungsprinzip berücksichtigt diese Dimensionen durch geeignete
 \begin{itemize}
 	\item Diskontierung
 	\item Erwartungsbildung
@@ -205,52 +201,69 @@ Bewertungsprinzip berücksichtigt Dimension durch geeignete
 
 \chapter{Stochastischer Diskont-Faktor Ansatz}
 
-\enquote{Asset pricing theory all stems from one simple concept, presented in the first page of the first chapter of this book: \textbf{price equals expected dicounted payoff}. The rest is elaboration, special cases, and a closet full of tricks that make the central equation useful from one or another application.} ~\\
-	\begin{tabular}{lr}
+\enquote{Asset pricing theory all stems from one simple concept, presented in the first page of the first chapter of this book: \textbf{price equals expected discounted payoff}. The rest is elaboration, special cases, and a closet full of tricks that make the central equation useful from one or another application.} ~\\ 
+	\begin{tabular}{lr} ~\\
   		\hspace{6.35cm} & \textit{Quelle: John H. Cochrane, Asset Pricing, S. xiii}
-	\end{tabular} ~\medskip
+	\end{tabular} ~\\ ~\bigskip
 
-Fragestellung: Gegebener Zahlungsstrom (z.B. Dividenden, Zinsen, Auszahlungen von Derivaten, Rückflüsse aus Investitionen, $\dotsc$)
+Bei einem gegebenen Zahlungsstrom (z.B. Dividenden, Zinsen, Auszahlungen von Derivaten, Rückflüsse aus Investitionen, $\dotsc$) ergeben sich für uns die folgenden Fragestellungen: 
 \begin{itemize}
 	\item Welchen Wert besitzt der Zahlungsstrom?
-	\item Wie wirken Zeit und Risiko
+	\item Wie wirken sich Zeit und Risiko auf den Wert aus?
 	\item Wie ändert sich Wert, wenn sich Ökonomie verändert? (Risikomanagement)
 \end{itemize}
-Einfacher formaler Rahmen:
+~\\
+Wir betrachten dies in einem einfachen formaler Rahmen:
 \begin{itemize}
-	\item zukünftige (unsichere) Zahlung $x_{t+1}$
+	\item gegeben: zukünftige (unsichere) Zahlung $x_{t+1}$
 	\item gesucht: Heutiger Wert $p_t$
 \end{itemize} ~\newpage
 
 \section{Präferenzen der Investoren}
 
-Idee: Investor trifft wirtschaftliche Entscheidungen mit dem Ziel, möglichst günstigen Konsumstrom zu erreichen. ~\bigskip
+Zinsrate korrelieren mit dem erwarteten marginalen Nutzenwachstum, denn es macht Sinn z.B. bei hohen Zinsen möglichen Konsum auszusetzen und zu sparen, in Bonds zu investieren und den Konsum auf die Zukunft zu verschieben. Die Risikokorrektur des Wertes eines Assets sollte außerdem von der Kovarianz der Auszahlung mit den marginalen Nutzen bzw. Konsum zusammenhängen, denn ein Asset welches in ökonomisch schlechteren Zeiten mehr auszahlt wird besser bewertet, als eins welches auf ökonomisch gute Zeiten baut. ~\\
+Hier ist marginaler Nutzen, und nicht Konsum, das grundlegende Maß für die Einstellung von Nutzern. Betrachtet man unter anderem das Konsumlevel eines Nutzers, so sieht man, dass dies niedrig sein kann, wenn der marginale Nutzen hoch ist. Also könnte man davon ausgehen, dass der Konsum als Indikator für den marginalen Nutzen verwendet werden kann. Das Konsumlevel ist auch niedrig, und in diesem fall der marginale Nutzen auch hoch, wenn die anderen Assets des Investors schlecht performen. Aus diesem Grund gehen wir davon aus, dass die Preise von Assets die eine positive Kovarianz mit einem Marktindex besitzen niedrig ist. ~\\
 
-Formal über Nutzenfunktionen:
-	$$ U(c_t, c_{t+1}) = u(c_t) + \beta \cdot \mathbb{E}_t\big[ u\left(c_{t+1}\right) \big] $$
-\begin{description}
-	\item $c_t =$ Konsum in $t$
-	\item $c_{t+1} =$ Konsum in $t+1$ 
-\end{description}
 
-Plausible Annahmen bezüglich Eigenschaften von Nutzenfunktionen
+Also fangen wir mit der grundlegenden Idee an: der Investor trifft wirtschaftliche Entscheidungen mit dem Ziel, möglichst günstigen Konsumstrom zu erreichen. Formal erfolgt dies über die Nutzenfunktionen (additiv und separabel):
+	$$ U(c_t, c_{t+1}) = u(c_t) + \beta \cdot \mathbb{E}_t\left[ u\left(c_{t+1}\right) \right], $$
+wobei $c_t =$ Konsum in $t$ und $c_{t+1} =$ Konsum in $t+1$ beschreibt. $\beta$ stellt den subjektiven Diskontfaktor dar, denn im Allgemeinen ist es relevant, wann die Zahlung stattfindet; man kann sich dies auch als einen ungeduldigen Investor vorstellen. Der Erwartungswert muss gebildet werden, da der Konsum in $t+1$ unsicher und damit eine Zufallsvariable ist. 
 
-\begin{description}
-	\item \textit{positiver Grenznutzen}: Nutzen wächst, wenn Konsum in beliebigem Zeitpunkt wächst, d.h. \enquote{mehr ist besser als weniger} (nicht gesättigte Investoren)
-	\item \textit{abnehmender Grenznutzen}: Je höher der Konsum in einem Zeitpunkt, desto geringer ist der durch zusätzliche Konsumeinheit erzeugte Nutzenzuwachs
-\end{description} % todo grafische Darstellung der Nutzenfunktion
+\newpage
 
-Nutzenfunktion bildet Ungeduld und Risikoaversion der Investoren ab:
+Plausible Annahmen bezüglich der Eigenschaften von solchen Nutzenfunktionen wären
+\begin{itemize}
+	\item \textbf{positiver Grenznutzen} ($u' > 0$): Nutzen wächst, wenn Konsum in beliebigem Zeitpunkt wächst, d.h. \enquote{mehr ist besser als weniger} (nicht gesättigte Investoren)
+	\item \textbf{abnehmender Grenznutzen} ($u'' < 0$): Je höher der Konsum in einem Zeitpunkt, desto geringer ist der durch zusätzliche Konsumeinheit erzeugte Nutzenzuwachs
+\end{itemize} 
 
-\begin{description}
-	\item \textit{Ungeduld}: $\beta < 1$ erfasst Präferenz für frühere Zahlungen subjektive Diskontierung
-	\item \textit{Risikoaversion}: zukünftiger Konsum $c_{t+1}$ unsicher, daher $\mathbb{E}_t \big[ u(c_{t+1}) \big]$. Krümmung der Nutzenfunktion $u$ zentral. ~\\
-		Beispiel: 50/50 Wetter
-		$$ \mathbb{E} \big[ u(c) \big] = 0.5 \cdot u ( \overline{c} + x ) + 0.5 \cdot u ( \overline{c} - x ) $$
-		$u$ konkav $\Rightarrow$ Wette vermeiden
-\end{description} % todo grafische Darstellung der 50%50 Wette
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.2725]{img/p17}
+\end{figure*}
 
-Gesamtnutzenfunktion $U(c_t, c_{t+1})$ am einfachsten über Nutzenindifferenzkurven darstellbar: % todo grafische Darstellung
+Die Nutzenfunktion bildet Ungeduld und Risikoaversion der Investoren ab:
+
+\begin{itemize}
+	\item \textbf{Ungeduld}: $\beta < 1$ erfasst Präferenz für frühere Zahlungen subjektive Diskontierung
+	\item \textbf{Risikoaversion}: zukünftiger Konsum $c_{t+1}$ ist unsicher, daher muss bei dessen Nutzen der Erwartungswert $\mathbb{E}_t \big[ u(c_{t+1}) \big]$ betrachtet werden. Hierbei ist die Krümmung der Nutzenfunktion $u$ zentral, wie im folgenden Beispiel verdeutlich wird.
+\end{itemize} 
+
+\begin{beispiel}[50/50 Wette] ~\\
+	Für einen Nutzer sei mit Wahrscheinlichkeit $0.5$ höher $\overline{c} + x$ oder niedriger $\overline{c} - x$ Konsum zu erwarten. Der Nutzen aus dieser unsicheren Situation ergibt sich damit zu
+		$$ \mathbb{E} \big[ u(c) \big] = 0.5 \cdot u ( \overline{c} + x ) + 0.5 \cdot u ( \overline{c} - x ). $$
+	Da die Nutzenfunktion $u$ konkav ist, würde der Investor die Wette meiden, da $\mathbb{E}\left[ u\left(c + X\right) \right] < u\left(\mathbb{E}\left[c+ X\right]\right)  = u \left( \overline{c} \right)$.
+\end{beispiel} 
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.2725]{img/p18}
+\end{figure*}
+
+~\newpage
+
+Der Gesamtnutzenfunktion $U(c_t, c_{t+1})$ ist am einfachsten über Nutzenindifferenzkurven darstellbar (streng konvex, da abnehmender Grenznutzen; linear, wenn keine Risikoaversion vorliegt): 
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.4]{img/p19}
+\end{figure*}
 
 \begin{itemize}
 	\item Alle Punkte auf einer Kurve weisen denselben Nutzen auf.
@@ -258,46 +271,53 @@ Gesamtnutzenfunktion $U(c_t, c_{t+1})$ am einfachsten über Nutzenindifferenzkur
 	\item Iso-Nutzenlinien verlaufen (streng) konvex. $\rightarrow$ folgt aus abnehmendem Grenznutzen
 	\item Aversion gegen intertemporale Substitution
 \end{itemize}
-
+~\newpage
 \section{Beispiele für Nutzenfunktionen}
-
-\textbf{Power-Nutzenfunktion}
-	$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma} $$
+Zwei zentrale Beispiele für Nutzenfuntionen, die die obigen Anforderungen erfüllen sind:
 \begin{itemize}
-	\item $- c \frac{u''(c)}{u'(c)} = \gamma$: Konstante relative Risikoaversion
-	\item strebt für $\gamma \rightarrow 1$ gegen Log-Nutzenfunktion
+	\item \textbf{Power-Nutzenfunktion}
+			$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma} $$
+			Für diese Nutzenfunktion gilt:
+		\begin{itemize}
+			\item die Ableitungen sind
+				\begin{align*}
+					u' & = c^{-\gamma} > 0 \\
+					u'' & = - \gamma \cdot c ^{-\gamma - 1} < 0
+				\end{align*}
+			\item somit ist
+				$$- c \frac{u''(c)}{u'(c)} = \gamma, $$
+				d.h. es liegt eine konstante relative Risikoaversion vor.
+			\item sie streben für $\gamma \rightarrow 1$ gegen Log-Nutzenfunktion
 		$$ u(c) = \ln(c) $$
+		\end{itemize}
+	\item \textbf{Quadratische Nutzenfunktion}
+			$$ u(c) = - \frac{1}{2} \left( \overline{c} - c \right)^2, \quad c < \overline{c} $$
+			\begin{figure*}[h!] \centering
+				\includegraphics[scale=0.4]{img/p20}
+			\end{figure*}
 \end{itemize}
 
-\textbf{Quadratische Nutzenfunktion}
-	$$ u(c) = - \frac{1}{2} \left( \overline{c} - c \right)^2, \quad c < \overline{c} $$
+~\newpage
+\section{Zentrale Bewertungsbeziehung}
 
-\section{Zentrale Bewertungsbeziegung}
-
-\begin{itemize}
-	\item Investor konsumiert $c_t, c_{t+1}$ und kann beliebigen Anteil $\xi$ der Zahlung $x_{t+1}$ kaufen oder verkaufen
-	\item Kalkül des Investors:
-		$$ \max_{\xi} u(c_t) + \beta \mathbb{E}_t \big[ u(c_{t+1}) \big] \text{ u.d.N. } $$
+Ein Investor konsumiert in den zwei betrachteten Perioden $c_t, c_{t+1}$ und kann einen beliebigen Anteil $\xi$ der Zahlung $x_{t+1}$ kaufen oder verkaufen. Seien $e_t$, $e_{t+1}$ die Ausgangslevel an Konsum die der Investor ohne $x$ kaufen würden, z.B. festes Einkommenslevel vor Investitionen. Das Kalkül des Investors lautet dann:
+		$$ \max_{\xi} u(c_t) + \beta \mathbb{E}_t \big[ u(c_{t+1}) \big] $$
+	unter den Nebenbedingungen: 
 		\begin{align*}
 			c_{t} & = e_t - p_t \xi \\
 			c_{t+1} & = e_{t+1} + x_{t+1} \xi
 		\end{align*}
-	\item Bedingung erster Ordnung:
-		$$ p_t u'(c_t) = \mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big] $$
-	\item Investor kauft/verkauft solange bis Grenzosten = Grenzertrag
-\end{itemize} \newpage
+Die Bedingung erster Ordnung ist damit:
+	$$ p_t u'(c_t) = \mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big] $$
+Diese Gleichung stellt die gewöhnliche marginale Bedingung für ein Opzimum dar: $p u'(c_t)$ ist der Verlust des Nutzens den ein Investor trägt falls er eine weitere Einheit kauft; $\mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big]$ ist der Zuwachs in diskontiertem, erwartetem Nutzen den der Investor von einem zusätzlichen Payoff in $t+1$ erhält. Die Bedinung erster Ordnung stellt also das Gleichgewicht dar, indem der Investor so lange kauft oder verkauft bis die Grenzkosten  gleich dem erwarteten Grenzertrag gleicht. ~\\
 
-Aus der first-order Bedingung folgt 
-\begin{itemize}
-	\item zentrale Bewertungsgleichung
-	$$ p_t = \mathbb{E}_t \big[ \beta \frac{u'(c_{t+1})}{u'(c_t)} x_{t+1} \big] $$
-	\item in vielen Fällen hilfreich, obgleich sowohl \\
-		\textbf{Preis} als auch \textbf{Konsum} endogene Größen!
-\end{itemize}
-
+Aus der first-order Bedingung folgt die zentrale Bewertungsgleichung
+	$$ p_t = \mathbb{E}_t \big[ \beta \frac{u'(c_{t+1})}{u'(c_t)} x_{t+1} \big], $$
+welche in vielen Fällen hilfreich ist, obgleich sowohl \textbf{Preis} als auch \textbf{Konsum} endogene Größen sind. 
+~\newpage
 \section{Stochastischer Diskontfaktor}
 
-Hilfreiche Separation:
+Wir teilen obige Gleichung des einfachen konsumbasierten Modells auf um folgende hilfreiche Separation zu erhalten:
 
 \begin{itemize}
 	\item Mit stochastischem Diskontfaktor
@@ -309,26 +329,21 @@ Hilfreiche Separation:
 Stochastische Diskontfaktor verallgemeinert übliches Verständnis von Diskontfaktoren:
 
 \begin{itemize}
-	\item Sichere Zahlung $x_{t+1}$: $p_t = \frac{1}{R^f} x_{t+1} = \frac{1}{1+r^f} x_{t+1}$
-	\item Risikoadjustierte Diskontierung: $p_t = \frac{1}{ER^i} \mathbb{E}_t \big[ x_{t+1} \big]$
+	\item Bei einer sicheren Zahlung $x_{t+1}$, sei $R^f$ der risikofreie Zinssatz und so ergibt sich der Zusammenhang: $$p_t = \frac{1}{R^f} x_{t+1} = \frac{1}{1+r^f} x_{t+1}$$
+	\item Risikobelastete Zahlungen können mit einer risikoadjustierte Diskontierung behandelt werden. Sei $R^i$ der risiko-angepasste, asset-spezifische Diskonfaktor, so ergibt sich: $$p_t = \frac{1}{\mathbb{E} \left[R^i \right]} \mathbb{E}_t \big[ x_{t+1}^i \big]$$
 \end{itemize}
 
-Beachte
+Beachte allerdings, dass in first-order Bedingung nur ein Diskontfaktor vorkam, unabhängig vom möglichen Risiko oder betrachteten Asset, d.h. der stochastischer Diskontfaktor $m_{t+1}$
 \begin{itemize}
-	\item stochastischer Diskontfaktor $m_{t+1}$
-		\begin{itemize}
-			\item ist zufällig
-			\item für alle Assets (bzw. Cash Flows $x_{t+1}$) identisch
-		\end{itemize}
-	\item Wie passt das mit der üblichen Vorstellung zusammen, dass riskantere Titel eine höhere Diskontierung erfordern?
+	\item ist zufällig, was in der Literatur auch stochastisch genannt wird, und
+	\item für alle Assets (bzw. Cash Flows $x_{t+1}$) identisch.
 \end{itemize}
-
-Interpretationen und alternative Bezeichnungen von $m_{t+1}$
+Wie passt das mit der üblichen Vorstellung zusammen, dass riskantere Titel eine höhere Diskontierung erfordern? Die Korrelation zwischen den zufälligen Teilen des Dikonfaktors $m$ und asset-spezifischen Payoffs $x^i$ korrigiert für das asset-spezifische Risiko. Neben bei, es gibt verschiedene Interpretationen und alternative Bezeichnungen für $m_{t+1}$, z.B.:
 \begin{itemize}
 	\item Grenzrate der Substitution: $m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)}$
 	\item Pricing Kernel, Dichte der Zustandspreise
 \end{itemize}
-
+~\newpage
 \section{Beispiele für Preise und Zahlungen}
 
 \begin{enumerate}[label=\arabic*\upshape.]

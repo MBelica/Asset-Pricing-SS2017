@@ -569,13 +569,13 @@ $$ 1= \mathbb{E} \left[ m R^i \right] = \mathbb{E} \left[ m R^j \right] $$
 \begin{itemize}
 	\item Obgleich erwartete Returns i.d.R. verschieden sind, ist der erwartete diskontierte Returns immer gleich 1!
 	\item Weiter gilt $1 = \mathbb{E}[m] \mathbb{E}[R^i] + \cov(m, R^i)$
-		$$ \iff R^f = \frac{1}{E(m)} = \mathbb{E}(R^i) + \frac{\cov(m, R^i)}{\mathbb{E}(m)} $$
+		$$ \iff R^f = \frac{1}{E(m)} = \mathbb{E} \left[R^i \right] + \frac{\cov(m, R^i)}{\mathbb{E}(m)} $$
 		$$ \Rightarrow \mathbb{E}[R^i] - R^f = - R^f \cov(m,R^i) $$ % todo Nachrechnen, stimmt der Nenner im Folgenden?
-	\item $m = \beta u'(c_{t+1}) /u'(c_t)$ eingesetzt liefert
-		$$ \mathbb{E}[R^i] - R^f = -\frac{\cov(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1})]} $$
+	\item $m = \frac{\beta u'(c_{t+1})}{u'(c_t)}$ eingesetzt liefert
+		$$ \mathbb{E}\left[R^i \right] - R^f = - R^f \frac{\beta \cov(u'(c_{t+1}),R^i)}{u'(c_t)}  = -\frac{\cov(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1})]} $$
 \end{itemize}
 
-Aus der Überrenditendarstellung
+Aus der Überrenditendarstellung 
 		$$ \mathbb{E}[R^i] - R^f = -\frac{\cov(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1})]} $$
 folgt:
 \begin{itemize}
@@ -655,7 +655,7 @@ $$ \mathbb{E} \left[ R^i \right] = R^f + \beta_i \cdot \lambda = R^f + \beta_i \
 
 Formal: $\beta_i = \frac{\cov(R^i, R^M)}{\operatorname{var}(R^M)}$ mit $R^M$ als Marktrendite. ~\\
 
-Umformung der Return-Beziehung $\mathbb{E}[R^i] ) R^f - R^f \cov(m, R^i)$ führt zu
+Umformung der Return-Beziehung $\mathbb{E}[R^i] = R^f - R^f \cov(m, R^i)$ führt zu
 
 % Lecture Notes - End 
 % Excercise - Start

@@ -93,7 +93,7 @@
 %% Template
 \makeatletter%
 \DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
-    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\cov}{\operatorname{cov}}\newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
+    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\var}{\operatorname{var}} \newcommand{\cov}{\operatorname{cov}}\newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
 	% Titlepage
 	\def\maketitle{ \begin{titlepage} 
 			~\vspace{3cm} 
@@ -525,7 +525,6 @@ Warum?
 		\end{tabular}
 	\end{figure*} 
 
-
 	Für welches Wertpapier sind Sie bereit mehr zu bezahlen?	
 \end{beispiel}
 
@@ -571,8 +570,8 @@ $$ 1= \mathbb{E} \left[ m R^i \right] = \mathbb{E} \left[ m R^j \right] $$
 	\item Weiter gilt $1 = \mathbb{E}[m] \mathbb{E}[R^i] + \cov(m, R^i)$
 		$$ \iff R^f = \frac{1}{E(m)} = \mathbb{E} \left[R^i \right] + \frac{\cov(m, R^i)}{\mathbb{E}(m)} $$
 		$$ \Rightarrow \mathbb{E}[R^i] - R^f = - R^f \cov(m,R^i) $$ % todo Nachrechnen, stimmt der Nenner im Folgenden?
-	\item $m = \frac{\beta u'(c_{t+1})}{u'(c_t)}$ eingesetzt liefert
-		$$ \mathbb{E}\left[R^i \right] - R^f = - R^f \frac{\beta \cov(u'(c_{t+1}),R^i)}{u'(c_t)}  = -\frac{\cov(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1})]} $$
+	\item $m = \frac{\beta u'(c_{t+1})}{u'(c_t)} \iff R^f = \frac{u'(c_t)}{\beta \cdot \mathbb{E}\left[  u'(c_{t+1})\right]}$ eingesetzt liefert
+		$$ \mathbb{E}\left[R^i \right] - R^f = - R^f \frac{ \cov(\beta u'(c_{t+1}),R^i)}{u'(c_t)} = -  \frac{ \cov( u'(c_{t+1}),R^i)}{\frac{u'(c_t)}{R^f \beta}} = -\frac{\cov(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1})]} $$
 \end{itemize}
 
 Aus der Überrenditendarstellung 
@@ -619,8 +618,6 @@ Um das zu untersuchen, benutzen wir die einfache Idee, $x$ in zwei Komponenten z
 	\item \textbf{unsystematische Komponente}: Zum Diskontfaktor orthogonale Komponente $\epsilon$
 \end{itemize}
 
-
-
 Intuitiv:
 \begin{itemize}
 	\item Lineare Regression ohne Konstante $x = bm + \epsilon$ führt auf mit $m$ perfekt korrelierte Komponente $bm$ und Restgröße $\epsilon$ mit $E[m\epsilon] = 0$
@@ -657,8 +654,131 @@ Formal: $\beta_i = \frac{\cov(R^i, R^M)}{\operatorname{var}(R^M)}$ mit $R^M$ als
 
 Umformung der Return-Beziehung $\mathbb{E}[R^i] = R^f - R^f \cov(m, R^i)$ führt zu
 
+	$$ \mathbb{E}\left[ R^i \right] = R^f + \underbrace{\left( \frac{\cov \left( m, R^i \right)}{\var \left( m \right)} \right)}_{\eqqcolon \beta_{i,m}} \underbrace{\left( - \frac{\var \left( m \right)}{\mathbb{E} \left[ m \right]} \right)}_{\eqqcolon \lambda_{m}},  $$
+wobei $\beta_{i,m} =$ normierte Kovarianz (Risikomenge, WP-spezifisch), $\lambda_m$ (nicht WP-spezifisch), mit
+\begin{itemize}
+	\item $\beta_{i,m} = \frac{\cov \left( m, R^i \right)}{\var \left( m \right)}$ (Risikomenge)
+	\item $\lambda_m = - \frac{\var \left( m \right)}{\mathbb{E} \left[ m \right]}$ (Preis des Risikos)
+\end{itemize}
+$$ \Rightarrow \mathbb{E} \left[ R^i \right] = R^f + \beta_{i, m} \lambda_m $$
+CAPM-ähnliche lineare Rendite/Risiko-Beziehung mit
+\begin{itemize}
+	\item Risikomenge: Normierte Kovarianz mit Diskontfaktor (wertpapierspezifisch)
+	\item Preis des Risikos (für alle Assets identisch) abhängig von Volatilität des Diskontfaktors
+\end{itemize}
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.4]{img/p47-1}
+\end{figure*}
+
+Betrachte wieder die Approximation für $m$ aus dem Konsummodell (beachte: hier ist das Konsumwachstum $\Delta c_{t+1}$ stochastisch)
+	$$ m_{t+1} \approx 1 - \delta - \gamma \Delta c_{t+1} \Rightarrow \mathbb{E} \left[ R^i \right] \approx R^f + \beta_{i, \Delta c} \lambda_c $$
+Wieder CAPM-ähnliche lineare Rendite/Risiko-Beziehung mit
+\begin{itemize}
+	\item Risikomenge: Normierte Kovarianz mit Konsumwachstum (wertpapierspezifisch)
+	\item Preis des Risikos $\lambda_c = \frac{\gamma \var \left( \Delta c \right)}{\mathbb{E} \left[ m \right]} = \gamma \var \left( \Delta c \right) R^f$ abhängig von Risikoaversion und Volatilität des Konsums
+\end{itemize}
+Erwartete Rendite muss umso höher sein,
+\begin{itemize}
+	\item je riskanter die Zahlung gemessen durch $\beta$
+	\item je risikoaverser Akteure sind ($\gamma$) und je riskanter Umfeld ($\var \left( \Delta c \right)$)
+\end{itemize}
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.6]{img/p47-2}
+\end{figure*}
+
+Je höher $\gamma$ (risikoaverser), desto höher Steigung; je höher Konsumwachstum, desto höher Steigung.
+
+\subsubsection*{Zusammenfassung}
+
+Die Zentrale Bewertungsbeziehung
+	$$ p^i = \mathbb{E} \left[ m \cdot x^i \right], $$
+für Returns angewendet bedeutet, dass
+	$$ 1 = \mathbb{E} \left[ m \cdot R^i \right]. $$
+Dies liefert in wenigigen Schritten die lineare Return/Beta-Beziehung bzgl. des Diskontfaktors $m$, mit $\beta_{i, m} = \frac{\cov \left(m, R^i \right)}{\var(m)}$
+	$$ \mathbb{E} \left( R^i \right) = R^f + \beta_{i,m} \cdot \lambda_m \quad \includegraphics[scale=0.5]{img/p47-3} $$
+
+bzw. (über Approximation von $m$)
+$$ \mathbb{E} \left( R^i \right) = R^f + \beta_{i, \Delta c} \cdot \lambda_c \quad \includegraphics[scale=0.5]{img/p47-4} $$
+lineare Return/Beta-Beziehung bzgl des Konsumwachstums $\Delta c$, mit $\beta_{i, \Delta c} = \frac{\cov \left(\Delta c, R^i \right)}{\var(\Delta c)}$
+\textbf{keine} Aussage über: was ist handelbar, Nutzenfunktion $\rightarrow$ hier ganz allgemeingültig. CAMP: welche WPs gibt es, Normalverteilung... (viele Annahmen), ABER: empirische Proxies für $\beta_i$ und $m \rightarrow$ Anwendbarkeit!
+
+\newpage
+
+\section{Der $\mu$-$\sigma$-Rand}
+
+Häufig betrachten wir
+\begin{itemize}
+	\item Erwartungswerte $\mu$ (als Renditemaß)
+	\item Varianzen $\sigma^2$ (bzw. $\sigma$ als Risikomaß)
+\end{itemize}
+der Renditen. Welche Rendite/Risiko-Kombinationen sind überhaupt erreichbar? Für die Rendite $R^i$ gilt ($\rho$ ist die Korrelation):
+	$$ 1 = \mathbb{E} \left[ m R^i \right] = \mathbb{E}[m] \mathbb{E} \left[ R^i \right] + \underbrace{\rho_{m, R^i} \sigma(R^i) \sigma(m)}_{\cov(m, R^i)} $$
+	$$ \iff R^f = \frac{1}{\mathbb{E}[m]} = \mathbb{E} \left[ R^i \right] + \rho_{m, R^i} \sigma( R^i) \cdot \frac{\rho(m)}{\mathbb{E}[m]} $$
+bzw.
+	$$ \mathbb{E} \left[ R^i \right] =  R^f  - \rho_{m, R^i} \cdot \sigma( R^i) \cdot \frac{\rho(m)}{\mathbb{E}[m]}. $$
+~\\
+Da $\rho_{m, R^i} \leq 1$ folgt 
+	$$ \left| \mathbb{E} \left[ R^i \right] - R^f \right| \leq \sigma (R^i) \frac{\sigma(m)}{\mathbb{E}[m]} $$
+Mittelwert/Standardabweichung-Kombinationen liegen zwingend in kegelförmigem Bereich	
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.5]{img/p49}
+\end{figure*}	
+	
+Rand der Fläche: wieviel Return ist bei gegebener Volatilität im Mittel möglich? Alle Rand-Returns sind perfekt korreliert mit dem Diskontfaktor $m$
+\begin{itemize}
+	\item oberer Rand $\rho_{m, R^i} = -1$ bzw. $\rho_{c, R^i} = +1 \Rightarrow$ maximal riskant, maximaler Ertrag
+	\item unterer Rand. $\rho_{m, R^i} = +1$ bzw. $\rho_{c, R^i} = -1 \Rightarrow$ bestmögliche Versicherung gegen Konsumschwankungen
+\end{itemize}	
+Alle Rand-Returns sind perfekt miteinander korreliert. ~\\
+
+Betrachte nun beliebige Return $R^i$. Anstatt $\beta$-Repräsentation
+	$$ \mathbb{E}\left[ R^i \right] = R^f + \left( \frac{\cov \left( m, R^i \right)}{\var(m)} \right) \left( - \frac{\var(m)}{\mathbb{E}[m]} \right) = R^f + \beta_{i, m} \lambda_m $$
+bezogen auf stochastischen Diskontfaktor. Neue $\beta$-Repräsentation bezogen auf beliebigen (effizienten) Rand-Return $R^{mv}$ ($\neq R^f$) möglich:	
+	$$ \mathbb{E} \left[ R^i \right] = R^f + \left( \frac{\cov \left( R^{mv}, R^i \right)}{\var \left( R^{mv} \right)} \right) \left( \mathbb{E} \left[ R^{mv} \right] - R^f \right) = R^f + \beta_{i, mv} \lambda $$
+(single-beta Darstellung bzgl. beliebigem effizienten Rand-Return). ~\\
+
+Begründung:
+\begin{description}
+	\item Schritt 1: Selle stochastischen Diskontfaktor $m$ aus risikolosem Return $R^f$ und beliebigem effizienten Rand-Return $R^{mv}$ dar (Beziehung von $m$ und Rand-Return).
+	\item Schritt 2: Setze gefundene Beziehung in ursprüngliche $\beta$-Repräsentation ein und leite daraus neue Darstellung ab:
+		$$ \mathbb{E} \left[ R^i \right] = R^f + \beta_{i, mv} \lambda $$
+\end{description}
+\begin{description}
+	\item Ergebnis 1 (wichtig!): Jeder beliebige effiziente Rand-Return $R^{mv}$ ($\neq R^f$) enthält die gesamt Information, die zur Bewertung notwendig ist (genau wie $m$!)
+	\item Mittelwert/Standardabweichungs-Kombinationen beliebiger Returns liegen innerhalb des gesamten kegelförmigen Bereichs. Mittelwert/beta-Kombinationen beliebiger Returns liegen auf einer Geraden.
+\end{description}
+\newpage
+\textbf{Formale Ableitung (Schritt 1):} ~\\
+Betrachte zunächst die Zahlung $R^m = \frac{m}{\mathbb{E}\left[ m^2 \right]}$
+\begin{itemize}
+	\item Was ist der Preis $p \left( R^m \right)$?
+		$$ p = \mathbb{E} \left[ m \cdot R^m \right] = \mathbb{E} \left[ m \cdot \frac{m}{\mathbb{E} \left[ m^2 \right]} \right] = 1 $$
+	\item Wie lässt sich $R^m$ interpretieren? $R^m$ lässt sich als Return interpretieren $\hookrightarrow$ liegt im Kegel.
+\end{itemize} 
+Konstruiere nun $R^m$ aus risikolosem Return $R^f$ und beliebigem effizienten Rand-Return $R^{mv}$ ($w$: Gewicht):
+$$ R^m = w R^f + (1- w) R^{mv} $$
+$$ \Rightarrow w = \frac{\mathbb{E} \left[ R^m \right] - \mathbb{E} \left[ R^{mv} \right]}{R^f - \mathbb{E} \left[ R^{mv} \right]}, ~ 1-w = \frac{R^f - \mathbb{E} \left[ R^{m} \right]}{R^f - \mathbb{E} \left[ R^{mv} \right]} $$
+~\\
+\textbf{Formale Ableitung (Schritt 2):} ~\\
+Aus Schritt 1 folgt 
+	$$ m = \mathbb{E} \left[ m^2 \right] w R^f + \mathbb{E} \left[ m^2 \right] \left( 1 - w \right) R^{mv} $$
+(was eine Beziehung zwischen $m$ und $R^{mv}$ darstellt). Einsetzen in
+	$$ \mathbb{E} \left[ R^i \right] = R^f + \left( \frac{\cov \left(m, R^i \right)}{\var \left( m \right)} \right) \left( - \frac{\var(m)}{\mathbb{E} [m]} \right) $$
+führt wegen 
+\begin{align*}
+	\cov \left( m, R^i \right) & = \mathbb{E} \left[ m^2 \right] (1 - w) \cov \left( R^{mv}, R^i \right) \\
+	\var (m) & = \left( \mathbb{E} \left[ m^2 \right] \left(1 - w \right) \right)^2 \var \left( R^{mv} \right)
+\end{align*}
+auf
+$$ \mathbb{E} \left[ R^i \right] = R^f + \underbrace{ \left( \frac{\cov \left( R^{mv}, R^i \right)}{ \var \left( R^{mv} \right)} \right)}_{= \beta_{i,mv}} \left( \mathbb{E}\left[ R^{mv} \right] - R^f \right) $$
+
+
 % Lecture Notes - End 
-% Excercise - Start
+% todo Lecture-Exercise-Break
+% Exercise - Start
 
 \chapter{Übungen}
 
@@ -678,7 +798,7 @@ Umformung der Return-Beziehung $\mathbb{E}[R^i] = R^f - R^f \cov(m, R^i)$ führt
 		\textit{Beachte: \enquote{Im schlechten Zustand} bezieht sich eigentlich relativ auf den Vergleich zu vorhergehenden Periode.}
 	\item Eine Power-Nutzenfunktion hat bei uns die allgemeine Form:
 		$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma} $$
-		Daraus folgt $u'(c) = c^{-\gamma}$ und damit: % todo -gamma scheint mir im folgenden nicht zu sitmmen
+		Daraus folgt $u'(c) = c^{-\gamma}$ und damit: % todo -gamma scheint mir im folgenden nicht zu stimmen
 		$$ m_{t+1} = \beta \frac{c_{t+1}^{\gamma}}{c_t^{-\gamma}} = \beta \left( \frac{c_t}{c_{t+1}} \right)^\gamma $$
 		Ist $\gamma > 0 \Rightarrow$ je größer der Konsum in einem Zustand in $t+1$ ist, desto kleiner $m_{t+1}$ und umgekehrt
 	\item $p_A > p_B$ da Wertpapier $A$ im ökonomisch schlechteren Zustand mehr auszahlt und der Erwartungswert der Auszahlung beider Wertpapiere gleich ist.

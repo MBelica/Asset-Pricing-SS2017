@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  27 JUN 2017 03:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.20)  27 JUN 2017 03:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1391,8 +1391,8 @@ Overfull \hbox (31.35812pt too wide) in paragraph at lines 168--169
  []
 
 
-Overfull \hbox (5.39854pt too wide) in paragraph at lines 172--173
-[]\T1/lmr/bx/n/12 Arbitragefreiheit\T1/lmr/m/n/12 : Preise an kom-peta-tiven Wert-pa-pier-märk-ten ze-ich-nen sich durch
+Overfull \hbox (2.78755pt too wide) in paragraph at lines 172--173
+[]\T1/lmr/bx/n/12 Arbitragefreiheit\T1/lmr/m/n/12 : Preise an kom-pet-i-tiven Wert-pa-pier-märk-ten ze-ich-nen sich durch
  []
 
 [3] [4]
@@ -1622,7 +1622,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  73i,16n,81p,10412b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Asset-Pricing-SS2017/source/.texpadtmp/Asset Pricing.pdf" (41 pages, 946722 bytes).
+Output written on "/Users/martin/Dropbox/Skripte/Asset-Pricing-SS2017/source/.texpadtmp/Asset Pricing.pdf" (41 pages, 946720 bytes).
 PDF statistics:
  439 PDF objects out of 1000 (max. 8388607)
  340 compressed objects within 4 object streams

@@ -146,7 +146,7 @@ Es gibt zwei Aspekte die entscheidend in den Wert eines Assets einfließen. Einm
 	\item Ist eine Anpassung der Theorie erforderlich, so greift der Teil der positive Theorie an
 \end{itemize}
 
-Gerade der letzte Aspekt ist ein Grund für die Beliebtheit und vielzahligen praktischen Anwendung von Asset-Pricing. Denn eine \textbf{Fehlbewertung am Markt} ermöglicht eine \textbf{Handelsstrategie} (Normative Theorie). ~\bigskip
+Gerade der letzte Aspekt ist ein Grund für die Beliebtheit und vielzähligen praktischen Anwendung von Asset-Pricing. Denn eine \textbf{Fehlbewertung am Markt} ermöglicht eine \textbf{Handelsstrategie} (Normative Theorie). ~\bigskip
 
 Diese auftretende Fehleinschätzung von Wertpapieren stammt unter anderem aus der oftmals vorherrschenden Asymmetrie von Informationen an einem Markt. Häufig sind keine Marktpreise für Ansprüche auf zukünftige Zahlungen vorhanden
 \begin{itemize}
@@ -169,7 +169,7 @@ Bewertung fußt auf den Kernprinzipien der Finanzwirtschaft:
 	\item \textbf{Zeitwert des Geldes}: der Wert einer Zahlung hängt davon ab, wann sie erfolgt
 	\item \textbf{Ertrag vs. Risiko}: bei vielen Entscheidungen ist eine Abwägung zwischen Ertrag und Risiko zu treffen.
 	\item \textbf{Aggregation durch Märkte}: Wertpapiermärkte aggregieren Präferenzen und Informationen
-	\item \textbf{Arbitragefreiheit}: Preise an kompetativen Wertpapiermärkten zeichnen sich durch die Abwesenheit von Arbitrage aus
+	\item \textbf{Arbitragefreiheit}: Preise an kompetitiven Wertpapiermärkten zeichnen sich durch die Abwesenheit von Arbitrage aus
 \end{itemize}
 
 \section{Relative vs. absolute Bewertung}
@@ -276,7 +276,7 @@ Der Gesamtnutzenfunktion $U(c_t, c_{t+1})$ ist am einfachsten über Nutzenindiff
 ~\newpage
 
 \section{Beispiele für Nutzenfunktionen}
-Zwei zentrale Beispiele für Nutzenfuntionen, die die obigen Anforderungen erfüllen sind:
+Zwei zentrale Beispiele für Nutzenfunktionen, die die obigen Anforderungen erfüllen sind:
 \begin{itemize}
 	\item \textbf{Power-Nutzenfunktion}
 			$$ u(c) = \frac{c^{1-\gamma} - 1}{1 - \gamma} $$
@@ -313,7 +313,7 @@ Ein Investor konsumiert in den zwei betrachteten Perioden $c_t, c_{t+1}$ und kan
 		\end{align*}
 Durch Einsetzen der Nebenbedingungen, liefert Bedingung erster Ordnung für $\xi$ damit:
 	$$ p_t u'(c_t) = \mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big] $$
-Diese Gleichung stellt die gewöhnliche marginale Bedingung für ein Opzimum dar: $p u'(c_t)$ ist der Verlust des Nutzens den ein Investor trägt falls er eine weitere Einheit kauft; $\mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big]$ ist der Zuwachs in diskontiertem, erwartetem Nutzen den der Investor von einem zusätzlichen Payoff in $t+1$ erhält. Die Bedinung erster Ordnung stellt also das Gleichgewicht dar, indem der Investor so lange kauft oder verkauft bis die Grenzkosten  gleich dem erwarteten Grenzertrag gleicht. ~\\
+Diese Gleichung stellt die gewöhnliche marginale Bedingung für ein Optimum dar: $p u'(c_t)$ ist der Verlust des Nutzens den ein Investor trägt falls er eine weitere Einheit kauft; $\mathbb{E}_t \big[ \beta u'(c_{t+1}) x_{t+1} \big]$ ist der Zuwachs in diskontiertem, erwartetem Nutzen den der Investor von einem zusätzlichen Payoff in $t+1$ erhält. Die Bedingung erster Ordnung stellt also das Gleichgewicht dar, indem der Investor so lange kauft oder verkauft bis die Grenzkosten  gleich dem erwarteten Grenzertrag gleicht. ~\\
 
 Aus der first-order Bedingung folgt durch Umformung die zentrale Bewertungsgleichung
 	$$ p_t = \mathbb{E}_t \big[ \beta \frac{u'(c_{t+1})}{u'(c_t)} x_{t+1} \big], $$
@@ -336,7 +336,7 @@ Stochastische Diskontfaktor verallgemeinert übliches Verständnis von Diskontfa
 
 \begin{itemize}
 	\item Bei einer sicheren Zahlung $x_{t+1}$, sei $R^f = 1 + r^f$ der risikolose Brutto-Zinssatz und so ergibt sich der Zusammenhang: $$p_t = \frac{1}{R^f} x_{t+1} = \frac{1}{1+r^f} x_{t+1}$$
-	\item Risikobelastete Zahlungen können mit einer risikoadjustierte Diskontierung behandelt werden. Sei $R^i$ der risiko-angepasste, asset-spezifische Diskonfaktor, so ergibt sich: $$p_t = \frac{1}{\mathbb{E} \left[R^i \right]} \mathbb{E}_t \big[ x_{t+1}^i \big]$$
+	\item Risikobelastete Zahlungen können mit einer risikoadjustierte Diskontierung behandelt werden. Sei $R^i$ der risiko-angepasste, asset-spezifische Diskontfaktor, so ergibt sich: $$p_t = \frac{1}{\mathbb{E} \left[R^i \right]} \mathbb{E}_t \big[ x_{t+1}^i \big]$$
 \end{itemize}
 
 Beachte dass aufgrund der Diskontierung und des Bildens des Erwartungswertes, dass in first-order Bedingung nur ein Diskontfaktor $m$ vorkam, unabhängig vom möglichen Risiko oder betrachteten Asset, d.h. der stochastische Diskontfaktor $m_{t+1}$
@@ -448,7 +448,7 @@ Höhere Volatilität des Konsumwachstums (hohes $\sigma$)
 	\item führt zu niedrigeren Zinsen
 		\begin{itemize}
 			\item in unsicheren Zeiten spart man lieber vorsorglich (precautionary savings)
-			\item hohe Sparnachfrage reduziert Zinsen % todo stimmt das? Was sind sparnachfragen?
+			\item hohe Sparnachfrage reduziert Zinsen % todo stimmt das? Was sind Sparnachfragen?
 		\end{itemize}
 \end{itemize}
 
@@ -566,10 +566,10 @@ Betrachte nun Returns verschiedener Wertpapiere $i, j$
 Dann gilt
 $$ 1= \mathbb{E} \left[ m R^i \right] = \mathbb{E} \left[ m R^j \right] $$
 \begin{itemize}
-	\item Obgleich erwartete Returns i.d.R. verschieden sind, ist der erwartete diskontierte Returns immer gleich 1!
+	\item Obgleich erwartete Returns i.d.R. verschieden sind, ist der erwartete diskontierte Return immer gleich 1!
 	\item Weiter gilt $1 = \mathbb{E}[m] \mathbb{E}[R^i] + \cov(m, R^i)$
 		$$ \iff R^f = \frac{1}{E(m)} = \mathbb{E} \left[R^i \right] + \frac{\cov(m, R^i)}{\mathbb{E}(m)} $$
-		$$ \Rightarrow \mathbb{E}[R^i] - R^f = - R^f \cov(m,R^i) $$ % todo Nachrechnen, stimmt der Nenner im Folgenden?
+		$$ \Rightarrow \mathbb{E}[R^i] - R^f = - R^f \cov(m,R^i) $$
 	\item $m = \frac{\beta u'(c_{t+1})}{u'(c_t)} \iff R^f = \frac{u'(c_t)}{\beta \cdot \mathbb{E}\left[  u'(c_{t+1})\right]}$ eingesetzt liefert
 		$$ \mathbb{E}\left[R^i \right] - R^f = - R^f \frac{ \cov(\beta u'(c_{t+1}),R^i)}{u'(c_t)} = -  \frac{ \cov( u'(c_{t+1}),R^i)}{\frac{u'(c_t)}{R^f \beta}} = -\frac{\cov(u'(c_{t+1}), R^i)}{\mathbb{E}[u'(c_{t+1})]} $$
 \end{itemize}
@@ -824,7 +824,7 @@ $$ \mathbb{E} \left[ R^i \right] = R^f + \underbrace{ \left( \frac{\cov \left( R
 		\end{align*}
 		wobei $\cov(a, b) = \mathbb{E}[(a - \overline{a})(b - \overline{b})]$, mit $\overline{x} = \mathbb{E}[x]$, 
 	$$\Rightarrow p^A > p^B$$
-	\item Da die $\cov(\cdot, \cdot)$ negative sowie positive Werte annehmen kann, ergibt sich bei geeiegneten Werten für $\mathbb{E}(x_{t+1})$ und $R^f$ für manche Wertpapiere auch bei $\mathbb{E}(x_{t+1}) < 0$ ein positiven Preis. Beispiel: Versicherung
+	\item Da die $\cov(\cdot, \cdot)$ negative sowie positive Werte annehmen kann, ergibt sich bei geeigneten Werten für $\mathbb{E}(x_{t+1})$ und $R^f$ für manche Wertpapiere auch bei $\mathbb{E}(x_{t+1}) < 0$ ein positiven Preis. Beispiel: Versicherung
 \end{enumerate}
 
 \newpage
@@ -918,7 +918,7 @@ Gegeben ist eine Ökonomie mit zwei Zeitpunkten ($t$ und $t+1$) mit einem risiko
 			$$ \iff \mathbb{E}(R_{t+1}^i) = \R^f + \frac{\mathbb{E}(R^{mv} - R^f}{\operatorname{var}(R^{mv}} \cov(R^{mv}, R^i) $$
 			$$ \iff \mathbb{E}(R^i_{t+1}) = R^{f} + \underbrace{\frac{\cov(R^{mv}, R^{i}_{t+1})}{\operatorname{var}(R^{mv})}}_{\eqqcolon \beta_{i, mv}} \underbrace{\left( \mathbb{E}(R^{mv} - R^f \right)}_{\eqqcolon \lambda_{mv}} $$
 			$$ \iff \mathbb{E}(R^i_{t+1}) = R^f + \beta_{i, mv} \lambda_{mv} $$
-		\item Welche Annahme trift man oft in der parktischen Umsetzung dieser Bewertungsbeziehung
+		\item Welche Annahme trifft man oft in der praktischen Umsetzung dieser Bewertungsbeziehung
 			\begin{proof}
 				$R^{mv} =$ Rendite des Marktportfolios (z.B. Dax 30)
 			\end{proof}
@@ -941,7 +941,7 @@ Nehmen Sie Stellung zu folgenden Aussagen:
 		\end{proof}
 	\item Das CAPM kann nicht stimmen, da tatsächlich die Korrelation von zukünftigen Zahlung mit dem Konsumwachstum entscheidend für den Preis eines Wertpapiers ist nachgefragt.
 		\begin{proof}
-			Diese Aussage ist falsch. CAMP ist ein Spezialfall des konsumbasierten Asset Pricing Modells. Als Faktormodell nutzt das CAMP eine Approximation des aggregieren Nutzenwacstums
+			Diese Aussage ist falsch. CAMP ist ein Spezialfall des konsumbasierten Asset Pricing Modells. Als Faktormodell nutzt das CAMP eine Approximation des aggregieren Nutzenwachstums
 			$$ m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_{t})} = a + b' f_{t+1}. $$ 
 			Das CAMP-Modell approximiert also diesen Faktor linear und  stellt damit (vereinfacht) die Korrelation dar.
 		\end{proof}

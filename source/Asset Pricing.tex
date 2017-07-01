@@ -93,7 +93,7 @@
 %% Template
 \makeatletter%
 \DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}\def\Xint#1{\mathchoice
-    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\var}{\operatorname{var}} \newcommand{\cov}{\operatorname{cov}}\newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
+    {\XXint\displaystyle\textstyle{#1}} {\XXint\textstyle\scriptstyle{#1}} {\XXint\scriptstyle\scriptscriptstyle{#1}} {\XXint\scriptscriptstyle\scriptscriptstyle{#1}} \!\int} \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}} \def\dashint{\Xint-} \def\Yint#1{\mathchoice {\YYint\displaystyle\textstyle{#1}} {\YYYint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \lower1ex\hbox{$#2#3$}\kern-.46\wd0}} \def\YYYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}  \lower0.35ex\hbox{$#2#3$}\kern-.48\wd0}} \def\lowdashint{\Yint-} \def\Zint#1{\mathchoice {\ZZint\displaystyle\textstyle{#1}}{\ZZZint\textstyle\scriptscriptstyle{#1}} {}{} \!\int} \def\ZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}\raise1.15ex\hbox{$#2#3$}\kern-.57\wd0}} \def\ZZZint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$} \raise0.85ex\hbox{$#2#3$}\kern-.53\wd0}} \def\highdashint{\Zint-} \DeclareRobustCommand*{\onlyattoc}[1]{} \newcommand*{\activateonlyattoc}{ \DeclareRobustCommand*{\onlyattoc}[1]{##1} } \AtBeginDocument{\addtocontents{toc} {\protect\activateonlyattoc}} \newcommand{\var}{\sigma} \newcommand{\cov}{\operatorname{cov}}\newcommand{\RightArrow}{\xRightarrow[]{ ~ ~ }} \newcommand{\LeftArrow}{\xLeftarrow[]{ ~ ~ }} \newcommand{\rightArrow}{\xrightarrow[]{ ~ ~ }} \newcommand{\leftArrow}{\xleftarrow[]{ ~ ~ }}
 	% Titlepage
 	\def\maketitle{ \begin{titlepage} 
 			~\vspace{3cm} 
@@ -162,7 +162,7 @@ Man findet demnach die Asset Pricing Theorie oft für zwei Grundlegende Aspekte:
 	\item als wichtige Entscheidungsgrundlage
 \end{itemize}
 
-\section{Kernprinzipien der Finanzwirtschaft}
+\section*{Kernprinzipien der Finanzwirtschaft}
 Bewertung fußt auf den Kernprinzipien der Finanzwirtschaft:
 \begin{itemize}
 	\item \textbf{Primat der Zahlungen}: für eine Entscheidung sind allein Zahlung (oder Zahlungsäquivalente) relevant; dies wird in der Literatur manchmal auch als \textit{Dominance} bezeichnet.
@@ -172,7 +172,7 @@ Bewertung fußt auf den Kernprinzipien der Finanzwirtschaft:
 	\item \textbf{Arbitragefreiheit}: Preise an kompetitiven Wertpapiermärkten zeichnen sich durch die Abwesenheit von Arbitrage aus
 \end{itemize}
 
-\section{Relative vs. absolute Bewertung}
+\section*{Relative vs. absolute Bewertung}
 Es gibt zwei teilweise gegenläufige Ansätze zur Bewertung von Assets
 \begin{description}
 	\item \textbf{absolut}: mit Bezug zu grundlegenden makroökonomischen Faktoren.
@@ -188,7 +188,7 @@ Es gibt zwei teilweise gegenläufige Ansätze zur Bewertung von Assets
 \end{description}
 Typische Anwendungen enthalten beide Aspekte und der Anteil zu welchem man den einen oder anderen Ansatz  wählt, hängt für gewöhnlich vom betrachteten Asset und Grund für die Bewertung ab.
 
-\section{Bewertungsprinzip}
+\section*{Bewertungsprinzip}
 Asset Pricing liegt eine einfach Grundidee zugrunde:
 $$ \textit{Preise entsprechen erwarteten diskontierten Zahlungen} $$ 
 
@@ -581,12 +581,11 @@ folgt:
 	\item die erwartete Rendite jedes Wertpapiers entspricht der risikolosen Verzinsung (d.h. wenn $\cov = 0$) zuzüglich einer Risikokorrektur	\item Wertpapiere, deren Returns positiv mit dem Konsum variieren (d.h. riskantere Instrumente), führen zu volatilerem Konsum und müssen daher höhere erwartete Returns liefern $\Rightarrow \mathbb{E}(R^i) > R^f$	\item Umgekehrt können Wertpapiere, deren Returns negativ mit dem Konsum variieren und damit Konsum glätten (z.B. Versicherungen) niedrigere erwartete Returns bieten. $\mathbb{E}(R^i) < R^f$ (vgl. Wertpapiere von letzter Woche bei denen Preise von mehr als 50 gegeben wurden, vgl. Versicherungen $\Rightarrow$ niedrigere Verzinsung als risikoloses Instrument).
 \end{itemize}
 
-Beachte nochmal
-
+Beachte nochmals:
 \begin{itemize}
 	\item Übliche Vorstellung
-		$$ p^i = \frac{\mathbb{E}[x_{t+1}^i]}{ER^i} $$
-		mit Diskontfaktor $\frac{1}{ER^i}$ etwa aus CAPM, der wertpapierspezifisch ist!
+		$$ p^i = \frac{\mathbb{E}[x_{t+1}^i]}{\mathbb{E} \left[R^i \right]} $$
+		mit dem Diskontfaktor $\frac{1}{\mathbb{E} \left[ R^i \right]}$ (etwa aus CAPM) der wertpapierspezifisch ist!
 	\item Hier
 		$$ p^i = \mathbb{E}[m x_{t+1}^i] $$
 		mit stochastischem Diskontfaktor $M$ (innerhalb des Erwartungswertes!), der für alle Wertpapiere identisch ist!
@@ -667,6 +666,13 @@ CAPM-ähnliche lineare Rendite/Risiko-Beziehung mit
 	\item Preis des Risikos (für alle Assets identisch) abhängig von Volatilität des Diskontfaktors
 \end{itemize}
 
+
+\begin{align*}
+	\mathbb{E} \left[ R^i \right] & = R^f  - R^f \cdot \cov \left( m, R^i \right) \\
+	& = R^f  - R^f \cdot \cov \left( \frac{\beta u'(c_{t+1})}{u'(c_t)}, R^i \right) \\
+	& = R^f  - R^f \cdot \beta  \cdot \var \left( \Delta c \right) \frac{\cov \left( \frac{u'(c_{t+1})}{u'(c_t)}, R^i \right)}{ \var \left( \Delta c \right)} \\	
+\end{align*}
+
 \begin{figure*}[h!] \centering
 	\includegraphics[scale=0.4]{img/p47-1}
 \end{figure*}
@@ -692,13 +698,12 @@ Je höher $\gamma$ (risikoaverser), desto höher Steigung; je höher Konsumwachs
 
 \subsubsection*{Zusammenfassung}
 
-Die Zentrale Bewertungsbeziehung
+Die zentrale Bewertungsbeziehung
 	$$ p^i = \mathbb{E} \left[ m \cdot x^i \right], $$
 für Returns angewendet bedeutet, dass
 	$$ 1 = \mathbb{E} \left[ m \cdot R^i \right]. $$
-Dies liefert in wenigigen Schritten die lineare Return/Beta-Beziehung bzgl. des Diskontfaktors $m$, mit $\beta_{i, m} = \frac{\cov \left(m, R^i \right)}{\var(m)}$
+Dies liefert in wenigen Schritten die lineare Return/Beta-Beziehung bzgl. des Diskontfaktors $m$, mit $\beta_{i, m} = \frac{\cov \left(m, R^i \right)}{\var(m)}$
 	$$ \mathbb{E} \left( R^i \right) = R^f + \beta_{i,m} \cdot \lambda_m \quad \includegraphics[scale=0.5]{img/p47-3} $$
-
 bzw. (über Approximation von $m$)
 $$ \mathbb{E} \left( R^i \right) = R^f + \beta_{i, \Delta c} \cdot \lambda_c \quad \includegraphics[scale=0.5]{img/p47-4} $$
 lineare Return/Beta-Beziehung bzgl des Konsumwachstums $\Delta c$, mit $\beta_{i, \Delta c} = \frac{\cov \left(\Delta c, R^i \right)}{\var(\Delta c)}$
@@ -710,19 +715,29 @@ lineare Return/Beta-Beziehung bzgl des Konsumwachstums $\Delta c$, mit $\beta_{i
 
 Häufig betrachten wir
 \begin{itemize}
-	\item Erwartungswerte $\mu$ (als Renditemaß)
+	\item Erwartungswerte $\mu$ (als Renditenmaß)
 	\item Varianzen $\sigma^2$ (bzw. $\sigma$ als Risikomaß)
 \end{itemize}
-der Renditen. Welche Rendite/Risiko-Kombinationen sind überhaupt erreichbar? Für die Rendite $R^i$ gilt ($\rho$ ist die Korrelation):
-	$$ 1 = \mathbb{E} \left[ m R^i \right] = \mathbb{E}[m] \mathbb{E} \left[ R^i \right] + \underbrace{\rho_{m, R^i} \sigma(R^i) \sigma(m)}_{\cov(m, R^i)} $$
-	$$ \iff R^f = \frac{1}{\mathbb{E}[m]} = \mathbb{E} \left[ R^i \right] + \rho_{m, R^i} \sigma( R^i) \cdot \frac{\rho(m)}{\mathbb{E}[m]} $$
-bzw.
-	$$ \mathbb{E} \left[ R^i \right] =  R^f  - \rho_{m, R^i} \cdot \sigma( R^i) \cdot \frac{\rho(m)}{\mathbb{E}[m]}. $$
-~\\
-Da $\rho_{m, R^i} \leq 1$ folgt 
-	$$ \left| \mathbb{E} \left[ R^i \right] - R^f \right| \leq \sigma (R^i) \frac{\sigma(m)}{\mathbb{E}[m]} $$
-Mittelwert/Standardabweichung-Kombinationen liegen zwingend in kegelförmigem Bereich	
+der Renditen. Welche Rendite/Risiko-Kombinationen sind überhaupt erreichbar? Für die Rendite $R^i$ und $m$ gilt ($\rho$ ist die Korrelation):
+	\begin{align*}
+		1 & = \mathbb{E} \left[ m R^i \right] = \mathbb{E}[m] \mathbb{E} \left[ R^i \right] + \cov(m, R^i) \\
+		  & = \mathbb{E}[m] \mathbb{E} \left[ R^i \right] + \rho_{m, R^i} \sigma(R^i) \sigma(m) \\ ~\\
+	 \iff & R^f = \frac{1}{\mathbb{E}[m]} = \mathbb{E} \left[ R^i \right] + \rho_{m, R^i} \sigma( R^i) \cdot \frac{\sigma(m)}{\mathbb{E}[m]} \\
+	 & \iff \mathbb{E} \left[ R^i \right] =  R^f  - \rho_{m, R^i} \cdot \sigma( R^i) \cdot \frac{\sigma(m)}{\mathbb{E}[m]}
+	\end{align*}
+Da $\left| \rho_{m, R^i} \right| \leq 1$ folgt : % todo delta c oder delta ln c
+	$$ \left| \mathbb{E} \left[ R^i \right] - R^f \right| \leq \sigma (R^i) \frac{\sigma(m)}{\mathbb{E}[m]} $$ ~\\
 
+Für die Rendite $R^i$ und $\Delta c$ gilt ($\rho$ ist die Korrelation):
+\begin{align*}
+	\mathbb{E} \left[ R^i \right] & = R^f + \underbrace{\frac{\cov \left(\Delta c, R^i \right)}{\sigma(\Delta c)}}_{= \beta_{\Delta c, R^i}} \cdot \underbrace{\gamma \sigma \left( \Delta c \right)}_{=\lambda_{\Delta c}} \\
+	& = R^f + \rho_{\Delta c, R^i} \cdot \sigma  \left( R^i \right) \cdot \gamma  \cdot\sigma \left( \Delta c \right)
+\end{align*}
+
+Da $\left| \rho_{\Delta c, R^i} \right| \leq 1$ folgt :
+	$$ \left| \mathbb{E} \left[ R^i \right] - R^f \right| \leq \sigma (R^i) \frac{\sigma(\Delta c)}{\gamma^{-1}} \approx \sigma( R^i ) \frac{\sigma(m)}{\mathbb{E}[m]} $$	
+Mittelwert/Standardabweichung-Kombinationen liegen also in kegelförmigem Bereich	:
+~\newpage2
 \begin{figure*}[h!] \centering
 	\includegraphics[scale=0.5]{img/p49}
 \end{figure*}	
@@ -750,7 +765,7 @@ Begründung:
 	\item Ergebnis 1 (wichtig!): Jeder beliebige effiziente Rand-Return $R^{mv}$ ($\neq R^f$) enthält die gesamt Information, die zur Bewertung notwendig ist (genau wie $m$!)
 	\item Mittelwert/Standardabweichungs-Kombinationen beliebiger Returns liegen innerhalb des gesamten kegelförmigen Bereichs. Mittelwert/beta-Kombinationen beliebiger Returns liegen auf einer Geraden.
 \end{description}
-\newpage
+
 \textbf{Formale Ableitung (Schritt 1):} ~\\
 Betrachte zunächst die Zahlung $R^m = \frac{m}{\mathbb{E}\left[ m^2 \right]}$
 \begin{itemize}
@@ -764,7 +779,7 @@ $$ \Rightarrow w = \frac{\mathbb{E} \left[ R^m \right] - \mathbb{E} \left[ R^{mv
 ~\\
 \textbf{Formale Ableitung (Schritt 2):} ~\\
 Aus Schritt 1 folgt 
-	$$ m = \mathbb{E} \left[ m^2 \right] w R^f + \mathbb{E} \left[ m^2 \right] \left( 1 - w \right) R^{mv} $$
+	$$ \frac{m}{ \mathbb{E} \left[ m^2 \right] } = w R^f +  \left( 1 - w \right) R^{mv} \iff m = \mathbb{E} \left[ m^2 \right] w R^f + \mathbb{E} \left[ m^2 \right] \left( 1 - w \right) R^{mv} $$
 (was eine Beziehung zwischen $m$ und $R^{mv}$ darstellt). Einsetzen in
 	$$ \mathbb{E} \left[ R^i \right] = R^f + \left( \frac{\cov \left(m, R^i \right)}{\var \left( m \right)} \right) \left( - \frac{\var(m)}{\mathbb{E} [m]} \right) $$
 führt wegen 
@@ -775,12 +790,532 @@ führt wegen
 auf
 $$ \mathbb{E} \left[ R^i \right] = R^f + \underbrace{ \left( \frac{\cov \left( R^{mv}, R^i \right)}{ \var \left( R^{mv} \right)} \right)}_{= \beta_{i,mv}} \left( \mathbb{E}\left[ R^{mv} \right] - R^f \right) $$
 
+Erwartete Rendite besteht folglich aus zwei Komponenten
+\begin{itemize}
+	\item risikolose Rendite $R^f$
+	\item Risikoprämie $\beta_{i,mv} \lambda$ gemessen über
+	\begin{itemize}
+		\item Risikomenge $\beta_{i,mv} = \left( \frac{\cov \left( R^{mv}, R^i \right)}{\var \left( R^{mv} \right)} \right)$ (normierte Kovarianz zu einem effizienten Rand-Return (Faktor))
+		\item $\lambda = \mathbb{E} \left[ R^{mv} \right] - R^f$ interpretierbar als Faktor-Risikoprämie
+	\end{itemize}
+\end{itemize}
+Vorteil gegenüber ursprünglicher $\beta$-Darstellung:
+\begin{itemize}
+	\item lediglich $R^{mv}$ notwendig
+	\item Kunst besteht darin, effizienten Rand-Return zu finden!
+	\item Klassisches CAPM: $R^{mv} =$ Return des Marktportfolios
+\end{itemize}
+
+\section{Equity Premium Puzzle}
+
+Welchen Zusatzertrag können wir pro Risikoeinheit (Standardabweichung) erzielen?
+\begin{itemize}
+	\item Sharpe-Ration $\frac{\mathbb{E}[R^i] - R^f}{\sigma(R^i)}$
+	\item Steigung des oberen $\mu$-$\sigma$-Rands: maximal mögliches Sharpe-Ratio
+	\item Betrachte Rand-Return $R^{mv}$ ($R^f \approx 1$, $m \approx 1 - \delta - \gamma \cdot \Delta c$):
+		$$ \left| \frac{\mathbb{E}[R^{mv}] - R^f}{\sigma(R^{mv})} \right| = \frac{\sigma(m)}{\mathbb{E}[m]} = \sigma(m) R^f \approx \gamma \sigma(\Delta c) $$
+	\item Steigung und damit Vergütung pro Risikoeinheit ist höher wenn
+		\begin{itemize}
+			\item makroökonomische Risiko höher ist (Konsum ist volatiler)
+			\item Investoren risikoaverser sind
+		\end{itemize}
+\end{itemize}
+
+Warum? Investoren sind vorsichtiger, Risiko zu übernehmen, wenn sie risikoaverser sind. ~\\
+
+Passt das zu unseren Beobachtungen?
+\begin{itemize}
+	\item Langfristige mittlere Überrendite von Aktien im Vergleich zum risikolosen Zinssatz
+		\begin{itemize}
+			\item Historische Aktienüberrenditen ($\sim 8\%$)
+			\item zugehörige Volatilitäten ($15 - \sim 20\% \rightarrow 16\%$) 
+				$$ \Rightarrow \text{ Sharpe-Ratio: } \frac{8}{16} = 0.5 $$
+		\end{itemize}
+	\item Konsumschwankungen: $\sigma(\Delta c) \approx 1 - 2$ Prozent
+	\item plausible Risikoeinstellung $\gamma$ der Investoren?
+		$$ \underbrace{\left| \frac{\mathbb{E}\left[ R^{mv} \right] - R^f}{\sigma(R^{mv})} \right|}_{= \frac{8\%}{16\%} = 0.5} \approx \gamma \underbrace{ \sigma(\Delta c)}_{= 0.01} $$
+		wobei $\gamma \approx \frac{0.5}{0.01} = 50$.
+\end{itemize}
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.4]{img/p58}
+\end{figure*}
+
+Beachte weiter:
+
+\begin{itemize}
+	\item betrachtete Aktieninvestments liegen vermutlich innerhalb des Randes (Korrelation zu Konsum $= 1$, Größenordnung $0.2$). Was folgt hieraus für $\gamma$?
+		$$	\gamma = \frac{\textit{ursprünglicher Wert}}{\rho} = 50 \cdot 5 = 250 \quad \text{\enquote{Verschlimmerung}}  $$
+		Als Ergebnis:
+	\item Positive Korrelation des Aktieninvestments mit Konsumwachstum
+		\begin{description}
+			\item qualitativ: betrachtet mit positiver Risikoprämie vereinbar
+			\item quantitativ: betrachtet ist Risikoprämie viel zu hoch gegeben beobachtete Konsumschwankung
+		\end{description}
+\end{itemize}
+
+Wo liegt der Fehler?
+\begin{itemize}
+	\item Vielleicht waren die Aktienrenditen der letzten Jahre purere Zufall? Dies ist allerdings sehr unwahrscheinlich, d.h. vermutlich nein.
+	\item Sind Investoren risikoaverser als bisher angenommen? Diese Annahme würde zu neuen Puzzles führen.
+	\item Sind Teile des Modells grundlegend falsch? Dies ist Gegenstand der aktuellen Forschung im Bereich Asset-Pricing.
+\end{itemize}
+
+\subsubsection*{Risikoprämie bei \enquote{plausibler} Risikoeinstellung ($\gamma$ zwischen 1 und 5)}
+Unterstelle 
+\begin{itemize}
+	\item Sharpe Ration $\approx$ 0.5
+	\item Standardabeichung des Konsumwachstums $\approx 1\%$
+\end{itemize} 
+
+\begin{itemize}
+	\item Was sollte ein Investor mit Log-Nutzenfunktionen tun (beachte $\gamma = 1$ möglich)? ~\\
+		\enquote{Was kann ich als Überrendite erzielen?} $\Rightarrow$ ohne Ende in Aktienmarkt investieren (kreditfinanziert). Somit schwankt der Konsum mehr $\Rightarrow$ durch Aktivität wieder Gleichehit besser hinzukriegen (siehe Sectionsanfang). % todo verstehe ich nicht
+	\item Wenn alle so agieren, was würde passieren? Preise steigen, Returns fallen, Risikoprämieren sind
+\end{itemize}
+$\Rightarrow$ Anpassung hervorrufen (Investor) ~\\
+
+Vielleicht ist ein so hohes $\gamma$ doch plausibel? 
+$$\Rightarrow \text{ Risk-Free Rate Puzzle. } $$
+Unter Annahme eines Realzinssatzes von ungefährt 1\% und einem erwarteteten Konsumwachstum um die 1\% gilt wie zuvor (beachte $\delta$ indiv. Diskontaktor: $e^{-\delta} = \beta$):
+
+$$ R^f \approx 1 + \delta + \gamma \underbrace{ \mathbb{E}_t \left[ \Delta c_{t+1} \right]}_{= 0.01} $$
+$$ {\color{gray} 1.01 \approx 1 + \delta + 50 \cdot 0.01 } $$ % todo was ist hier mit \delta?
+
+\begin{itemize}
+	\item Was, wenn $\gamma = 50$? $\delta = -0.49 \hat{=} \beta = 1.63$, d.h. Konsum heute ist viel wichtiger
+	\item Was sollte mit dem Zinssatz passieren, wenn das Konsumwachstum $1\%$ höher ist als sonst? Zinsen müssten um 0.5 steigen, d.h. $1.01 \hookrightarrow 1.51 \Rightarrow 51\%$ Realzinsen
+\end{itemize}
+
+\subsubsection*{Bemerkung}
+\begin{itemize}
+	\item Preis in Abhängigkeit des gesamten Zahlungsstroms $\{ d_{t+j} \}$: ~\\
+		Mit langfristiger Zielfunktion $\mathbb{E}_t \left[ \sum_{j=0}^\infty \beta^j u(c_{t+j}) \right]$ folgt:
+		$$ p_t = \mathbb{E}_t \left[ \sum_{j=1}^\infty \beta^j \frac{u'(c_{t+j})}{u'(c_t)} d_{t+j} \right] = \mathbb{E}_t \left[ \sum_{j=1}^\infty m_{t,t+j} d_{t+j} \right]  $$
+	\item Zentrale Beziehung $p_t = \mathbb{E}_t \left[ m_{t+1} x_{t+1} \right]$ benötigt weder
+		\begin{itemize}
+			\item vollständige Märkte ($\rightarrow$ Kapitel 4)
+			\item repräsentativen Investor
+			\item normalverteilte Renditen
+			\item unabhängige Renditen über die Zeit
+			\item quadratische Nutzenfunktion (allerdings haben wir additiv-separable NF unterstellt $\rightarrow$ Problem?), noch
+			\item wird Humankapital der Arbeitseinkommen ignoriert nicht benötitg, da nur Return angenommen)
+		\end{itemize}
+		$\Rightarrow$ sehr allgemeine Theorie
+	\item Wichtig: Investor muss beliebig kleinen Anteil des Zahlungsstroms kaufen bzw. verkaufen können.
+\end{itemize}
+
+\chapter{Contigent Claims}
+
+\textbf{Unsicherheit}: Im folgenden durch $S$ Zustände charakterisiert:
+	
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.5]{img/p64}
+\end{figure*}
+
+\textbf{Contingent claim}: (Arrow-Debreu Wertpapier, bedingter Anspruch) Wertpapier das genau in einem Zustand $s$ eine Einheit auszahlt. $pc(s)$: Heutiger Preis ~\\
+\textbf{Vollständiger Markt}: Jeder bedingte Anspruch kann erworben werden $\Rightarrow$ jedes Arrow-Debreu Wertpapier ist handelbar.
+
+\begin{beispiel}
+	Welche Märkte sind vollständig?
+	\begin{itemize}
+		\item Zwei Zustände ($S = 2$), zwei gehandelte Wertpapiere
+			\begin{itemize}
+				\item WP1: $x_1 = (4, 1)$
+				\item WP2: $x_2 = (1,1) \rightarrow$ risikolos
+			\end{itemize}
+			$\Rightarrow$ vollständig, alle anderen WP lassen sich erzeugen.
+		\item Drei Zustände ($S = 3)$, zwei gehandelte Wertpapiere
+			\begin{itemize}
+				\item WP1: $x_1 = (4, 1, 0)$
+				\item WP2: $x_2 = (1,1,1) \rightarrow$ risikolos
+			\end{itemize}
+			$\Rightarrow$ nicht vollständig, 2 WPs gegeben, aber 3 Zustände $\rightarrow$ nicht alle Arrow-Debreu-WPs lassen sich erzeugen.
+		\item Drei Zustände ($S = 3)$, drei gehandelte Wertpapiere		
+			\begin{itemize}
+				\item WP1: $x_1 = (4, 1, 0)$
+				\item WP2: $x_2 = (1,1, 1) \rightarrow$ risikolos
+				\item WP3: $x_3 = (3,0,-1) \rightarrow$ linear abhängig von 1 und 2
+			\end{itemize}
+			$\Rightarrow$ nicht vollständig, z.B. (1, 0, 0) lässt sich nicht erzeugen.
+	\end{itemize}	
+\end{beispiel}
+  
+\section{Diskontfaktor im vollständigen Markt}
+
+Betrachte Anspruch auf zukünftige Zahlungen
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.5]{img/p66}
+\end{figure*}
+
+heutiger Preis $p(x)$ setzt sich aus Wert der einzelnen contingent claims zusammen:
+	$$ p(x) = \sum_s pc(s) x(s) $$
+
+\section*{Diskontfaktor und Zustandspreise}
+	
+Mit Eintrittswahrscheinlichkeit $\pi(s)$ für Zustand $s$ folgt
+	$$ p(x) = \sum_s pc(s) x(s) = \sum_s \pi(s) \underbrace{\frac{pc(s)}{\pi(s)}}_{= m(s)} x(s) $$
+
+Definiere Diskontfaktor $m$ als Verhältnis $m(s) = \frac{pc(s)}{x(s)}$, dann gilt
+	$$ p(x) = \sum_s \pi(s) m(s) x(s) = \mathbb{E}[mx] $$
+wobei
+\begin{itemize}
+	\item $p(x) = \mathbb{E}[mx]$ erwarteter diskontierte Preis
+	\item $\pi(s) m(s)$ Zustandspreisdichte
+\end{itemize}	
+	
+\textbf{Zentrales Ergebnis}: Stochastischer Diskontfaktor im vollständigen Markt: mit jeweiligen Eintrittswahrscheinlichkeiten skalierte Arrow-Debreu Preise.
+
+\section{Risikoneutrale Wahrscheinlichkeiten}
+
+Definiere
+	$$ \pi^*(s) \coloneqq \frac{m(s)}{\mathbb{E}[m]} \pi(s) = R^f pc(s), $$
+wobei wir ausgenutzt haben, dass $R^f = \frac{1}{\mathbb{E}[m]}$ und $pc(s) = m(s)\pi(s)$. Damit folgt
+	$$ \sum_s \pi^* = R^f \cdot pc(s) = 1 $$
+	
+\begin{itemize}
+	\item $\pi^*(s)$ lassen sich als Wahrscheinlichkeiten interpretieren
+	\item Obige Bewertungsformel ergibt sich dann zu
+		$$ p(x) = \sum_s pc(s) x(s) = \frac{1}{R^f} \sum_s \pi^*(s) x(s) = \frac{\mathbb{E}^*[x]}{R^f}, $$
+		was die erwartete Zahlungen risikolos diskontiert darstellt. Beachte: $\frac{\mathbb{E}[x]}{R^f}$ wäre das Standardkalkül bei risikoneutralen Investoren.
+	\item Bewertung erfolgt als wären Akteure risikoneutral
+		\begin{itemize}
+			\item mit risikolosem Zinssatz diskontierte erwartete Zahlung
+			\item aber Erwartungswertbildung mit risikoneutralen Wahrscheinlichkeiten $\pi^*$ anstatt mit realen Wahrscheinlichkeiten $\pi$
+		\end{itemize}
+\end{itemize}
+
+Wie hoch sind risikoneutrale Wahrscheinlichkeiten?
+
+Zustände mit überdurchschnittlich hohem Grenznutzen werden stärker gewichtet
+	$$	\pi^*(s) \coloneqq \frac{m(s)}{\mathbb{E}[m]}\pi(s) \text{ mit } m(s) = \beta \frac{u'(c(s))}{u'(c)}	$$
+	bei Risikoaversion: \enquote{schlechte} Zustände werden stärker gewichtet. Intuition: Für Entscheidung besonders wichtig
+	\begin{itemize}
+		\item Zustände mit hoher realer Eintrittswahrscheinlichkeit (hohes $\pi$)
+		\item Zustände mit desaströsen Folgen (relativ hohem $m$) / hohe Grenznutzen
+	\end{itemize}
+
+Häufige Anwendung: Derivatebewertung 
+\begin{itemize}
+	\item $p = \mathbb{E}[mx] = \frac{\mathbb{E}^*[x]}{R^f}$ gilt für alle Wertpapiere
+	\item Unterstelle Verteilung für Underlying und bestimme im aktuellen Underlying-Preis impliziert risikoneutrale Wahrscheinlichkeiten
+	\item Verwende dies um Derivat zu bewerten
+\end{itemize}
+Einfachstes Beispiel:
+\begin{itemize}
+	\item Gegeben risikolser Zinssatz $R^f$ und Aktie mit heutigem Preis $S_t$ und morgigen Werten $S_{t+1}(u)$ bzw. $S_{t+1}(d)$
+	\item Gesucht: Wert eines europäischen Calls auf Aktie mit Basispreis $K$ (beachte: $S_{t+1}(d) < K < S_{t+1}(u)$) und Fälligkeit in $t+1$
+\end{itemize}
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.5]{img/p70}
+\end{figure*}
+
+Anstatt Calls über $C_t = \mathbb{E}\left[m \max \left( S - K, 0 \right) \right]$ direkt zu bewerten
+\begin{itemize}
+	\item bestimme $\pi^*(u)$, $\pi^*(d) = 1 - \pi^*(u)$ über ($\pi^*(u)$ ist hier unbekannt)
+		$$ S_t = \frac{\mathbb{E}^*[S_{t+1}]}{R^f} = \frac{\pi^*(u) S_{t+1}(u) + (1 - \pi^*(u)) S_{t+1}(d)}{R^f} $$
+	\item Bewerte mit diesen risikoneutralen Wahrscheinlichkeiten den Call
+		$$ C_t = \frac{\pi^*(u) \left( S_{t+1}(u) - K \right)}{R^f} $$
+		zahlt nur im up-Zustand, $+ (1 - \pi^*) \cdot 0$ fällt weg
+	\item Idee problemlos auf mehrere Zeitschritte und Zustände und damit auf komplexere Derivate erweiterbar
+\end{itemize}
+
+Warum funktioniert das so einfach (vgl. im vollständigen Markt wissen wir, wie SDF auszusehen hat)?
+\begin{itemize}
+	\item In vollständigen Märkten lassen sich
+		\begin{itemize}
+			\item Arrow-Debreu Preis $pc(s)$ und damit
+			\item der stochastische Diskontfaktor $m(s9 = \frac{pc(s)}{\pi(s)}$ oder
+			\item risikoneutrale Wahrscheinlichkeiten $\pi^*(s) = \frac{m(s)}{\mathbb{E}[m]} \pi(s)$
+		\end{itemize}
+		leicht ermitteln
+	\item Gemäß Duplikationsidee lassen sich alle weiteren Instrumente problemlos bewerten.
+\end{itemize}
+
+Zusammenhang zu Nutzenfunktionen und ursprünglichem konsum-basierten Modell? 
+
+\section{Kalkül in Contingent Claim Märkten}
+
+Betrachte Investor in Contingent Claim Markt
+\begin{itemize}
+	\item Anfangsausstattung: mit Anfangsvermögen $y$ sowie Ansprüchen auf zustandsabhängige (künftige) Zahlungen $y(s)$
+	\item der weitere Contingent Claims kaufen/verkaufen kann
+	\item Kalkül des Investors
+		$$ \max_{c, c(s)} \underbrace{u(c)}_{heute} + \sum_s \underbrace{\pi(s) \beta u[c(s)]}_{\beta \cdot \mathbb{E}[u(c_{t+1})]} $$
+		$$ \text{u.d.N. } c + \sum_s pc(s) c(s) = y + \sum_s pc(s) y(s) $$
+	\item Lösung über Lagrange-Ansatz:
+		$$ \max_{c,c(s),\lambda} u(c) + \sum_{s} \pi(s) \beta u[c(s)] - \lambda \underbrace{\left( c + \sum_s pc(s) c(s) - y - \sum_s pc(s) y(s) \right)}_{NB} $$
+\end{itemize}
+
+Aus first order Bedingungen 
+	$$ u'(c) = \lambda $$
+und $S$ Nebenbedingungen, für jeden einzelnen Zustand:
+	$$ \pi(s) \beta u'[c(s)] = \lambda pc(s) $$
+folgt (Eintrittswahrscheinlichkeit $\pi$):
+	$$ pc(s) = \pi(s) \beta \frac{u'[c(s)]}{u'(c)} $$
+	im Ergebnis genau ursprüngliches Konsummodell $p = \mathbb{E}[mx]$ mit $m = \beta \frac{u'[c(s)]}{u'(c)}$. ~\\
+	
+Diskontfaktor und Grenzrate der Substitution 
+\begin{itemize}
+	\item intertemporal $m(s) = \beta \frac{u'[c(s)]}{u'(c)}$. Grenznutzen des Konsum $\frac{morgen}{heute}$
+	\item zwischen zustandsabhängigen Zahlungen
+		$$ \frac{m(s_1)}{m(s_2)} = \frac{u'[c(s_1)]}{u'[c(s_s)]} $$
+		Grenzrate der Substitution: Bereitschaft zu Tauschen (Konsum heute vs. morgen) $\hat{=}$ SDF.
+\end{itemize}
+
+\section*{Bemerkungen}
+
+\begin{itemize}
+	\item Einstrikt positiver Diskontfaktor $m > 0$ existiert genau dann, wenn es keine Arbitragemöglichkeiten (i.S. eines geschenkten Lotterieloses) gibt und das Gesetz des einen Preises erfüllt ist.
+	\item In vollständigen Märkten ist dieser auch eindeutig
+\end{itemize}
+
+\chapter{Faktormodelle}
+
+Konsumbasiertes Modell ($m = f(Daten, Parameter)$) $p_t = \mathbb{E}_t\left[ m_{t+1} x_{t+1} \right]$ mit stochastischem Diskontfaktor
+	$$ m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)} $$
+\begin{itemize}
+	\item liefert zwar allgemeingültige Bewertungsbeziehung und
+	\item daraus ableitbar vielfältige Strukturaussagen
+\end{itemize}
+Wie gut ist das Modell in der praktischen Anwendung?
+\begin{itemize}
+	\item Bestimmung von $m$ über klassische Nutzenfunktionen, aggregierte Konsumdaten...
+	\item empirisch i.d.R. wenig überzeugend
+\end{itemize}
+
+Was nun?
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.5]{img/p77}
+\end{figure*}
+
+\section*{Praktische Anwendung konsumbasierter Ansätze}
+
+Mögliche Lösungswege
+
+\begin{itemize}
+	\item Anstatt klassische Nutzenfunktion alternative Spezifaktionen $\rightarrow$ nicht-Separierbarkeit einfügen
+		\begin{itemize}
+			\item alternative funktionale Form
+			\item alternative Inputgrößen in Nutzenfunktion, z.B. Konsum relativ zu anderen Konsum in anderen Zuständen
+		\end{itemize}
+	\item Allgemeine Gleichgewichtsmodelle- Effekte von regulatorischen Änderungen? $\rightarrow$ möglicherweise sind aggregierte Konsumdaten fehlerbehaftete Inputs $\Rightarrow$ Konsum an andere Faktorenknüpfen (z.B. Einkommen, Investitionen)
+	\item \textbf{Faktor Modelle}
+	\item No-Arbitrage Bewertung
+\end{itemize}
+
+Keine neuen Theorien sondern jeweils Spezialfälle des allgemeinen Konsummodelles:
+	$$ p_t = \mathbb{E}_t \left[ m_{t+1} x_{t+1} \right], ~m_{t+1} = f(Daten, Parameter) $$
+
+\section{Grundidee der Faktormodelle}
+
+Ersetze konsumbasierten Ausdruck für Grenznutzen durch lineares Faktormodell
+	$$ m_{t+1} = a + b' + f_{t+1} $$
+	mit freien Parametern $a$ und $b = (b_1, \dotsc, b_k)^T$, $f = (f_1, \dotsc, f_k)^T$. ~\\
+	
+Zentrale Frage: welche Faktoren $f_{t+1}$ sollen gewählt werden? z.B. Arbeitslosenquote, Inflationsrate, BIP-Wachstum, Einkommen(sveränderung), Leitzins, Wechselkurse, Entwicklung an Aktienmarkt. ~\\
+
+Grundsätzlich Faktoren, die gute Näherung für gesuchte Grenzraten des Konsumwachstums liefern, d.h.
+	$$ \beta \frac{u'(c_{t+1})}{u'(c_t)} \approx a + b' f_{t+1} $$
+und somit letztlich \enquote{gute} und \enquote{schlechte} Zustände anzeigen können. ~\\
+
+Welche Faktoren könnten das sein?
+\begin{itemize}
+	\item Arbeitslosenzahlen, Industrieproduktion
+	\item Inflationsraten, Zinsen, Kreditspreads
+	\item Wachstum des BIP
+	\item Return von großen Portfolios, Indizes (Dax, S\&P 500)
+\end{itemize}
+Niveau versus Veränderung? besser: Variablen reinstecken, die nicht hochgradig prognostizierbar (Niveau ist vorhersehrbar). Faktoren sollten nicht hochgradig vorhersehrbar sein. ~\\
+
+Ableitung eines Faktormodells
+\begin{itemize}
+	\item liefert konkrete Liste an Faktoren, die gewünschte Approximation leisten
+	\item zeigt, dass lineare Beziehung gilt
+\end{itemize}
+
+\section{Capital Asset Pricing Modell}
+
+\textbf{Beispiel}: ~\\
+
+Das CAPM ist ein berühmtes, weitverbreitetes Gleichgewichtsmodell. Der Diskontfaktor wird an Return des Marktportfolios geknüpft
+	$$ m_{t+1} = a + b R^M_{t+1} $$
+mit freien Parametern $a, b$. Hoher Return $\rightarrow$ sollen gute Zustände anzeigen $\rightarrow m =$ Grenznutzen des Konsums $u'$. Schlechter Zustand $\hat{=}$ hohes $m \Rightarrow b < 0, b$ negativ. $a$ und $b$ sind beispielsweise durch zwei Wertpapiere bestimmbar:
+
+\begin{itemize}
+	\item risikoloses Instrument: $1 = \mathbb{E}[mR^f] \Rightarrow 1 = R^f a + R^f b \mathbb{E}(R^m)$
+	\item Return des Marktportfolios: $1 = \mathbb{E}[mR^M] \Rightarrow 1 = a \mathbb{E}[R^m] + b \mathbb{E}[R^{m2}]$
+		$$ \Rightarrow b = - \frac{\mathbb{E}[R^m] - R^f}{\sigma(R^m) \cdot R^f} < 0 $$
+\end{itemize}
+
+CAPM anstatt in obiger Diskontfaktor-Repräsentation überlicherweise in (äquivalenter) Return/Beta Darstellung:
+	$$ \mathbb{E}\left[ R^i \right] = \gamma + \beta_{i,R^M} \left( \mathbb{E} \left[ R^M \right] - \gamma \right) \includegraphics[scale=0.6]{img/p81} $$
+
+Verschiedene klassische Ableitungen des CAPM, z.B. über:
+\begin{enumerate}
+	\item \textbf{Zwei-Perioden Modell, quadratische Nutzenfunktion} oder
+	\item Zwei-Perioden Modell, exponentielle Nutzenfunktion und normalverteilte Returns oder
+	\item Unendlichen Horizont, quadratische Nutzenfunktion und iid (independent identically distributed) returns oder
+	\item log-Nutzenfunktion
+\end{enumerate}
+woraus jeweils
+\begin{itemize}
+	\item Faktor $R^M$ als relevanter Faktor und
+	\item lineare Beziehung
+\end{itemize}
+folgt. ~\\
+
+Exemplarische Ableitung über das zwei-Perioden Modell, quadratische Nutzenfunktion
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.75]{img/p83}
+\end{figure*}
+\begin{itemize}
+	\item Zwei-Perioden Investoren mit quadratischer Nutzenfunktion
+		$$ U(c_t, c_{t+1}) = -\frac{1}{2} \left( c^* - c_t \right)^2 - \frac{1}{2} \beta \mathbb{E} \left[ \left( c^* - c_{t+1} \right)^2 \right] $$
+	\item Mit obiger Nutzenfunktion ergibt sich Grenzrate der Substitution
+		$$ m_{t+1} = \beta \frac{u'(c_{t+1})}{u'(c_t)} = \beta \frac{c^* - c_{t+1}}{c^* - c_t} $$
+		$\Rightarrow$ Grenznutzen (SDF) linear im Konsum
+	\item Investoren
+		\begin{itemize}
+			\item besitzen Anfangsvermögen $W_t$ und beziehen kein Arbeitseinkommen
+			\item können in $N$ Wertpapiere mit Preisen $p_t^i$ und Zahlungen $x_{t+1}^i$ zw. Returns $R_{t+1}^i$ investieren
+		\end{itemize}
+	\item Was sollen sie konsumieren $(c_t, c_{t+1})$? Wie sollen sie investieren (Portfoliogewichte ($w^i$))?
+\end{itemize}
+
+Für gegebene Ausgangssituation folgt unmittelbar:
+\begin{itemize}
+	\item in Periode 2 wird alles konsumiert $c_{t+1} = W_{t+1}$
+	\item Vermögen in $t+1$ ergibt sich aus Return $R_{t+1}$ des in $t$ investierten Vermögens
+		$$ W_{t+1} = R^M_{t+1} \left( W_t - c_t \right) $$
+	\item wobei für den Return und die Portfoliogewichte gilt
+		$$ R_{t+1}^M = \sum_{i=1}^N w_i R_{t+1}^i \text{ mit } \sum_{i=1}^N w_i = 1, $$
+		d.h. eine gewichtete Summe der Einzelreturns.
+	\item Ersetzt man $c_{t+1}$ durch $W_{t+1}$ folgt unmittelbar
+		$$ m_{t+1} = \beta \frac{c^* - c_{t+1}}{c^* - c_t} = \beta \frac{c^* - W_{t+1}}{c^* - c_t} = \beta \frac{c^* - R^M_{t+1} \left( W_t - c_{t} \right)}{c^* - c_t} =  \underbrace{\beta \frac{c^*}{c^* - c_t}}_{\overset{\text{alles ohne}}{\overset{\text{Return } \rightarrow \text{ Konstanten}}{ \text{ in } t ~ \Rightarrow ~ a_t}}} - \underbrace{\beta \frac{W_t - c_{t}}{c^* - c_t}}_{\overset{\text{Kostante}}{in } t} R_{t+1}^M $$
+		damit gilt
+		$$ m_{t+1} = a_t + b_t R_{t+1}^M. $$
+		Gezeigt:
+		\begin{enumerate}
+			\item einziger relevanter Faktor: Return
+			\item lineare Beziehung
+		\end{enumerate}
+\end{itemize}
+
+\section{Arbitrage Pricing Theorie}
+
+\textbf{Beispiel} (Ross (1976)): Die APT
+\begin{itemize}
+	\item Idee: Asset Returns enthalten gemeinsame Komponente ($\tilde{f} = f - \mathbb{E}[f]$)
+		$$ R^i = \mathbb{E}[R^i] + \sum_{k=1}^K \beta_{ik} \tilde{f}^k + \epsilon^i $$
+		mit $\mathbb{E}[\epsilon^i] = \mathbb{E}[\epsilon^i \tilde{f}^k] = \mathbb{E}[\epsilon^i \epsilon^j] = 0$. $\epsilon^i$ ist hier diversifierzierbar $\Rightarrow$ nicht bewertungsrelevant.
+	\item Faktorstruktur: Einschränkung der Kovarianzmatrix der Payoffs
+	\item Unter gewissen Bedingung lässt sich zeige (hier ohne Beweis):
+		$$ m_{t+1} = a + b_1 f_{t+1}^1 + b_2 f_{t+1}^2 + \dotsc+ b_K f_{t+1}^K = a + b' f_{t+1} $$
+	\item Intuition:
+		\begin{itemize}
+			\item Idiosynkratisches Risiko $\epsilon^i$ nicht bewertungsrelevant (da diversifierzierbar)
+			\item Bewertungsrelevant: Kovarianz zu Faktoren
+		\end{itemize}
+\end{itemize}
+
+\section{Faktormodelle und Diskontfaktoren}
+
+Das lineare Faktormodell für den stochastischen Diskontfaktor
+	$$ m = a + b_1 f^1 + b_2 f^2 + \dotsc + b_K f^K = a + b'f \text{ mit } 1 = \mathbb{E}[m R^i] $$
+und das Return/Beta-Modell
+	$$ \mathbb{E}[R^i] = \gamma + \lambda_1 \beta_{i, 1} + \lambda_2 \beta_{i, 2} + \dotsc + \lambda_K \beta_{i, K} = \gamma + \lambda' \beta_i $$
+sind äquivalente Darstellungen. Empirische Studien starten typischerweise mit der Return/Beta-Darstellung als Ausgangspunkt. ~\\
+
+Nachweis der Äquivalenz ($\mathbb{E}\left[ f^i \right] = 0 \Rightarrow \mathbb{E}\left[ m f^i\right] = \mathbb{E}\left[ m \right] \underbrace{\mathbb{E}\left[ f^i \right]}_{= 0} + \cov(m, f^i)$):
+\begin{enumerate}
+	\item Starte mit linearem Faktormodell für stochastischen Diskontfaktor und finde $\gamma$ und $\lambda$, so dass Return/Beta-Modell gilt.
+		\begin{align*}
+			1 &= \mathbb{E}\left[ m \cdot R \right] \text{ mit $m$ eingesetzt} \\
+			1 & = a \cdot \mathbb{E}\left[ R \right] + b_1 \mathbb{E}\left[ f^1 \cdot R \right] + \dotsc + b_k \mathbb{E}\left[ f^k \cdot R \right]
+		\end{align*}
+		\begin{align*}
+			 \iff \mathbb{E}\left[ R \right] & = \frac{1}{a} - \frac{b_1}{a} \mathbb{E}\left[ f^1 \cdot R \right] + \dotsc + \frac{b_K}{a} \mathbb{E}\left[ f^k \cdot R \right] \\
+			 & = \gamma - \underbrace{\frac{b_1}{a} \var(f^1)}_{\lambda} ˜\underbrace{\frac{\cov(f^1, R)}{\var(f^1)}}_{\beta_1} - \dotsc - \underbrace{\frac{b_K}{a} \var(f^K)}_{\lambda} ˜\underbrace{\frac{\cov(f^K, R)}{\var(f^K)}}_{\beta_K} 
+		\end{align*}
+	\item Starte mit Return/Beta-Modell und finde $a$ und $b$, so dass lineares Faktormodell für stochastischen Diskontfaktor gilt. % todo Selbst ausrechnen.
+\end{enumerate}
+
+\section{Faktormodelle und empirische Evidenz}
+
+Return/Beta-Modell als Ausgangspunkt empirischer Studien. Empirische Umsetzung (2-stufiges Verfahren):
+\begin{itemize}
+	\item Schritt 1: Zeitreihenregression um Exposition gegenüber Risikofaktoren ($\beta_{i,k}$) zu bestimmen:
+		$$ R_t^i = a_i + \beta_{i,1} f_t^1 + \beta_{i,2} f_t^2 + \dotsc + \epsilon_t^i $$
+	\item Schritt 2: Gemäß Return/Beta-Modell sollten mittlere Returns linear in $\beta_{i,k}$ sein $\Rightarrow$ bestimme Risikoprämien ($\lambda_{k}$) mittels Querschnittregression:
+		$$ \mathbb{E}[R^i] = \gamma + \beta_{i,1} \lambda_1 + \beta_{i,2} \lambda_2 + \dotsc $$
+\end{itemize}
+Beachte: $\beta_{i,k}$ ist in Schritt 2 die abhängige (erklärende) Variable. Je nach Spezifikation ist zusätzlich $\gamma$ (Achsenabschnitt) zu schätzen. ~\\
+
+Theoretische Implikation: Alle Asset-Returns sollen auf der Geraden liegen (hier bei nur einem Faktor):
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.75]{img/p90}
+\end{figure*}
+
+Anwendungsbeispiel: CAPM ~\\
+Verwende Überschussrendite (hier als Renditedifferenz zu risikolosem Instrument) für jedes Wertpapier: $R^{e,i}_t = R_{t}^i - R^f$ ~\\
+	Risikofaktor: Marktüberschussrendite $R_t^{e,M} = R_{t}^M - R^f$
+
+\begin{itemize}
+	\item Schritt 1: bestimme Abhängigkeit zwischen jedem $R_{t}^{e,i}$ und $R_t^{e,M}$ mittels Zeitreihenregression:
+			$$ R_t^{e,i} = a_i + \beta_i R^{e,M}_t + \epsilon_t^i $$
+			$a_i$ bezeichnet hierbei den wertpapierspezifischen Achsenabschnitt.
+	\item Schritt 2;: Schätz die Marktrisikoprämie $\lambda_M$ mittels Querschnittregression über alle pro Firma gemittelten Aktienrenditen:
+			$$ \mathbb{E}[R^{e,i}] = \beta_i \lambda_M + \gamma $$
+		\begin{itemize}
+			\item $\gamma$ sollte in der Regel sehr kleine Werte annehmen
+			\item Da Faktor in diesem Fall selbst eine Überschussrendite mit einem $\beta_i$ von 1 ist folgt:
+					$$ \mathbb{E}\left[ R^{M,e} \right] = \mathbb{E}\left[ R^M \right] - R^f = \lambda_M $$
+					(Schritt 2 entfällt somit).
+		\end{itemize}
+\end{itemize}
+
+Empirische Evidenz zu CAPM:
+\begin{itemize}
+	\item Auf Einzelaktienebene wenig überzeugend (hohe Streuung und zu niedrige Steigung der Wertpapiermarktlinie)
+	\item Üblicherweise Verwendung auf Portfolioebene
+		\begin{itemize}
+			\item genauere Messung der Betas durch Mittelwertbildung über einzelne Wertpapiere und über die Zeit
+			\item genauere Messung der historischen Überrenditen durch geringere Varianz
+		\end{itemize}
+		$\Rightarrow$ hoher Erklärungsgehalt von historisch realisierten Renditen
+\end{itemize}
+
+Mittlere Überschussrenditen vs. $\beta_i$ für verschiedene Wertpapierportfolios von 1974-1996 (nach Cochrane (2005)):
+
+\begin{figure*}[h!] \centering
+	\includegraphics[scale=0.5]{img/p94}
+\end{figure*}
+
+Farma-French-Modell:
+
+\begin{itemize}
+	\item Aber: kleine Firmen und Firmen mit hohem Verhältnis vom Buchwert zu Marktwert der Aktiva zeigen ungewöhnlich hohe durchschnittliche Renditen, die nicht mit dem CAPM erklärbar sind. ~\\
+		$\Rightarrow$ Motivation für die Berücksichtigung weiterer Faktoren
+			$$ \mathbb{E} \left[ R^i \right] = \gamma + \beta_{i, R^M} \left( \mathbb{E} \left[ R^M \right] - \gamma \right) + \beta_{i,h} \mathbb{E} \left[ HML \right] + \beta_{i,s} \mathbb{E} \left[ SMB \right] $$
+		\begin{itemize}
+			\item HML (\enquote{High minus Low}): Renditedifferenz von Aktien mit hohem und niedrigem Buchwert-zu-Marktwert-Verhältnis der Aktiva.
+			\item SMB (\enquote{Small minus Big}): Renditedifferenz von Aktien mit geringem und hohem Marktwert des Eigenkapitals.
+		\end{itemize}
+	\item Achtung: Grund für die ungewöhnlich hohen Renditen kann nicht idiosynkratischer Natur sein (z.B. Größe der Firma).
+\end{itemize}
 
 % Lecture Notes - End 
 % todo Lecture-Exercise-Break
 % Exercise - Start
 
-\chapter{Übungen}
+\chapter{Anhang}
+
+\section*{Übungen}
 
 \subsubsection*{Aufgabe 7}
 
@@ -924,9 +1459,8 @@ Gegeben ist eine Ökonomie mit zwei Zeitpunkten ($t$ und $t+1$) mit einem risiko
 			\end{proof}
 \end{enumerate}
 
-\newpage
 
-\subsection*{Sonderübung}
+\section*{Sonderübung}
 
 \subsubsection*{Aufgabe 1}
 Nehmen Sie Stellung zu folgenden Aussagen:
@@ -962,7 +1496,7 @@ Nehmen Sie Stellung zu folgenden Aussagen:
 
 \newpage
 
-\subsection*{Aufgabe 2}
+\subsubsection*{Aufgabe 2}
 Gehen Sie von einer Ökonomie mit den Zeitpunkten $t = 0$, $t = 1$ und $t = 2$ ($t$ in Jahren) aus. Die Zustandsübergänge und die Entwicklung des Konsums des repräsentativen Investors sind gemäß dem Baumdiagramm in der Aufgabe zu entnehmen. Der Nutzen des repräsentativen Investors zum jeweiligen Zeitpunkt t lässt sich mit Hilfe der folgenden Powernutzenfunktion mit $\gamma = 1.5$ quantifizieren:
 
 $$ u(c_t) = \frac{c_t^{1-\gamma}}{1 - \gamma} $$
